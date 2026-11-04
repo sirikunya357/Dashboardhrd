@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VISSAVAPAT | HRD Executive Dashboard 2026</title>
+<style>
+:root{--green:#14823b;--deep:#08652d;--pale:#e8f4ec;--orange:#f59e0b;--red:#dc6b35;--ink:#193126;--muted:#6b7b72;--line:#e3ebe5;--bg:#f5f8f6;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 "Segoe UI",Tahoma,sans-serif}
+header{background:linear-gradient(115deg,#075b2b,#14823b);color:white;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-size:12px;letter-spacing:1.5px;opacity:.85}.headtitle{font-size:24px;font-weight:750;margin-top:3px}.sub{opacity:.85;font-size:13px}
+.header-right{font-size:12px;text-align:right}
+nav{display:flex;gap:8px;padding:12px 24px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;overflow:auto}
+nav button,.btn{border:0;border-radius:9px;padding:10px 15px;background:#f0f5f1;color:#315341;cursor:pointer;font-weight:650;white-space:nowrap}
+nav button.active,.btn.primary{background:var(--green);color:white}
+main{max-width:1440px;margin:auto;padding:20px 24px 40px}
+.filters{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}select,input{width:100%;padding:10px;border:1px solid #dbe5dd;border-radius:8px;background:#fff;color:var(--ink)}
+.page{display:none}.page.active{display:block}.section-title{font-size:18px;font-weight:750;margin:20px 0 12px}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.card,.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 3px 12px #153d2010}
+.k-label{color:var(--muted);font-size:12px}.k-value{font-size:29px;font-weight:800;color:var(--deep);margin:2px 0}.k-note{font-size:12px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.panel h3{margin:0 0 12px;font-size:15px}.chart{min-height:230px;display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
+.donut{width:180px;height:180px;border-radius:50%;position:relative;display:grid;place-items:center}.donut:after{content:"";position:absolute;width:112px;height:112px;background:white;border-radius:50%}.donut-center{z-index:1;text-align:center}.donut-center b{font-size:26px;display:block}.legend{display:grid;gap:9px;font-size:12px}.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px}
+.bar-list{display:grid;gap:12px}.bar-row{display:grid;grid-template-columns:minmax(110px,1.1fr) 3fr 42px;gap:10px;align-items:center;font-size:12px}.track{height:12px;background:#edf2ee;border-radius:20px;overflow:hidden}.fill{height:100%;border-radius:20px;background:var(--green)}
+table{border-collapse:collapse;width:100%;font-size:12px;min-width:720px}th,td{padding:10px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f1f7f2;color:#315341;position:sticky;top:0}td.num{text-align:right;font-variant-numeric:tabular-nums}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px}
+.status{display:inline-block;padding:4px 8px;border-radius:30px;font-size:11px;font-weight:700;white-space:nowrap}.done{background:#e4f3e8;color:#087332}.pending{background:#fff0d5;color:#a65c00}.blocked{background:#fde8df;color:#b94b22}.neutral{background:#edf1ee;color:#52645a}
+.gauge{width:220px;height:120px;position:relative;overflow:hidden;margin:auto}.gauge:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:conic-gradient(from 270deg,#14823b calc(var(--pct)*1.8deg),#facc15 0);top:0}.gauge:after{content:"";position:absolute;width:150px;height:150px;background:white;border-radius:50%;top:35px;left:35px}.gauge-label{position:absolute;z-index:1;bottom:0;left:0;right:0;text-align:center}.gauge-label b{font-size:28px}
+.gauge-split{display:flex;justify-content:center;gap:18px;margin-top:8px;font-size:12px}.gauge-split span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;background:var(--c)}
+.budget-layout{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}.funnel-visual{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0}.funnel-level{height:48px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:750;clip-path:polygon(0 0,100% 0,84% 100%,16% 100%);min-width:145px}.period-bars{display:grid;gap:14px}.period-row{display:grid;grid-template-columns:95px 1fr 42px;gap:10px;align-items:center;font-size:12px}.period-track{height:18px;background:#edf2ee;border-radius:20px;overflow:hidden}.period-fill{height:100%;background:var(--green);border-radius:20px}.budget-funnel{display:grid;gap:13px;align-content:center}.funnel-row{display:grid;grid-template-columns:105px 1fr auto;gap:9px;align-items:center;font-size:12px}.funnel-track{height:24px;background:#f3f4f3;border-radius:5px;overflow:hidden}.funnel-fill{height:100%;border-radius:5px}.timeline-list{display:grid;gap:9px}.timeline-month{display:grid;grid-template-columns:90px 1fr;gap:12px;align-items:start}.timeline-month b{padding-top:8px;color:var(--deep)}.timeline-items{display:flex;flex-wrap:wrap;gap:7px}.timeline-item{border-left:4px solid var(--tag);background:color-mix(in srgb,var(--tag) 10%,white);border-radius:7px;padding:7px 10px;font-size:12px;min-width:170px}.timeline-item strong{display:block}.timeline-item small{color:var(--muted)}
+@media(max-width:850px){.budget-layout{grid-template-columns:1fr}.timeline-month{grid-template-columns:1fr}}
+.small{font-size:11px;color:var(--muted)}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+textarea{width:100%;min-height:120px;border:1px solid var(--line);border-radius:8px;padding:10px;font:12px monospace}
+footer{text-align:center;color:#829087;font-size:11px;padding:24px}
+@media(max-width:850px){.cards{grid-template-columns:repeat(2,1fr)}.filters{grid-template-columns:repeat(2,1fr)}.grid2,.grid3{grid-template-columns:1fr}}
+@media(max-width:520px){main{padding:14px}.cards{grid-template-columns:1fr 1fr}.headtitle{font-size:19px}.filters{grid-template-columns:1fr 1fr}}
+.dsd-progress-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:10px 0 8px}.dsd-progress-cards .k-value{font-size:36px}.dsd-progress-line{display:grid;grid-template-columns:155px 1fr 55px;gap:12px;align-items:center;margin-top:10px}.dsd-track{height:15px;border-radius:20px;background:#edf2ee;overflow:hidden}.dsd-fill{height:100%;background:#00864b;border-radius:20px}.dsd-progress-line b{font-size:16px}@media(max-width:650px){.dsd-progress-cards{grid-template-columns:1fr}.dsd-progress-line{grid-template-columns:1fr 2fr 50px}}.dsd-progress-panel{min-height:268px;padding:18px 16px 22px}.dsd-progress-panel h3{font-size:18px;margin:0 0 12px}.dsd-progress-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:8px 0 10px}.dsd-progress-cards .k-label{font-size:13px}.dsd-progress-cards .k-value{font-size:36px;line-height:1.2;margin:8px 0 2px}.dsd-progress-cards .k-note{font-size:13px}.dsd-progress-line{display:grid;grid-template-columns:155px minmax(80px,1fr) 58px;gap:12px;align-items:center;margin-top:12px;font-size:14px}.dsd-track{height:15px;border-radius:20px;background:#edf2ee;overflow:hidden}.dsd-fill{height:100%;background:#00864b;border-radius:20px}.dsd-progress-line b{font-size:16px}.dsd-progress-note{margin-top:8px;font-size:14px}@media(max-width:650px){.dsd-progress-panel{min-height:0}.dsd-progress-cards{gap:10px}.dsd-progress-cards .k-value{font-size:28px}.dsd-progress-line{grid-template-columns:1fr 2fr 48px;gap:8px;font-size:12px}}
+.dsd-breakdown-panel{margin-top:14px}
+.dsd-breakdown-panel h3{margin:0 0 16px;font-size:17px}
+.dsd-breakdown{display:flex;align-items:center;justify-content:center;gap:44px;padding:8px 12px 14px;flex-wrap:wrap}
+.dsd-donut{width:190px;height:190px;border-radius:50%;background:conic-gradient(#14823b 0deg 180.97deg,#75b889 180.97deg 278.53deg,#f59e0b 278.53deg 360deg);display:grid;place-items:center;flex:none}
+.dsd-donut-center{width:108px;height:108px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+.dsd-donut-center strong{font-size:27px;color:#123b2a}
+.dsd-donut-center span{font-size:12px;color:#718078}
+.dsd-legend{display:grid;gap:13px;min-width:260px}
+.dsd-legend>div{display:grid;grid-template-columns:12px minmax(135px,1fr) 48px 55px;gap:9px;align-items:center;font-size:13px}
+.dsd-legend i{width:10px;height:10px;border-radius:3px}
+.dsd-legend strong{text-align:right;font-size:14px}
+.dsd-legend small{text-align:right;color:#718078}
+.dsd-legend p{margin:5px 0 0}
+@media(max-width:600px){.dsd-breakdown{gap:22px}.dsd-donut{width:165px;height:165px}.dsd-legend{min-width:100%;width:100%}}
+
+/* Overview-only DSD summary styles */
+.overview-dsd-panel{padding:18px}
+.overview-dsd-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:12px 0 14px}
+.overview-dsd-stats>div{display:flex;flex-direction:column;gap:3px}
+.overview-dsd-stats span{font-size:13px;color:#687b73}
+.overview-dsd-stats strong{font-size:34px;line-height:1.15}
+.overview-dsd-stats small{font-size:12px;color:#687b73}
+.overview-dsd-progress{display:grid;grid-template-columns:155px minmax(80px,1fr) 52px;gap:10px;align-items:center;font-size:13px}
+.overview-dsd-progress b{font-size:15px}
+.overview-dsd-chart-row{margin-top:14px}
+@media(max-width:650px){.overview-dsd-stats{gap:8px}.overview-dsd-stats strong{font-size:27px}.overview-dsd-progress{grid-template-columns:1fr 2fr 48px;gap:7px}}
+
+/* Overview visual refinement: training type pie + readable monthly agenda */
+.training-type-chart{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;padding:12px 4px}
+.training-pie{width:190px;height:190px;border-radius:50%;background:conic-gradient(#14823b 0deg 101.74deg,#75b889 101.74deg 195.65deg,#f4b544 195.65deg 219.13deg,#8ca5a0 219.13deg 360deg);display:grid;place-items:center;flex:none}
+.training-pie-center{width:0;height:0;display:none}
+.training-type-legend{min-width:210px;gap:12px}
+.training-type-legend>div{display:grid;grid-template-columns:12px minmax(125px,1fr) 30px;gap:8px;align-items:center;font-size:13px}
+.training-type-legend b{text-align:right}
+.timeline-month-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:16px}
+.timeline-month-card{background:#fff;border:1px solid #dce8e1;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(18,59,42,.05);min-width:0}
+.timeline-month-card header{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid #edf2ee;margin-bottom:6px}
+.timeline-month-card header>div{display:flex;flex-direction:column;gap:2px}
+.timeline-month-card header b{font-size:17px;color:#08783e}
+.timeline-month-card header small,.month-progress{font-size:11px;color:#718078}
+.timeline-agenda{display:grid}
+.timeline-agenda-item{display:grid;grid-template-columns:62px minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 2px;border-bottom:1px solid #f0f3f1}
+.timeline-agenda-item:last-child{border-bottom:0}
+.timeline-agenda-item time{font-size:12px;font-weight:750;padding:6px 7px;border-radius:7px;text-align:center;background:#f1f5f2;color:#234b39;white-space:nowrap}
+.agenda-course{font-size:12px;line-height:1.45;font-weight:650;color:#183b2c;min-width:0}
+.agenda-course small{display:block;font-weight:400;font-size:10px;color:#78877f;margin-top:3px}
+.agenda-status{font-size:10px;white-space:nowrap;padding:4px 7px;border-radius:20px}
+.is-completed time{background:#e7f5ec;color:#08783e}.is-completed .agenda-status{background:#e7f5ec;color:#08783e}
+.is-progress time{background:#fff5d9;color:#966500}.is-progress .agenda-status{background:#fff5d9;color:#966500}
+@media(max-width:760px){.timeline-month-grid{grid-template-columns:1fr}.timeline-agenda-item{grid-template-columns:58px minmax(0,1fr)}.agenda-status{grid-column:2;justify-self:start}.training-type-chart{gap:18px}}
+
+/* Satisfaction page layout */
+.satisfaction-heading{margin:4px 0 20px}.satisfaction-heading h2{font-size:22px;margin:0 0 4px;color:#123b2a}.satisfaction-heading p{font-size:13px;color:#708078;margin:0}
+.satisfaction-kpis{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:14px}
+.satisfaction-kpis .k-value{font-size:34px;color:#00864b}
+.satisfaction-overall{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.satisfaction-overall>div{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.satisfaction-overall span{font-size:14px;color:#53665d}
+.satisfaction-overall strong{font-size:38px;color:#00864b;line-height:1}
+.satisfaction-overall strong small{font-size:17px;color:#60756a}
+.satisfaction-overall em{font-style:normal;font-size:12px;color:#08783e;background:#e8f5ed;padding:6px 11px;border-radius:20px}
+.satisfaction-overall p{margin:0;color:#718078;font-size:12px}
+.satisfaction-dimensions{display:grid;gap:14px}
+.dimension-row{display:grid;grid-template-columns:230px minmax(80px,1fr) 42px 55px;gap:12px;align-items:center;font-size:13px}
+.dimension-row b,.course-score-row b{font-size:14px;text-align:right;color:#173f2d}
+.dimension-row small{font-size:11px;color:#718078;text-align:right}
+.dimension-track{height:11px;border-radius:20px;background:#edf2ee;overflow:hidden}
+.dimension-fill{height:100%;border-radius:20px;background:var(--score-color)}
+.dimension-scale{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:10px;color:#718078;padding-top:3px}
+.dimension-scale i{width:9px;height:9px;border-radius:50%;display:inline-block;margin-left:6px}
+.scale-high{background:#16834a}.scale-good{background:#55a95f}.scale-mid{background:#e6a23c}
+.satisfaction-dimensions p{margin:0;font-size:12px;color:#718078}
+.course-score-list{display:grid;gap:12px}
+.course-score-row{display:grid;grid-template-columns:minmax(220px,310px) minmax(90px,1fr) 42px;gap:12px;align-items:center;font-size:12px}
+.feedback-columns{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feedback-column{border-radius:12px;padding:16px 18px;background:#fff8f1;border:1px solid #f4e2d2}
+.feedback-high{background:#f1f8f3;border-color:#d8eadd}
+.feedback-column h3{font-size:15px;margin:0 0 10px;color:#173f2d}
+.feedback-summary{font-size:12px;font-weight:700;line-height:1.6;margin:0 0 10px}
+.feedback-column ul{margin:0;padding-left:18px;font-size:12px;line-height:1.75;color:#46574f}
+.feedback-column li{margin:3px 0}
+.feedback-note{margin:12px 0 0;color:#718078}
+.next-action{margin-top:14px;padding:18px 20px;border-left:4px solid #f59e0b;border-radius:12px;background:#fff7e9}
+.next-action h3{font-size:16px;margin:0 0 6px;color:#153c2c}.next-action p{font-size:13px;line-height:1.65;margin:0;color:#3f5148}
+@media(max-width:850px){.satisfaction-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.dimension-row{grid-template-columns:170px minmax(60px,1fr) 38px 45px}.course-score-row{grid-template-columns:minmax(150px,220px) minmax(70px,1fr) 38px}}
+@media(max-width:620px){.feedback-columns{grid-template-columns:1fr}.dimension-row{grid-template-columns:1fr 42px;gap:6px}.dimension-row .dimension-track{grid-column:1}.dimension-row small{grid-column:2;grid-row:2}.course-score-row{grid-template-columns:minmax(130px,1fr) 38px}.course-score-row .dimension-track{grid-column:1}.course-score-row b{grid-column:2;grid-row:1}.satisfaction-overall{align-items:flex-start}}
+
+/* Satisfaction detailed course table and concise feedback summary */
+.satisfaction-table-panel{padding:0;overflow:hidden}
+.table-scroll{overflow-x:auto;width:100%}
+.satisfaction-table{width:100%;min-width:1120px;border-collapse:separate;border-spacing:0;font-size:11px}
+.satisfaction-table th{position:sticky;top:0;background:#126b86;color:#fff;font-weight:700;padding:10px 8px;text-align:center;white-space:nowrap;border-right:1px solid rgba(255,255,255,.16)}
+.satisfaction-table td{padding:9px 8px;border-bottom:1px solid #dce8e2;text-align:center;white-space:nowrap;color:#234438}
+.satisfaction-table td:nth-child(2){text-align:left;white-space:normal;min-width:260px;max-width:350px;line-height:1.4}
+.satisfaction-table tbody tr:nth-child(even){background:#f1f8f5}
+.satisfaction-table tbody tr:hover{background:#e6f3ec}
+.satisfaction-table .score-cell{font-weight:800;color:#08783e}
+.rating-high,.rating-good{display:inline-block;border-radius:20px;padding:4px 8px;font-size:10px;font-weight:700}
+.rating-high{background:#e2f3e8;color:#08783e}.rating-good{background:#fff2d8;color:#956500}
+.feedback-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.feedback-highlight{border-radius:12px;padding:16px 18px;border-left:4px solid}
+.feedback-highlight h3{font-size:14px;margin:0 0 7px;color:#173f2d}
+.feedback-highlight p{font-size:12px;line-height:1.55;margin:0 0 8px}
+.feedback-highlight ul{margin:0;padding-left:18px;font-size:12px;line-height:1.7}
+.feedback-improve{background:#fff5f5;border-color:#df6b8d}.feedback-strength{background:#eef7f1;border-color:#16834a}
+@media(max-width:700px){.feedback-summary-grid{grid-template-columns:1fr}}
+
+/* Restore approved monthly timeline header style */
+.timeline-month-card header{background:#006b3c;color:#fff;border:0;border-radius:8px;padding:14px 16px;margin:-1px -1px 8px}
+.timeline-month-card header b,.timeline-month-card header small,.timeline-month-card .month-progress{color:#fff}
+.timeline-month-card header b{font-size:17px}
+.timeline-month-card header small,.timeline-month-card .month-progress{opacity:.92}
+.timeline-month-card{padding:16px}
+
+/* Score heatmap */
+.heat-cell{font-weight:700}
+.heat-high{background:#9bd18b!important;color:#123d20!important}
+.heat-mid{background:#ffe58a!important;color:#604600!important}
+.heat-low{background:#f47770!important;color:#5b1712!important}
+.heatmap-guide{display:flex;gap:14px;flex-wrap:wrap;padding:12px 14px 4px;font-size:11px;color:#52665b}
+.heatmap-guide span{display:flex;align-items:center;gap:6px}
+.heat-swatch{display:inline-block;width:11px;height:11px;border-radius:3px}
+.score-extremes{display:flex;gap:10px;flex-wrap:wrap;padding:8px 14px 12px;font-size:11px;color:#53665d}
+.score-extremes span{background:#f4f8f5;border:1px solid #e2ebe5;border-radius:8px;padding:7px 9px}
+.score-extremes strong{color:#08783e;margin-left:3px}
+
+/* Timeline: retain the approved compact two-month card layout */
+.timeline-month-card header{background:#006b3c;border-radius:8px;padding:14px 16px;margin:0 0 6px}
+.timeline-month-card header b,.timeline-month-card header small,.timeline-month-card .month-progress{color:#ffffff}
+.timeline-month-card header b{font-size:16px}
+.timeline-month-card header small,.timeline-month-card .month-progress{font-size:11px}
+
+/* Timeline month header: white text on dark green background */
+.timeline-month-card header,
+.timeline-month-card header b,
+.timeline-month-card header small,
+.timeline-month-card .month-progress { color: #ffffff !important; }
+
+/* Page 03 construction dashboard */
+.construction-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:14px 0}
+.construction-kpis .card{padding:18px 20px}.construction-kpis .k-value{font-size:34px}
+.construction-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:14px 0}
+.construction-group{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
+.construction-group h3{margin:0 0 8px;font-size:15px}.construction-group p{margin:0 0 12px;color:var(--muted);font-size:13px}
+.construction-track{height:12px;border-radius:20px;background:#edf2ee;overflow:hidden}.construction-fill{height:100%;border-radius:20px}
+.construction-table{min-width:940px}.construction-table th{white-space:nowrap}
+.category-pill{display:inline-block;padding:4px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap}
+.cat-structure{background:#e5f1ff;color:#245b91}.cat-system{background:#e8f5ec;color:#08783e}.cat-architecture{background:#fff2d9;color:#946000}
+.exam-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.exam-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+.exam-stat{background:#f5f8f6;border-radius:10px;padding:12px}.exam-stat strong{display:block;font-size:27px;color:#08652d}.exam-stat small{color:var(--muted)}
+.exam-bars{display:grid;gap:12px;margin:12px 0}.exam-bar-row{display:grid;grid-template-columns:minmax(120px,1.1fr) 3fr 48px;gap:9px;align-items:center;font-size:12px}
+.exam-bar{height:13px;background:#edf2ee;border-radius:20px;overflow:hidden;display:flex}.exam-pass{height:100%;background:#14823b}.exam-fail{height:100%;background:#f59e0b}
+.exam-note{font-size:11px;color:var(--muted);background:#f5f8f6;border-radius:9px;padding:10px 12px;line-height:1.55}
+.feedback-category-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.feedback-category{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}.feedback-category h3{margin:0 0 8px;font-size:15px}.feedback-category p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+@media(max-width:850px){.construction-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.construction-groups,.exam-grid,.feedback-category-grid{grid-template-columns:1fr}}
+
+</style></head>
+<body>
+<header><div><div class="brand">VISSAVAPAT • PEOPLE DEVELOPMENT</div><div class="headtitle">HRD Executive Dashboard 2026</div><div class="sub">Training & Development Performance</div></div><div class="header-right">ข้อมูลปี 2569<br><span id="updated">Interactive dashboard • Editable data</span></div></header>
+<nav>
+<button class="active" data-page="overview">01 ภาพรวม</button><button data-page="satisfaction">02 ความพึงพอใจ</button><button data-page="construction">03 มาตรฐานก่อสร้าง</button><button data-page="dsd">04 DSD</button><button data-page="data">05 จัดการข้อมูล</button>
+</nav>
+<main>
+<div class="filters">
+<div><label>เดือนที่จัดอบรม</label><select id="month"><option value="">ทุกเดือน</option><option>ม.ค.</option><option>ก.พ.</option><option>มี.ค.</option><option>เม.ย.</option><option>พ.ค.</option><option>มิ.ย.</option><option>ก.ค.</option><option>ส.ค.</option><option>ก.ย.</option><option>ต.ค.</option><option>พ.ย.</option><option>ธ.ค.</option></select></div>
+<div><label>สถานะการดำเนินงาน</label><select id="statusFilter"><option value="">ทุกสถานะ</option><option>Completed</option><option>On-process</option><option>ยกเลิก</option></select></div>
+<div><label>หมวดเนื้อหา</label><select id="category"><option value="">ทุกหมวด</option><option>Construction Management</option><option>งานโครงสร้าง</option><option>งานระบบ</option><option>Safety</option><option>Leadership</option><option>Digital & AI</option><option>Personal Effectiveness</option></select></div>
+<div><label>รูปแบบการอบรม</label><select id="format"><option value="">ทุกรูปแบบ</option><option>Public – Onsite</option><option>Sharing – Internal Trainer</option><option>In-house</option><option>Online</option></select></div>
+</div>
+
+<section class="page active" id="overview">
+<div class="cards">
+<div class="card"><div class="k-label">หลักสูตรทั้งหมด</div><div class="k-value">46</div><div class="k-note">หลักสูตร/รุ่นตามแผนปี 2569</div></div>
+<div class="card"><div class="k-label">ดำเนินการเสร็จสิ้น</div><div class="k-value" id="completed">34</div><div class="k-note">สถานะ Completed</div></div>
+<div class="card"><div class="k-label">อยู่ระหว่างดำเนินการ</div><div class="k-value" id="inprogress">12</div><div class="k-note">สถานะ On-process</div></div>
+<div class="card"><div class="k-label">งบประมาณแผน (Budget Plan)</div><div class="k-value" id="budgetPlan">฿1,229,890</div><div class="k-note">วงเงินตามแผนปี 2569</div></div>
+<div class="card"><div class="k-label">ค่าใช้จ่ายจริงที่มีข้อมูล</div><div class="k-value" id="actualBudget">฿451,015</div><div class="k-note">อ้างอิงยอดรวมจากฐานข้อมูลที่ให้มา</div></div>
+
+</div>
+<div class="grid2">
+<div class="panel"><h3>สถานะการดำเนินงาน (Gauge)</h3><div class="gauge" style="--pct:73.9"><div class="gauge-label"><b>73.9%</b><div class="small">34 จาก 46 รุ่น</div></div></div><div class="gauge-split"><span style="--c:#14823b">Completed <b>34 รุ่น</b></span><span style="--c:#facc15">On-process <b>12 รุ่น</b></span></div></div>
+<div class="panel"><h3>Budget Plan เทียบค่าใช้จ่ายจริง</h3><div class="chart"><div class="donut" style="background:conic-gradient(#d96b91 0 36.67%,#08652d 36.67% 100%)"><div class="donut-center"><b>36.7%</b><span class="small">ใช้ไป</span></div></div><div class="legend"><div><i class="dot" style="background:#d96b91"></i>ใช้จริง ฿451,015.05</div><div><i class="dot" style="background:#08652d"></i>คงเหลือ ฿778,874.95</div><b>แผนรวม ฿1,229,890</b></div></div></div>
+</div>
+<div class="grid2">
+<div class="panel"><h3>จำนวนรุ่นตาม Training Type</h3><div class="chart training-type-chart">
+<div class="training-pie" role="img" aria-label="Functional Skill 13 รุ่น, General Skill 12 รุ่น, Technical Skill 3 รุ่น, Mandatory Skill 18 รุ่น"><div class="training-pie-center"><b>46</b><span>รุ่นทั้งหมด</span></div></div>
+<div class="legend training-type-legend">
+<div><i class="dot" style="background:#14823b"></i><span>Functional Skill</span><b>13</b></div>
+<div><i class="dot" style="background:#75b889"></i><span>General Skill</span><b>12</b></div>
+<div><i class="dot" style="background:#f4b544"></i><span>Technical Skill</span><b>3</b></div>
+<div><i class="dot" style="background:#8ca5a0"></i><span>Mandatory Skill</span><b>18</b></div>
+</div></div></div>
+<div class="panel overview-dsd-panel"><h3>DSD Progress</h3>
+<div class="overview-dsd-stats">
+<div><span>ส่งเข้าระบบแล้ว</span><strong style="color:#14823b">371</strong><small>เพิ่มจากเดิม 126 (+245)</small></div>
+<div><span>รอเข้าระบบ</span><strong style="color:#75b889">200</strong><small>คาดว่าจะเพิ่ม</small></div>
+<div><span>สำรอง/รอแก้ไข</span><strong style="color:#f59e0b">167</strong><small>ไม่นับใน Progress</small></div>
+</div>
+<div class="overview-dsd-progress"><span>เป้าหมาย 50%</span><div class="dsd-track"><div class="dsd-fill" style="width:61.6%"></div></div><b>61.6%</b></div>
+<div class="small" style="margin-top:7px">371 / 602 คน · หาก 200 คนเข้าระบบครบ คาดการณ์ 94.9% (571 / 602)</div>
+</div>
+</div>
+<div class="grid2 overview-dsd-chart-row">
+<div class="panel"><h3>สัดส่วนสถานะ DSD</h3><div class="chart">
+<div class="donut" style="background:conic-gradient(#14823b 0 50.27%,#75b889 50.27% 77.37%,#f59e0b 77.37% 100%)"><div class="donut-center"><b>738</b><span class="small">รวมทั้งหมด</span></div></div>
+<div class="legend">
+<div><i class="dot" style="background:#14823b"></i>ส่งเข้าระบบแล้ว <b>371</b> (50.3%)</div>
+<div><i class="dot" style="background:#75b889"></i>รอเข้าระบบ <b>200</b> (27.1%)</div>
+<div><i class="dot" style="background:#f59e0b"></i>สำรอง/รอแก้ไข <b>167</b> (22.6%)</div>
+<span class="small">สำรอง/รอแก้ไขไม่นับใน Progress</span>
+</div></div></div>
+</div>
+<div class="section-title">ค่าใช้จ่ายจริงแยกประเภท (Funnel)</div><div class="panel"><div class="budget-layout"><div class="funnel-visual"><div class="funnel-level" style="width:100%;background:#d96b91">ค่าหลักสูตร</div><div class="funnel-level" style="width:22%;background:#e9a3ba">ค่าอาหาร</div><div class="funnel-level" style="width:26%;background:#f2c7d5;color:#6f3c50">ค่าเบรก</div></div><div class="legend" style="align-content:center"><div><i class="dot" style="background:#d96b91"></i>ค่าหลักสูตร <b>฿412,976.96</b></div><div><i class="dot" style="background:#e9a3ba"></i>ค่าอาหาร <b>฿21,274.52</b></div><div><i class="dot" style="background:#f2c7d5"></i>ค่าเบรก <b>฿16,763.57</b></div><b>รวมค่าใช้จ่ายจริง ฿451,015.05</b><span class="small">แสดงยอดจริงรายประเภท</span></div></div></div>
+<div class="section-title">แผนอบรมรายเดือน · Timeline</div>
+<div class="timeline-month-grid" id="monthBars">
+  <section class="timeline-month-card"><header><div><b>ต.ค. 2569</b><small>4 หลักสูตร/รุ่น</small></div><span class="month-progress">4 เสร็จสิ้น · 0 กำลังดำเนินการ</span></header><div class="timeline-agenda">
+    <article class="timeline-agenda-item is-completed"><time>09 ต.ค.</time><div class="agenda-course">ผู้บังคับปั้นจั่น ผู้ให้สัญญาณแก่ผู้บังคับปั้นจั่น ผู้ยึดเกาะวัสดุ และทบทวน รุ่น 2<small>Completed</small></div><span class="agenda-status">เสร็จสิ้น</span></article>
+    <article class="timeline-agenda-item is-completed"><time>16 ต.ค.</time><div class="agenda-course">ข้อกำหนดและกฎหมายอาคารสูง<small>Completed</small></div><span class="agenda-status">เสร็จสิ้น</span></article>
+    <article class="timeline-agenda-item is-completed"><time>21 ต.ค.</time><div class="agenda-course">AI for Construction &amp; BOQ<small>Completed</small></div><span class="agenda-status">เสร็จสิ้น</span></article>
+    <article class="timeline-agenda-item is-completed"><time>29 ต.ค.</time><div class="agenda-course">ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น รุ่น 1<small>Completed</small></div><span class="agenda-status">เสร็จสิ้น</span></article>
+  </div></section>
+  <section class="timeline-month-card"><header><div><b>พ.ย. 2569</b><small>3 หลักสูตร/รุ่น</small></div><span class="month-progress">0 เสร็จสิ้น · 3 กำลังดำเนินการ</span></header><div class="timeline-agenda">
+    <article class="timeline-agenda-item is-progress"><time>10 พ.ย.</time><div class="agenda-course">ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น รุ่น 2<small>On-process</small></div><span class="agenda-status">กำลังดำเนินการ</span></article>
+    <article class="timeline-agenda-item is-progress"><time>15 พ.ย.</time><div class="agenda-course">การออกแบบโครงสร้างเหล็กด้วยวิธี Unified Method (ASD/LRFD)<small>On-process</small></div><span class="agenda-status">กำลังดำเนินการ</span></article>
+    <article class="timeline-agenda-item is-progress"><time>20 พ.ย.</time><div class="agenda-course">Presentation Skill + Business Communication (Story telling)<small>On-process</small></div><span class="agenda-status">กำลังดำเนินการ</span></article>
+  </div></section>
+</div><div class="section-title">แผนอบรมตามช่วงเวลา</div><div class="panel"><div class="period-bars"><div class="period-row"><b>ม.ค.–มี.ค.</b><div class="period-track"><div class="period-fill" style="width:66.67%"></div></div><b>12</b></div><div class="period-row"><b>เม.ย.–มิ.ย.</b><div class="period-track"><div class="period-fill" style="width:44.44%"></div></div><b>8</b></div><div class="period-row"><b>ก.ค.–ก.ย.</b><div class="period-track"><div class="period-fill" style="width:44.44%"></div></div><b>8</b></div><div class="period-row"><b>ต.ค.–ธ.ค.</b><div class="period-track"><div class="period-fill" style="width:100%"></div></div><b>18</b></div></div><div class="small" style="margin-top:10px">รวม 46 หลักสูตร/รุ่น ตามแผนอบรมทั้งปี</div></div>
+</section>
+
+<section class="page" id="satisfaction">
+<div class="satisfaction-heading">
+  <h2>ผลการประเมินความพึงพอใจ</h2>
+  <p>หลักสูตรที่จัดภายในโดย HR ร่วมกับวิทยากรทั้งภายในและภายนอก</p>
+</div>
+
+<div class="cards satisfaction-kpis">
+  <div class="card"><div class="k-label">จำนวนหลักสูตร/รุ่นที่ประเมิน</div><div class="k-value">11</div></div>
+  <div class="card"><div class="k-label">ผู้เข้าอบรมรวม</div><div class="k-value">288</div></div>
+  <div class="card"><div class="k-label">ผู้ตอบแบบประเมิน</div><div class="k-value">215</div></div>
+  <div class="card"><div class="k-label">อัตราตอบแบบประเมิน</div><div class="k-value">74.7%</div></div>
+</div>
+
+<div class="section-title">คะแนนเฉลี่ยภาพรวม</div>
+<div class="panel satisfaction-overall">
+  <div><span>คะแนนความพึงพอใจเฉลี่ยถ่วงน้ำหนัก</span><strong>4.44 <small>/ 5.00</small></strong><em>ระดับมาก</em></div>
+  <p>คำนวณจากผลประเมิน 11 หลักสูตร/รุ่น โดยถ่วงน้ำหนักตามจำนวนผู้ตอบแบบประเมิน</p>
+</div>
+
+<div class="section-title">คะแนนเฉลี่ยรายด้าน</div>
+<div class="panel satisfaction-dimensions">
+  <div class="dimension-row"><span>ด้านวิทยากร</span><div class="dimension-track"><div class="dimension-fill" style="width:91.2%;--score-color:#16834a"></div></div><b>4.56</b><small>91.2%</small></div>
+  <div class="dimension-row"><span>ด้านเนื้อหา</span><div class="dimension-track"><div class="dimension-fill" style="width:90.4%;--score-color:#55a95f"></div></div><b>4.52</b><small>90.4%</small></div>
+  <div class="dimension-row"><span>ด้านสถานที่และสิ่งอำนวยความสะดวก</span><div class="dimension-track"><div class="dimension-fill" style="width:85.6%;--score-color:#e6a23c"></div></div><b>4.28</b><small>85.6%</small></div>
+  <div class="dimension-scale"><span>ระดับคะแนน: </span><i class="scale-high"></i> มากที่สุด (4.50–5.00) <i class="scale-good"></i> มาก (3.50–4.49) <i class="scale-mid"></i> ปานกลาง (2.50–3.49)</div>
+  <p class="small">ด้านวิทยากรได้คะแนนเฉลี่ยสูงสุด ส่วนด้านสถานที่และสิ่งอำนวยความสะดวกมีคะแนนเฉลี่ยต่ำสุด</p>
+</div>
+
+<div class="section-title">ผลประเมินความพึงพอใจรายหลักสูตร</div>
+<div class="panel satisfaction-table-panel">
+  <div class="heatmap-guide">
+  <span><i class="heat-swatch heat-high"></i>คะแนนสูง 4.50–5.00</span>
+  <span><i class="heat-swatch heat-mid"></i>คะแนน 4.00–4.49</span>
+  <span><i class="heat-swatch heat-low"></i>คะแนนต่ำกว่า 4.00</span>
+</div>
+<div class="score-extremes">
+  <span><b>คะแนนภาพรวมสูงสุด:</b> The Art of the Deal <strong>4.69</strong></span>
+  <span><b>คะแนนภาพรวมต่ำสุด:</b> Microsoft Project รุ่น 2 <strong>3.83</strong></span>
+  <span><b>คะแนนรายด้านต่ำสุด:</b> ด้านสถานที่ – AI for Construction &amp; BOQ <strong>3.69</strong></span>
+</div>
+<div class="table-scroll">
+    <table class="satisfaction-table">
+      <thead><tr>
+        <th>ลำดับ</th><th>หลักสูตร</th><th>ผู้เรียน</th><th>ผู้ตอบ</th><th>อัตราตอบ</th>
+        <th>ด้านวิทยากร</th><th>ด้านเนื้อหา</th><th>ด้านสถานที่</th><th>ภาพรวม</th><th>ร้อยละภาพรวม</th><th>ระดับความพึงพอใจ</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>1</td><td>ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น รุ่น 1</td><td>28</td><td>18</td><td>64.3%</td><td class="heat-cell heat-high">4.58</td><td class="heat-cell heat-high">4.53</td><td class="heat-cell heat-high">4.67</td><td class="score-cell">4.59</td><td>91.8%</td><td><span class="rating-high">มากที่สุด</span></td></tr>
+        <tr><td>2</td><td>หลักสูตร Piling Work</td><td>25</td><td>18</td><td>72.0%</td><td class="heat-cell heat-mid">4.49</td><td class="heat-cell heat-high">4.54</td><td class="heat-cell heat-mid">4.28</td><td class="score-cell">4.44</td><td>88.8%</td><td><span class="rating-good">มาก</span></td></tr>
+        <tr><td>3</td><td>หลักสูตร Piling Work รุ่น 2</td><td>40</td><td>31</td><td>77.5%</td><td class="heat-cell heat-mid">4.47</td><td class="heat-cell heat-mid">4.31</td><td class="heat-cell heat-mid">4.10</td><td class="score-cell">4.31</td><td>86.2%</td><td><span class="rating-good">มาก</span></td></tr>
+        <tr><td>4</td><td>หลักสูตร Temporary รุ่น 1</td><td>23</td><td>11</td><td>47.8%</td><td class="heat-cell heat-high">4.75</td><td class="heat-cell heat-high">4.73</td><td class="heat-cell heat-mid">4.48</td><td class="score-cell">4.64</td><td>92.9%</td><td><span class="rating-high">มากที่สุด</span></td></tr>
+        <tr><td>5</td><td>หลักสูตร Temporary รุ่น 2</td><td>26</td><td>12</td><td>46.2%</td><td class="heat-cell heat-high">4.60</td><td class="heat-cell heat-high">4.64</td><td class="heat-cell heat-mid">4.35</td><td class="score-cell">4.52</td><td>90.5%</td><td><span class="rating-high">มากที่สุด</span></td></tr>
+        <tr><td>6</td><td>The Art of the Deal: Mastering Negotiation</td><td>22</td><td>21</td><td>95.5%</td><td class="heat-cell heat-high">4.88</td><td class="heat-cell heat-high">4.86</td><td class="heat-cell heat-mid">4.37</td><td class="score-cell">4.69</td><td>93.8%</td><td><span class="rating-high">มากที่สุด</span></td></tr>
+        <tr><td>7</td><td>งานระบบป้องกันดินพัง (Soil protection) รุ่น 1</td><td>26</td><td>25</td><td>96.2%</td><td class="heat-cell heat-high">4.75</td><td class="heat-cell heat-high">4.71</td><td class="heat-cell heat-high">4.50</td><td class="score-cell">4.65</td><td>93.0%</td><td><span class="rating-high">มากที่สุด</span></td></tr>
+        <tr><td>8</td><td>งานระบบป้องกันดินพัง (Soil protection) รุ่น 2</td><td>23</td><td>19</td><td>82.6%</td><td class="heat-cell heat-high">4.67</td><td class="heat-cell heat-high">4.68</td><td class="heat-cell heat-high">4.54</td><td class="score-cell">4.63</td><td>92.6%</td><td><span class="rating-high">มากที่สุด</span></td></tr>
+        <tr><td>9</td><td>อบรมการใช้งานโปรแกรม Microsoft Project สำหรับการรายงานความก้าวหน้าโครงการ รุ่น 1</td><td>22</td><td>14</td><td>63.6%</td><td class="heat-cell heat-high">4.51</td><td class="heat-cell heat-mid">4.44</td><td class="heat-cell heat-high">4.50</td><td class="score-cell">4.57</td><td>91.4%</td><td><span class="rating-high">มากที่สุด</span></td></tr>
+        <tr><td>10</td><td>อบรมการใช้งานโปรแกรม Microsoft Project สำหรับการรายงานความก้าวหน้าโครงการ รุ่น 2</td><td>24</td><td>19</td><td>79.2%</td><td class="heat-cell heat-mid">4.12</td><td class="heat-cell heat-mid">4.13</td><td class="heat-cell heat-mid">4.09</td><td class="score-cell">3.83</td><td>76.6%</td><td><span class="rating-good">มาก</span></td></tr>
+        <tr><td>11</td><td>AI for Construction &amp; BOQ</td><td>29</td><td>27</td><td>93.1%</td><td class="heat-cell heat-mid">4.46</td><td class="heat-cell heat-mid">4.37</td><td class="heat-cell heat-low">3.69</td><td class="score-cell">4.18</td><td>83.5%</td><td><span class="rating-good">มาก</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="section-title">สรุปสิ่งที่ได้รับคำชมและประเด็นที่ควรปรับปรุง</div>
+<div class="panel feedback-panel">
+  <div class="feedback-summary-grid">
+    <div class="feedback-highlight feedback-improve">
+      <h3>ประเด็นที่ควรปรับปรุง · ด้านสถานที่และสิ่งอำนวยความสะดวก</h3>
+      <p>ควรเตรียมความพร้อมของสถานที่และสิ่งอำนวยความสะดวกให้เหมาะกับผู้เข้าอบรม</p>
+      <ul>
+        <li>“สถานที่จัดอบรมไกลจากไซต์งาน”</li>
+        <li>“แอร์ไม่เย็น”</li>
+        <li>“ควรมีอาหารเที่ยงรองรับด้วยครับ”</li>
+      </ul>
+    </div>
+    <div class="feedback-highlight feedback-strength">
+      <h3>จุดเด่น · วิทยากรและการนำไปใช้จริง</h3>
+      <p>ผู้เข้าอบรมชื่นชมการถ่ายทอดที่เข้าใจง่ายและเนื้อหาที่นำไปใช้กับงานได้</p>
+      <ul>
+        <li>“อาจารย์สอนเข้าใจดีครับ”</li>
+        <li>“ดีมากๆเลยครับ”</li>
+        <li>สรุป: นำความรู้ MS Project ไปใช้ทำงานได้จริง</li>
+      </ul>
+    </div>
+  </div>
+  <p class="small feedback-note">หมายเหตุ: คัดเลือกตัวอย่างความคิดเห็น 2–3 ประเด็นที่มีทิศทางเดียวกัน เพื่อสรุปภาพรวม ไม่ใช่การจัดอันดับความถี่</p>
+</div>
+
+<div class="next-action">
+  <h3>Next: แนวทางดำเนินการ</h3>
+  <p>ทบทวนเวลาและปริมาณเนื้อหาให้เหมาะสม ตรวจสอบสถานที่ ห้องอบรม อุปกรณ์เสียง/ภาพ ระบบออนไลน์ อาหาร และเอกสารประกอบก่อนวันอบรม พร้อมติดตามผลการปรับปรุงในหลักสูตรรุ่นถัดไป</p>
+</div>
+</section>
+
+<section class="page" id="construction">
+<div class="heading" style="margin:4px 0 14px"><div><h2>หลักสูตรมาตรฐานงานก่อสร้าง</h2><p>แผนการจัดอบรมและผลลัพธ์รายรุ่น · แบ่งตามหมวดหมู่เนื้อหา</p></div></div>
+<div class="construction-kpis">
+  <div class="card"><div class="k-label">หลักสูตร/รุ่นในแผน</div><div class="k-value">16</div><div class="k-note">ตามแผนปี 2569–2570</div></div>
+  <div class="card"><div class="k-label">จัดแล้ว</div><div class="k-value">7</div><div class="k-note">ดำเนินการเสร็จสิ้น</div></div>
+  <div class="card"><div class="k-label">กำลังเตรียม</div><div class="k-value" style="color:#c58a00">5</div><div class="k-note">อยู่ระหว่างเตรียมการ</div></div>
+  <div class="card"><div class="k-label">ยังไม่จัด</div><div class="k-value">4</div><div class="k-note">รอกำหนดแผน/วันอบรม</div></div>
+</div>
+<div class="panel"><h3>แยกตามประเภทงาน</h3>
+  <div class="construction-groups">
+    <div class="construction-group"><h3>งานโครงสร้าง</h3><p>จัดแล้ว 6 รุ่น · กำลังเตรียม 2 รุ่น</p><div class="construction-track"><div class="construction-fill" style="width:75%;background:#14823b"></div></div></div>
+    <div class="construction-group"><h3>งานระบบ</h3><p>จัดแล้ว 1 รุ่น · กำลังเตรียม 4 รุ่น</p><div class="construction-track"><div class="construction-fill" style="width:20%;background:#f4bf37"></div></div></div>
+    <div class="construction-group"><h3>งานสถาปัตย์</h3><p>ยังไม่จัด 4 รุ่น</p><div class="construction-track"><div class="construction-fill" style="width:0%;background:#9aa9a0"></div></div></div>
+  </div>
+</div>
+<div class="section-title">แผนอบรมรายรุ่น (เรียงตามวันจัดอบรม)</div>
+<div class="panel">
+  <div class="toolbar"><span class="small">สีแยกตามหมวดหมู่เนื้อหา · งานตรวจสอบการติดตั้งและ Combine แบบ รวมอยู่ในงานระบบ</span><div class="small"><span class="category-pill cat-structure">งานโครงสร้าง</span> <span class="category-pill cat-system">งานระบบ</span> <span class="category-pill cat-architecture">งานสถาปัตย์</span></div></div>
+  <div class="table-wrap"><table class="construction-table"><thead><tr><th>หมวดหมู่เนื้อหา</th><th>หลักสูตร</th><th>รุ่น</th><th>วันจัดอบรม</th><th>วิทยากร</th><th>สถานะ</th></tr></thead><tbody>
+  <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>การทำงานของเสาเข็ม (Piling)</td><td>1</td><td>10 มี.ค. 2569</td><td>คุณอดิเทพและทีม</td><td><span class="status done">จัดแล้ว</span></td></tr>
+  <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>การทำงานของเสาเข็ม (Piling)</td><td>2</td><td>24 มี.ค. 2569</td><td>คุณอดิเทพและทีม</td><td><span class="status done">จัดแล้ว</span></td></tr>
+  <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>Temporary Structure Design</td><td>1</td><td>12 พ.ค. 2569</td><td>คุณอดิเทพและทีม</td><td><span class="status done">จัดแล้ว</span></td></tr>
+  <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>Temporary Structure Design</td><td>2</td><td>19 พ.ค. 2569</td><td>คุณอดิเทพและทีม</td><td><span class="status done">จัดแล้ว</span></td></tr>
+  <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>Soil Protection</td><td>1</td><td>4 ก.ย. 2569</td><td>Altemtech</td><td><span class="status done">จัดแล้ว</span></td></tr>
+  <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>Soil Protection</td><td>2</td><td>18 ก.ย. 2569</td><td>คุณนครินทร์และทีม</td><td><span class="status done">จัดแล้ว</span></td></tr>
+  <tr><td><span class="category-pill cat-system">งานระบบ</span></td><td>ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น</td><td>1</td><td>29 ต.ค. 2569</td><td>คุณจรัญและทีม</td><td><span class="status done">จัดแล้ว</span></td></tr>
+  <tr><td><span class="category-pill cat-system">งานระบบ</span></td><td>ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น</td><td>2</td><td>10 พ.ย. 2569</td><td>คุณจรัญและทีม</td><td><span class="status pending">กำลังเตรียม</span></td></tr>
+  <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>RC Structure</td><td>1</td><td>20 พ.ย. 2569</td><td>คุณนครินทร์และทีม</td><td><span class="status pending">กำลังเตรียม</span></td></tr>
+  <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>RC Structure</td><td>2</td><td>30 พ.ย. 2569</td><td>คุณนครินทร์และทีม</td><td><span class="status pending">กำลังเตรียม</span></td></tr>
+  <tr><td><span class="category-pill cat-system">งานระบบ</span></td><td>งานตรวจสอบการติดตั้งและ Combine แบบ</td><td>1</td><td>18 ธ.ค. 2569</td><td>คุณจรัญและคุณไฟท์</td><td><span class="status pending">กำลังเตรียม</span></td></tr>
+  <tr><td><span class="category-pill cat-system">งานระบบ</span></td><td>งานตรวจสอบการติดตั้งและ Combine แบบ</td><td>2</td><td>24 ธ.ค. 2569</td><td>คุณหนุ่ย / คุณไนน์ / คุณกอล์ฟ</td><td><span class="status pending">กำลังเตรียม</span></td></tr>
+  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Wet Work 1</td><td>1</td><td>ปี 2570</td><td>คุณสมชัย</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
+  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Wet Work 2</td><td>1</td><td>รอระบุวัน</td><td>คุณกฤษณะ</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
+  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Dry Work</td><td>1</td><td>รอระบุวัน</td><td>คุณนัทธี</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
+  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Room Handover</td><td>1</td><td>รอระบุวัน</td><td>คุณสุริยา</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
+  </tbody></table></div>
+</div>
+<div class="section-title">ผลสอบภาพรวม (First Attempt)</div>
+<div class="exam-grid">
+ <div class="panel"><h3>ภาพรวมผลสอบจากฐานข้อมูลล่าสุด</h3>
+  <div class="exam-stat-grid">
+   <div class="exam-stat"><small>รายการผลสอบ</small><strong>212</strong><small>5 หลักสูตร</small></div>
+   <div class="exam-stat"><small>PASS</small><strong>127</strong><small>59.9%</small></div>
+   <div class="exam-stat"><small>FAIL</small><strong style="color:#d97706">85</strong><small>40.1%</small></div>
+  </div>
+  <div class="exam-bar"><div class="exam-pass" style="width:59.9%"></div><div class="exam-fail" style="width:40.1%"></div></div>
+  <p class="exam-note" style="margin-top:12px">ใช้สถานะผลสอบและเกณฑ์ PASS/FAIL ตามที่บันทึกในไฟล์ผลทดสอบ ไม่คำนวณเกณฑ์ผ่านใหม่ และนับ 1 แถวเป็น 1 รายการเข้าสอบ</p>
+ </div>
+ <div class="panel"><h3>ผลสอบแยกตามหมวดหมู่เนื้อหา</h3>
+  <div class="exam-bars">
+   <div><b>งานโครงสร้าง</b><div class="exam-bar-row"><span>PASS 105 / FAIL 38 · 143 รายการ</span><div class="exam-bar"><div class="exam-pass" style="width:73.4%"></div><div class="exam-fail" style="width:26.6%"></div></div><b>73.4%</b></div></div>
+   <div><b>งานระบบ (MEP)</b><div class="exam-bar-row"><span>PASS 9 / FAIL 7 · 16 รายการ</span><div class="exam-bar"><div class="exam-pass" style="width:56.3%"></div><div class="exam-fail" style="width:43.7%"></div></div><b>56.3%</b></div></div>
+   <div><b>หลักสูตรอื่นในฐานข้อมูล (Microsoft Project)</b><div class="exam-bar-row"><span>PASS 13 / FAIL 40 · 53 รายการ</span><div class="exam-bar"><div class="exam-pass" style="width:24.5%"></div><div class="exam-fail" style="width:75.5%"></div></div><b>24.5%</b></div></div>
+  </div>
+  <p class="exam-note">Microsoft Project แสดงแยกต่างหากเพื่อให้ยอดรวม 212 รายการตรงกับฐานข้อมูล ไม่จัดเข้าหมวดงานโครงสร้างหรืองานระบบ</p>
+ </div>
+</div>
+<div class="panel" style="margin-top:14px"><h3>กราฟผสมผลสอบรายหลักสูตร · จำนวน PASS/FAIL และอัตราผ่าน</h3>
+ <div class="table-wrap"><table><thead><tr><th>หมวดหมู่เนื้อหา</th><th>หลักสูตร</th><th>PASS</th><th>FAIL</th><th>จำนวนสอบ</th><th>อัตราผ่าน</th><th>ภาพเปรียบเทียบ</th></tr></thead><tbody>
+ <tr><td>งานโครงสร้าง</td><td>Piling Work</td><td>31</td><td>34</td><td>65</td><td>47.7%</td><td><div class="exam-bar"><div class="exam-pass" style="width:47.7%"></div><div class="exam-fail" style="width:52.3%"></div></div></td></tr>
+ <tr><td>งานโครงสร้าง</td><td>Temporary</td><td>31</td><td>1</td><td>32</td><td>96.9%</td><td><div class="exam-bar"><div class="exam-pass" style="width:96.9%"></div><div class="exam-fail" style="width:3.1%"></div></div></td></tr>
+ <tr><td>งานโครงสร้าง</td><td>Soil</td><td>43</td><td>3</td><td>46</td><td>93.5%</td><td><div class="exam-bar"><div class="exam-pass" style="width:93.5%"></div><div class="exam-fail" style="width:6.5%"></div></div></td></tr>
+ <tr><td>งานระบบ</td><td>MEP</td><td>9</td><td>7</td><td>16</td><td>56.3%</td><td><div class="exam-bar"><div class="exam-pass" style="width:56.3%"></div><div class="exam-fail" style="width:43.7%"></div></div></td></tr>
+ <tr><td>หลักสูตรอื่น</td><td>Microsoft Project</td><td>13</td><td>40</td><td>53</td><td>24.5%</td><td><div class="exam-bar"><div class="exam-pass" style="width:24.5%"></div><div class="exam-fail" style="width:75.5%"></div></div></td></tr>
+ </tbody></table></div>
+ <p class="exam-note" style="margin-top:10px">ตัวเลขรายหลักสูตรรวม 212 รายการ: งานโครงสร้าง 143 รายการ · งานระบบ 16 รายการ · Microsoft Project 53 รายการ</p>
+</div>
+<div class="panel" style="margin-top:14px"><h3>ผลสอบตามตำแหน่งงาน · จุดที่ควรติดตามและกลุ่มคะแนนเฉลี่ยสูง</h3>
+ <div class="grid2" style="margin-top:0">
+  <div><h4 style="margin:0 0 8px;color:#b45309">ตำแหน่งที่พบจำนวนไม่ผ่านสูง</h4>
+   <div class="table-wrap"><table><thead><tr><th>หลักสูตร</th><th>ตำแหน่ง</th><th>ไม่ผ่าน</th><th>ผู้สอบ</th><th>อัตราไม่ผ่าน</th></tr></thead><tbody>
+    <tr><td>Microsoft Project</td><td>วิศวกรสำนักงาน</td><td>14</td><td>20</td><td>70.0%</td></tr>
+    <tr><td>Piling Work</td><td>วิศวกรสนาม</td><td>11</td><td>25</td><td>44.0%</td></tr>
+    <tr><td>Piling Work</td><td>โฟร์แมน</td><td>7</td><td>9</td><td>77.8%</td></tr>
+    <tr><td>Microsoft Project</td><td>ผู้จัดการโครงการ</td><td>9</td><td>11</td><td>81.8%</td></tr>
+   </tbody></table></div>
+  </div>
+  <div><h4 style="margin:0 0 8px;color:#087443">ตำแหน่งที่มีคะแนนเฉลี่ยหลังเรียนสูง</h4>
+   <div class="table-wrap"><table><thead><tr><th>หลักสูตร</th><th>ตำแหน่ง</th><th>คะแนนเฉลี่ย</th><th>ผู้สอบ</th></tr></thead><tbody>
+    <tr><td>Soil</td><td>วิศวกรโครงการอาวุโส</td><td>100.0%</td><td>2</td></tr>
+    <tr><td>Soil</td><td>วิศวกรสนาม</td><td>94.4%</td><td>24</td></tr>
+    <tr><td>Temporary</td><td>วิศวกรสนาม</td><td>95.8%</td><td>16</td></tr>
+    <tr><td>Temporary</td><td>วิศวกรประมาณราคา</td><td>96.7%</td><td>2</td></tr>
+   </tbody></table></div>
+  </div>
+ </div>
+ <p class="exam-note" style="margin-top:10px">เปรียบเทียบภายในหลักสูตร เนื่องจากแต่ละหลักสูตรใช้ข้อสอบและเกณฑ์ผ่านต่างกัน กลุ่มที่มีผู้สอบน้อยควรอ่านผลอย่างระมัดระวัง</p>
+</div>
+<div class="section-title">ความคิดเห็นจากการประเมินหลักสูตรมาตรฐานงานก่อสร้างแบ่งตามหมวดเนื้อหา</div>
+<div class="feedback-category-grid">
+ <div class="feedback-category"><h3><span class="category-pill cat-structure">งานโครงสร้าง</span></h3><p>สรุปความคิดเห็นเฉพาะจากแบบประเมินที่มีข้อมูลในไฟล์ชุดนี้ยังไม่เพียงพอสำหรับยกตัวอย่างคำพูดรายหลักสูตร จึงไม่สร้างข้อความตัวอย่างขึ้นเอง</p></div>
+ <div class="feedback-category"><h3><span class="category-pill cat-system">งานระบบ</span></h3><p>ในไฟล์ผลทดสอบมีข้อมูลคะแนน MEP แต่ไม่พบชุดความคิดเห็นประเมินที่เชื่อมโยงกับงานระบบและงานตรวจสอบการติดตั้งอย่างครบถ้วน จึงเว้นข้อความไว้เพื่อรอข้อมูลต้นทาง</p></div>
+</div>
+</section>
+
+<section class="page" id="dsd">
+<div class="panel dsd-progress-panel">
+<h3>DSD Progress</h3>
+<div class="dsd-progress-cards">
+<div><div class="k-label">ส่งเข้าระบบแล้ว</div><div class="k-value" style="color:#14823b">371</div><div class="k-note">เพิ่มจากเดิม 126 (+245)</div></div>
+<div><div class="k-label">รอเข้าระบบ</div><div class="k-value" style="color:#75b889">200</div><div class="k-note">คาดว่าจะเพิ่ม</div></div>
+<div><div class="k-label">สำรอง/รอแก้ไข</div><div class="k-value" style="color:#f59e0b">167</div><div class="k-note">ไม่นับใน Progress</div></div>
+</div>
+<div class="dsd-progress-line"><span>เป้าหมาย 50%</span><div class="dsd-track"><div class="dsd-fill" style="width:61.6%"></div></div><b>61.6%</b></div>
+<div class="small dsd-progress-note">371 / 602 คน · หาก 200 คนเข้าระบบครบ คาดการณ์ 94.9% (571 / 602)</div>
+</div>
+
+<div class="panel dsd-breakdown-panel">
+<h3>ภาพรวมสถานะ DSD</h3>
+<div class="dsd-breakdown">
+<div class="dsd-donut" role="img" aria-label="กราฟวงกลมสถานะ DSD: ส่งเข้าระบบแล้ว 371 คน รอเข้าระบบ 200 คน สำรองหรือรอแก้ไข 167 คน">
+<div class="dsd-donut-center"><strong>738</strong><span>รวมทั้งหมด</span></div>
+</div>
+<div class="dsd-legend">
+<div><i style="background:#14823b"></i><span>ส่งเข้าระบบแล้ว</span><strong>371</strong><small>50.3%</small></div>
+<div><i style="background:#75b889"></i><span>รอเข้าระบบ</span><strong>200</strong><small>27.1%</small></div>
+<div><i style="background:#f59e0b"></i><span>สำรอง/รอแก้ไข</span><strong>167</strong><small>22.6%</small></div>
+<p class="small">กราฟแสดงสัดส่วนทั้ง 3 กลุ่ม โดยกลุ่มสำรอง/รอแก้ไขไม่นับใน Progress</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="page" id="data">
+<div class="panel"><h3>แก้ไขข้อมูล Dashboard</h3><p class="small">แก้ไขข้อมูลตัวอย่างในช่องด้านล่างแล้วกด “นำเข้าข้อมูลใหม่” เพื่อปรับตารางและกราฟที่รองรับ หรือดาวน์โหลดไฟล์นี้เก็บเป็นสำเนาได้ ข้อมูลที่แก้ไขในหน้าเว็บจะอยู่ในไฟล์/แท็บปัจจุบันเท่านั้น</p>
+<div class="toolbar"><b>ข้อมูลความพึงพอใจ (CSV: หลักสูตร,ผู้เรียน,ผู้ตอบ,วิทยากร,เนื้อหา,สถานที่,ภาพรวม)</b><button class="btn primary" onclick="applyData()">นำเข้าข้อมูลใหม่</button></div>
+<textarea id="editSat"></textarea><div class="toolbar" style="margin-top:12px"><button class="btn" onclick="downloadPage()">ดาวน์โหลดเว็บไซต์ HTML</button><button class="btn" onclick="window.print()">พิมพ์ / บันทึก PDF</button></div>
+<p class="small">เพื่อแก้ไขฐานข้อมูล DSD และแผนอบรมทั้งหมด สามารถแก้ไขตารางในโค้ด HTML ได้ด้วยโปรแกรมแก้ไขข้อความ เช่น VS Code หรือ Notepad++</p></div>
+</section>
+</main><footer>VISSAVAPAT • HRD Executive Dashboard 2026 • Internal Management View</footer>
+<script>
+const satisfaction=[
+["MEP เบื้องต้น รุ่น 1",28,18,4.58,4.53,4.67,4.59],["Piling Work รุ่น 1",25,18,4.49,4.54,4.28,4.44],["Piling Work รุ่น 2",40,31,4.47,4.31,4.10,4.31],["Temporary รุ่น 1",23,11,4.75,4.73,4.48,4.64],["Temporary รุ่น 2",26,12,4.60,4.64,4.35,4.52],["Art of the Deal",22,21,4.88,4.86,4.37,4.69],["Soil Protection รุ่น 1",26,25,4.75,4.71,4.50,4.65],["Soil Protection รุ่น 2",23,19,4.67,4.68,4.54,4.63],["MS Project รุ่น 1",22,14,4.51,4.44,4.50,4.57],["MS Project รุ่น 2",24,19,4.12,4.13,4.09,3.83],["AI for Construction",29,27,4.46,4.37,3.69,4.18]];
+const dsd=[
+["AI for Construction & BOQ","26-11-69","รอส่งแก้ไข",7,9,""],["การแก้ไขปัญหาและการตัดสินใจอย่างเป็นระบบ","09-12-69","รอส่งแก้ไข",0,1,""],["Safe Lifting/Handling Materials รุ่น 5","28-11-69","รอส่งแก้ไข",25,25,"พัทยา แทนรุ่น 2"],["Safe Lifting/Handling Materials รุ่น 6","30-11-69","รอส่งแก้ไข",25,25,"อุดมสุข แทนรุ่น 1"],["Safe Lifting/Handling Materials รุ่น 7","01-12-69","รอส่งแก้ไข",25,25,"เจเจ แทนรุ่น 3"],["MEP เบื้องต้น รุ่น 1","28-11-69","รอส่งแก้ไข",25,25,""],["MEP เบื้องต้น รุ่น 2","30-11-69","รอส่งแก้ไข",25,25,""],["Safe Lifting/Handling Materials รุ่น 1","16-10-69","ส่งไม่ได้","","",""],["Safe Lifting/Handling Materials รุ่น 2","17-10-69","ส่งไม่ได้","","",""],["Safe Lifting/Handling Materials รุ่น 3","24-10-69","ส่งไม่ได้","","",""]];
+function rating(v){return v>=4.5?"มากที่สุด":v>=3.5?"มาก":v>=2.5?"ปานกลาง":v>=1.5?"น้อย":"น้อยที่สุด"}
+function ratingColor(v){return v>=4.5?"#14823b":v>=3.5?"#65a30d":v>=2.5?"#f59e0b":v>=1.5?"#ea580c":"#dc2626"}
+function renderSat(){document.querySelector("#satTable tbody").innerHTML=satisfaction.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${(r[2]/r[1]*100).toFixed(1)}%</td><td>${r[3].toFixed(2)}</td><td>${r[4].toFixed(2)}</td><td>${r[5].toFixed(2)}</td><td><b>${r[6].toFixed(2)}</b></td><td><span class="status" style="background:${ratingColor(r[6])}18;color:${ratingColor(r[6])}">${rating(r[6])}</span></td></tr>`).join("");
+document.getElementById("satisfactionBars").innerHTML=satisfaction.map(r=>`<div class="bar-row"><span>${r[0]}</span><div class="track"><div class="fill" style="width:${r[6]*20}%;background:${ratingColor(r[6])}"></div></div><b>${r[6].toFixed(2)}</b></div>`).join("")}
+function renderDsd(){if(!document.querySelector("#dsdTable")) return;document.querySelector("#dsdTable").innerHTML=dsd.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td><span class="status ${r[2]==="รอส่งแก้ไข"?"pending":"blocked"}">${r[2]}</span></td><td>${r[3]||"-"}</td><td>${r[4]||"-"}</td><td>${(Number(r[3])||0)+(Number(r[4])||0)||"-"}</td><td>${r[5]}</td></tr>`).join("")}
+function renderConstruction(){let a=[["Piling Work รุ่น 1",4.44],["Piling Work รุ่น 2",4.31],["Temporary รุ่น 1",4.64],["Temporary รุ่น 2",4.52],["Soil Protection รุ่น 1",4.65],["Soil Protection รุ่น 2",4.63]];document.getElementById("constructionBars").innerHTML=a.map(r=>`<div class="bar-row"><span>${r[0]}</span><div class="track"><div class="fill" style="width:${r[1]*20}%;background:${ratingColor(r[1])}"></div></div><b>${r[1].toFixed(2)}</b></div>`).join("")}
+function monthBars(){
+const items=[
+["ต.ค.","09 ต.ค.","ผู้บังคับปั้นจั่น ผู้ให้สัญญาณแก่ผู้บังคับปั้นจั่น ผู้ยึดเกาะวัสดุ และทบทวน รุ่น 2","Completed"],
+["ต.ค.","16 ต.ค.","ข้อกำหนดและกฎหมายอาคารสูง","Completed"],
+["ต.ค.","21 ต.ค.","AI for Construction & BOQ","Completed"],
+["ต.ค.","29 ต.ค.","ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น รุ่น 1","Completed"],
+["พ.ย.","10 พ.ย.","ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น รุ่น 2","On-process"],
+["พ.ย.","15 พ.ย.","การออกแบบโครงสร้างเหล็กด้วยวิธี Unified Method (ASD/LRFD)","On-process"],
+["พ.ย.","20 พ.ย.","Presentation Skill + Business Communication (Story telling)","On-process"]
+];
+const months=["ต.ค.","พ.ย."];
+document.getElementById("monthBars").innerHTML=months.map(m=>{
+const rows=items.filter(x=>x[0]===m);
+const done=rows.filter(x=>x[3]==="Completed").length;
+return `<section class="timeline-month-card"><header><div><b>${m} 2569</b><small>${rows.length} หลักสูตร/รุ่น</small></div><span class="month-progress">${done} เสร็จสิ้น · ${rows.length-done} กำลังดำเนินการ</span></header><div class="timeline-agenda">${rows.map(x=>{const completed=x[3]==="Completed";return `<article class="timeline-agenda-item ${completed?"is-completed":"is-progress"}"><time>${x[1]}</time><div class="agenda-course">${x[2]}<small>${completed?"Completed":"On-process"}</small></div><span class="agenda-status">${completed?"เสร็จสิ้น":"กำลังดำเนินการ"}</span></article>`}).join("")}</div></section>`
+}).join("");
+}
+document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.getElementById(b.dataset.page).classList.add("active")}));
+["month","statusFilter","category","format"].forEach(id=>document.getElementById(id).addEventListener("change",()=>{document.getElementById("updated").textContent="ตัวกรองที่เลือก: "+[...document.querySelectorAll(".filters select")].map(x=>x.value||"ทั้งหมด").join(" • ")}));
+function applyData(){let lines=document.getElementById("editSat").value.trim().split(/\n/).filter(Boolean);let rows=lines.map(x=>x.split(",")).filter(x=>x.length>=7);if(rows.length){satisfaction.splice(0,satisfaction.length,...rows.map(r=>[r[0],+r[1],+r[2],+r[3],+r[4],+r[5],+r[6]]));renderSat();alert("อัปเดตข้อมูลความพึงพอใจแล้ว");}}
+function downloadPage(){let blob=new Blob(["<!DOCTYPE html>\n"+document.documentElement.outerHTML],{type:"text/html;charset=utf-8"});let a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="VISSAVAPAT_HRD_Dashboard_2026.html";a.click();URL.revokeObjectURL(a.href)}
+monthBars();renderSat();renderDsd();renderConstruction();
+document.getElementById("editSat").value=satisfaction.map(r=>r.join(",")).join("\n");
+</script></body></html>
