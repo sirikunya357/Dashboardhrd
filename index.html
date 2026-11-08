@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,nofollow">
 <title>VISSAVAPAT | HRD Executive Dashboard 2026</title>
 <style>
 :root{--green:#14823b;--deep:#08652d;--pale:#e8f4ec;--orange:#f59e0b;--red:#dc6b35;--ink:#193126;--muted:#6b7b72;--line:#e3ebe5;--bg:#f5f8f6;--white:#fff}
@@ -13,7 +13,7 @@ nav{display:flex;gap:8px;padding:12px 24px;background:#fff;border-bottom:1px sol
 nav button,.btn{border:0;border-radius:9px;padding:10px 15px;background:#f0f5f1;color:#315341;cursor:pointer;font-weight:650;white-space:nowrap}
 nav button.active,.btn.primary{background:var(--green);color:white}
 main{max-width:1440px;margin:auto;padding:20px 24px 40px}
-.filters{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+
 label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}select,input{width:100%;padding:10px;border:1px solid #dbe5dd;border-radius:8px;background:#fff;color:var(--ink)}
 .page{display:none}.page.active{display:block}.section-title{font-size:18px;font-weight:750;margin:20px 0 12px}
 .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.card,.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 3px 12px #153d2010}
@@ -24,8 +24,8 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}select,i
 .bar-list{display:grid;gap:12px}.bar-row{display:grid;grid-template-columns:minmax(110px,1.1fr) 3fr 42px;gap:10px;align-items:center;font-size:12px}.track{height:12px;background:#edf2ee;border-radius:20px;overflow:hidden}.fill{height:100%;border-radius:20px;background:var(--green)}
 table{border-collapse:collapse;width:100%;font-size:12px;min-width:720px}th,td{padding:10px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f1f7f2;color:#315341;position:sticky;top:0}td.num{text-align:right;font-variant-numeric:tabular-nums}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px}
 .status{display:inline-block;padding:4px 8px;border-radius:30px;font-size:11px;font-weight:700;white-space:nowrap}.done{background:#e4f3e8;color:#087332}.pending{background:#fff0d5;color:#a65c00}.blocked{background:#fde8df;color:#b94b22}.neutral{background:#edf1ee;color:#52645a}
-.gauge{width:220px;height:120px;position:relative;overflow:hidden;margin:auto}.gauge:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:conic-gradient(from 270deg,#14823b calc(var(--pct)*1.8deg),#facc15 0);top:0}.gauge:after{content:"";position:absolute;width:150px;height:150px;background:white;border-radius:50%;top:35px;left:35px}.gauge-label{position:absolute;z-index:1;bottom:0;left:0;right:0;text-align:center}.gauge-label b{font-size:28px}
-.gauge-split{display:flex;justify-content:center;gap:18px;margin-top:8px;font-size:12px}.gauge-split span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;background:var(--c)}
+.gauge{width:220px;height:120px;position:relative;overflow:hidden;margin:auto}.gauge:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:conic-gradient(from 270deg,#14823b 0deg calc(var(--pct)*1.8deg),#facc15 calc(var(--pct)*1.8deg) calc(var(--pct2)*1.8deg),#cbd5d0 calc(var(--pct2)*1.8deg) 180deg,transparent 180deg 360deg);top:0}.gauge:after{content:"";position:absolute;width:150px;height:150px;background:white;border-radius:50%;top:35px;left:35px}.gauge-label{position:absolute;z-index:1;bottom:0;left:0;right:0;text-align:center}.gauge-label b{font-size:28px}
+.gauge-split{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 18px;margin-top:8px;font-size:12px}.gauge-split span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;background:var(--c)}
 .budget-layout{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}.funnel-visual{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0}.funnel-level{height:48px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:750;clip-path:polygon(0 0,100% 0,84% 100%,16% 100%);min-width:145px}.period-bars{display:grid;gap:14px}.period-row{display:grid;grid-template-columns:95px 1fr 42px;gap:10px;align-items:center;font-size:12px}.period-track{height:18px;background:#edf2ee;border-radius:20px;overflow:hidden}.period-fill{height:100%;background:var(--green);border-radius:20px}.budget-funnel{display:grid;gap:13px;align-content:center}.funnel-row{display:grid;grid-template-columns:105px 1fr auto;gap:9px;align-items:center;font-size:12px}.funnel-track{height:24px;background:#f3f4f3;border-radius:5px;overflow:hidden}.funnel-fill{height:100%;border-radius:5px}.timeline-list{display:grid;gap:9px}.timeline-month{display:grid;grid-template-columns:90px 1fr;gap:12px;align-items:start}.timeline-month b{padding-top:8px;color:var(--deep)}.timeline-items{display:flex;flex-wrap:wrap;gap:7px}.timeline-item{border-left:4px solid var(--tag);background:color-mix(in srgb,var(--tag) 10%,white);border-radius:7px;padding:7px 10px;font-size:12px;min-width:170px}.timeline-item strong{display:block}.timeline-item small{color:var(--muted)}
 @media(max-width:850px){.budget-layout{grid-template-columns:1fr}.timeline-month{grid-template-columns:1fr}}
 .small{font-size:11px;color:var(--muted)}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
@@ -37,7 +37,7 @@ footer{text-align:center;color:#829087;font-size:11px;padding:24px}
 .dsd-breakdown-panel{margin-top:14px}
 .dsd-breakdown-panel h3{margin:0 0 16px;font-size:17px}
 .dsd-breakdown{display:flex;align-items:center;justify-content:center;gap:44px;padding:8px 12px 14px;flex-wrap:wrap}
-.dsd-donut{width:190px;height:190px;border-radius:50%;background:conic-gradient(#14823b 0deg 180.97deg,#75b889 180.97deg 278.53deg,#f59e0b 278.53deg 360deg);display:grid;place-items:center;flex:none}
+.dsd-donut{width:190px;height:190px;border-radius:50%;background:conic-gradient(#14823b 0deg 181.08deg,#75b889 181.08deg 278.65deg,#f59e0b 278.65deg 360deg);display:grid;place-items:center;flex:none}
 .dsd-donut-center{width:108px;height:108px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
 .dsd-donut-center strong{font-size:27px;color:#123b2a}
 .dsd-donut-center span{font-size:12px;color:#718078}
@@ -46,8 +46,8 @@ footer{text-align:center;color:#829087;font-size:11px;padding:24px}
 .dsd-legend i{width:10px;height:10px;border-radius:3px}
 .dsd-legend strong{text-align:right;font-size:14px}
 .dsd-legend small{text-align:right;color:#718078}
-.dsd-legend p{margin:5px 0 0}
-@media(max-width:600px){.dsd-breakdown{gap:22px}.dsd-donut{width:165px;height:165px}.dsd-legend{min-width:100%;width:100%}}
+.dsd-legend p{margin:5px 0 0}.dsd-pie{width:190px;height:190px;border-radius:50%;background:conic-gradient(#14823b 0deg 181.08deg,#75b889 181.08deg 278.65deg,#f59e0b 278.65deg 360deg);flex:none}
+@media(max-width:600px){.training-type-chart{flex-wrap:wrap}.training-type-legend{min-width:100%;width:100%}.dsd-breakdown{gap:22px}.dsd-donut{width:165px;height:165px}.dsd-pie{width:165px;height:165px}.dsd-legend{min-width:100%;width:100%}}
 
 /* Overview-only DSD summary styles */
 .overview-dsd-panel{padding:18px}
@@ -62,12 +62,12 @@ footer{text-align:center;color:#829087;font-size:11px;padding:24px}
 @media(max-width:650px){.overview-dsd-stats{gap:8px}.overview-dsd-stats strong{font-size:27px}.overview-dsd-progress{grid-template-columns:1fr 2fr 48px;gap:7px}}
 
 /* Overview visual refinement: training type pie + readable monthly agenda */
-.training-type-chart{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;padding:12px 4px}
-.training-pie{width:190px;height:190px;border-radius:50%;background:conic-gradient(#14823b 0deg 101.74deg,#75b889 101.74deg 195.65deg,#f4b544 195.65deg 219.13deg,#8ca5a0 219.13deg 360deg);display:grid;place-items:center;flex:none}
+.training-type-chart{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:nowrap;padding:12px 4px;min-width:0}
+.training-pie{width:148px;height:148px;border-radius:50%;background:conic-gradient(#14823b 0deg 101.74deg,#75b889 101.74deg 195.65deg,#f4b544 195.65deg 219.13deg,#8ca5a0 219.13deg 360deg);display:grid;place-items:center;flex:none;position:relative}.training-pie svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.training-pie svg text{font-size:13px;font-weight:800;text-anchor:middle;dominant-baseline:middle;paint-order:stroke;stroke:rgba(0,0,0,.12);stroke-width:.7px}
 .training-pie-center{width:0;height:0;display:none}
-.training-type-legend{min-width:210px;gap:12px}
-.training-type-legend>div{display:grid;grid-template-columns:12px minmax(125px,1fr) 30px;gap:8px;align-items:center;font-size:13px}
-.training-type-legend b{text-align:right}
+.training-type-legend{min-width:0;flex:1;gap:12px}
+.training-type-legend>div{display:grid;grid-template-columns:12px minmax(0,1fr);gap:8px;align-items:center;font-size:13px}
+.training-type-legend b{display:none}
 .timeline-month-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:16px}
 .timeline-month-card{background:#fff;border:1px solid #dce8e1;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(18,59,42,.05);min-width:0}
 .timeline-month-card header{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid #edf2ee;margin-bottom:6px}
@@ -182,15 +182,337 @@ footer{text-align:center;color:#829087;font-size:11px;padding:24px}
 .construction-table{min-width:940px}.construction-table th{white-space:nowrap}
 .category-pill{display:inline-block;padding:4px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap}
 .cat-structure{background:#e5f1ff;color:#245b91}.cat-system{background:#e8f5ec;color:#08783e}.cat-architecture{background:#fff2d9;color:#946000}
-.exam-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.exam-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:14px;min-width:0}.exam-grid>.panel,.exam-grid .panel{min-width:0;max-width:100%}
 .exam-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
 .exam-stat{background:#f5f8f6;border-radius:10px;padding:12px}.exam-stat strong{display:block;font-size:27px;color:#08652d}.exam-stat small{color:var(--muted)}
 .exam-bars{display:grid;gap:12px;margin:12px 0}.exam-bar-row{display:grid;grid-template-columns:minmax(120px,1.1fr) 3fr 48px;gap:9px;align-items:center;font-size:12px}
-.exam-bar{height:13px;background:#edf2ee;border-radius:20px;overflow:hidden;display:flex}.exam-pass{height:100%;background:#14823b}.exam-fail{height:100%;background:#f59e0b}
-.exam-note{font-size:11px;color:var(--muted);background:#f5f8f6;border-radius:9px;padding:10px 12px;line-height:1.55}
+.exam-bar{height:16px;background:#edf2ee;border-radius:20px;overflow:hidden;display:flex}.exam-pass,.exam-fail{height:100%;display:flex;align-items:center;justify-content:center;white-space:nowrap}.exam-pass{background:#14823b;color:#fff}.exam-fail{background:#f59e0b;color:#fff}.exam-bar-label{font-size:11px;font-weight:800;line-height:1;padding:0 4px}
+.exam-note{font-size:11px;color:var(--muted);background:#f5f8f6;border-radius:9px;padding:10px 12px;line-height:1.55}.exam-position-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:0;min-width:0}.exam-position-grid>div{min-width:0}.exam-position-grid .table-wrap{width:100%;max-width:100%;min-width:0;overflow-x:auto}.exam-position-grid table{width:100%;min-width:0;table-layout:fixed}.exam-position-grid th,.exam-position-grid td{overflow-wrap:anywhere;padding:9px 7px}.exam-note-combined{max-width:100%;min-width:0;overflow-wrap:anywhere}.exam-note-combined ol{padding-left:20px;margin-left:8px}
 .feedback-category-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.feedback-category{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}.feedback-category h3{margin:0 0 8px;font-size:15px}.feedback-category p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
 @media(max-width:850px){.construction-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.construction-groups,.exam-grid,.feedback-category-grid{grid-template-columns:1fr}}
 
+
+/* Overview: annual actual vs budget stacked-column comparison */
+.actual-budget-panel h3{margin-bottom:10px}
+.actual-budget-chart{height:245px;display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;padding:8px 8px 0}
+.ab-axis{display:flex;flex-direction:column;justify-content:space-between;text-align:right;color:#718078;font-size:10px;padding:0 0 28px}
+.ab-plot{position:relative;min-width:0;height:100%;padding-bottom:28px}
+.ab-gridlines{position:absolute;inset:0 0 28px;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none}
+.ab-gridlines i{display:block;border-top:1px solid #e8eeea;width:100%}
+.ab-columns{position:absolute;inset:0 0 28px;display:flex;align-items:flex-end;justify-content:center;gap:clamp(35px,10vw,110px)}
+.ab-column-wrap{height:100%;width:min(24%,110px);min-width:75px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative}
+.ab-column{width:62px;max-width:100%;display:flex;flex-direction:column-reverse;justify-content:flex-start;position:relative;border-radius:5px 5px 0 0;overflow:hidden}
+.ab-actual{background:#d96b91}
+.ab-segment{width:100%;flex:none}
+.ab-course{background:#d96b91}.ab-food{background:#f0a2b8}.ab-break{background:#f6cbd7}
+.ab-budget{background:#dce4df;border:2px solid #aab9b0;justify-content:center;align-items:center;color:#486155;font-weight:750;font-size:12px}
+.ab-value{font-size:11px;color:#183b2c;white-space:nowrap;margin-top:5px}
+.ab-label{position:absolute;bottom:-26px;font-size:12px;font-weight:700;color:#315341}
+.ab-legend{display:flex;justify-content:center;gap:10px 18px;flex-wrap:wrap;font-size:11px;margin:10px 0 4px}
+.ab-legend span{display:flex;align-items:center;gap:5px;white-space:nowrap}.ab-legend i{display:inline-block;width:10px;height:10px;border-radius:2px}
+.ab-summary{text-align:center;font-size:12px;color:#66786f;margin-top:7px}
+@media(max-width:600px){.training-type-chart{flex-wrap:wrap}.training-type-legend{min-width:100%;width:100%}.actual-budget-chart{grid-template-columns:70px minmax(0,1fr);padding-left:0;padding-right:0}.ab-columns{gap:24px}.ab-column{width:48px}.ab-value{font-size:9px}.ab-legend{justify-content:flex-start}}
+
+
+/* Overview refinement */
+.grid3{display:grid;grid-template-columns:1.08fr 1fr 1fr;gap:14px;margin-bottom:14px;align-items:stretch}
+.overview-top-charts .panel{min-width:0;min-height:280px}
+.actual-budget-chart{height:250px;gap:12px}.ab-plot{height:220px}.ab-column-wrap{width:112px}.ab-column{width:76px}.ab-value{font-size:12px}.ab-label{font-size:12px}
+.format-summary{display:flex;align-items:center;justify-content:center;gap:18px;min-height:205px}
+.format-ring{width:148px;height:148px;border-radius:50%;background:conic-gradient(#0b4778 0deg 109.57deg,#2498df 109.57deg 164.35deg,#80c63b 164.35deg 258.26deg,#f4b544 258.26deg 360deg);display:block;flex-shrink:0;position:relative}.format-ring svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.format-ring svg text{font-size:18px;font-weight:750;fill:#fff;text-anchor:middle;dominant-baseline:middle;paint-order:stroke;stroke:rgba(0,0,0,.12);stroke-width:1px}
+.format-ring:after{display:none}
+.format-ring span{display:none}
+.format-legend{font-size:12px;gap:12px}.format-legend>div{display:flex;align-items:center;gap:7px}
+.period-row{grid-template-columns:92px 1fr 28px 92px;gap:10px}.period-unit{font-size:11px;color:#61746c;white-space:nowrap}
+.section-title{font-size:16px;font-weight:750;color:#153b2b}
+@media(max-width:900px){.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.format-summary{justify-content:flex-start}}
+@media(max-width:700px){.grid3{grid-template-columns:1fr}}
+
+
+/* Overview: DSD gauge and quarterly results */
+.overview-bottom-grid{display:grid;grid-template-columns:minmax(300px,.88fr) minmax(480px,1.42fr);gap:14px;margin-top:14px;align-items:stretch}
+.overview-dsd-gauge-panel,.quarterly-report-panel{min-height:275px}
+.dsd-gauge-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;margin:8px auto 12px}
+.dsd-gauge{width:220px;height:112px;position:relative;overflow:hidden;border-radius:220px 220px 0 0;background:conic-gradient(from 270deg at 50% 100%,#087f43 0deg 110.9deg,#e5ece8 110.9deg 180deg,transparent 180deg)}
+.dsd-gauge-inner{position:absolute;left:20px;right:20px;bottom:0;height:91px;border-radius:180px 180px 0 0;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:9px;gap:3px}
+.dsd-gauge-inner b{font-size:27px;color:#087f43;line-height:1.1}
+.dsd-gauge-inner span{font-size:11px;color:#52645d}
+.dsd-gauge-caption{text-align:center;margin-top:6px}
+.dsd-projection-track{height:12px;border-radius:20px;overflow:hidden;background:#e6eeea;display:flex;margin:8px 0}
+.dsd-projection-sent{width:61.63%;background:#087f43}
+.dsd-projection-wait{width:33.22%;background:#9bd4ad}
+.dsd-projection-gap{width:5.15%;background:#e6eeea}
+.dsd-projection-legend,.quarterly-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:#53665e}
+.dsd-projection-legend span,.quarterly-legend span{display:inline-flex;align-items:center;gap:5px}
+.dsd-projection-legend i,.quarterly-legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.quarterly-legend{margin:10px 0 14px}
+.quarterly-bars{display:flex;flex-direction:column;gap:13px}
+.quarter-row{display:grid;grid-template-columns:76px minmax(100px,1fr) 28px minmax(180px,1.05fr);gap:10px;align-items:center;font-size:12px}
+.quarter-row> b{color:#173d30}
+.quarter-row>strong{text-align:right;color:#173d30;font-size:13px}
+.quarter-row small{color:#64766e;font-size:11px}
+.quarter-track{height:15px;background:#edf2ef;border-radius:20px;overflow:hidden;display:flex}
+.quarter-done{height:100%;background:#14823b;border-radius:20px 0 0 20px}
+.quarter-progress{height:100%;background:#f4bd38}
+.quarterly-footnote{font-size:11px;color:#667970;border-top:1px solid #edf1ee;padding-top:10px;margin-top:14px}
+.format-legend>div{display:flex;align-items:center;gap:7px}
+.format-legend>div b{margin-left:auto;color:#173d30}
+@media(max-width:900px){.overview-bottom-grid{grid-template-columns:1fr}.quarter-row{grid-template-columns:70px minmax(70px,1fr) 24px}.quarter-row small{grid-column:2/4}}
+
+/* Readability adjustment: increase dashboard typography without changing layout or data */
+body{font-size:15px}
+.panel h3{font-size:17px}
+.k-label,label,.k-note,.sub,.header-right{font-size:14px}
+.training-type-legend,.format-legend{font-size:14px}
+.training-type-legend>div,.format-legend>div{font-size:14px}
+.training-pie svg text{font-size:15px}
+.timeline-month-card header small,.month-progress{font-size:13px}
+.timeline-agenda-item time{font-size:14px}
+.agenda-course{font-size:14px}
+.agenda-course small{font-size:12px}
+.agenda-status{font-size:12px}
+.small,footer{font-size:12px}
+
+
+/* Skill-category pie chart: larger, clearer title, legend and in-slice percentages */
+.training-type-card h3,
+.skill-type-card h3,
+#trainingTypeChartTitle {font-size:20px !important; line-height:1.35}
+.training-type-card .legend,
+.skill-type-card .legend,
+.training-type-card .chart-legend,
+.skill-type-card .chart-legend,
+.training-type-card .legend-item,
+.skill-type-card .legend-item {font-size:17px !important; line-height:1.5}
+.training-type-card svg text,
+.skill-type-card svg text {font-size:15px !important; font-weight:700}
+
+
+/* Enlarge only the percentage labels inside the skill-category pie chart */
+.training-type-card svg text,
+.skill-type-card svg text,
+#trainingTypeChart svg text {
+  font-size: 19px !important;
+  font-weight: 800 !important;
+}
+
+
+
+/* Page 03: paired PASS/FAIL columns and rate line */
+.exam-chart-legend{display:flex;gap:18px;flex-wrap:wrap;margin:8px 0 4px;font-size:12px;color:#42584b}
+.exam-chart-legend span{display:inline-flex;align-items:center;gap:7px}
+.exam-chart-legend i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.exam-combo-chart{width:100%;min-width:720px;height:auto;display:block}
+.feedback-category{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px}
+.feedback-category .feedback-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.feedback-category .feedback-highlight{padding:13px;border-radius:10px}
+.feedback-next-list{margin:8px 0 0;padding-left:20px;line-height:1.9;font-size:12px;color:#344b3d}
+@media(max-width:850px){.feedback-category .feedback-summary-grid{grid-template-columns:1fr}}
+
+
+.exam-date{font-size:13px;color:#64756b;margin-top:-5px;margin-bottom:12px;font-weight:500}
+
+/* DSD page additions: target projection and follow-up table */
+.dsd-top-grid{display:grid;grid-template-columns:1fr 1.04fr;gap:14px;align-items:stretch}
+.dsd-target-panel{padding:20px 22px;display:flex;flex-direction:column;justify-content:center;min-height:268px}
+.dsd-target-panel h3{font-size:17px;margin:0 0 12px}
+.dsd-target-number{font-size:32px;font-weight:850;color:#087f43;line-height:1.2;margin:2px 0 8px}
+.dsd-target-note{font-size:13px;color:#687b73;margin-bottom:10px}
+.dsd-target-callout{border-left:4px solid #087f43;background:#f1f7f3;border-radius:9px;padding:11px 13px;font-size:13px;margin-top:8px}
+.dsd-target-callout.warning{border-left-color:#e3a23b;background:#fff8eb}
+.dsd-course-table-panel{margin-top:14px;padding:18px}
+.dsd-course-table-panel h3{font-size:17px;margin:0 0 12px}
+.dsd-course-table-panel table{min-width:680px;font-size:13px}
+.dsd-course-table-panel th,.dsd-course-table-panel td{padding:11px 10px}
+.dsd-course-table-panel td:nth-child(2),.dsd-course-table-panel td:nth-child(4),.dsd-course-table-panel td:nth-child(5){font-variant-numeric:tabular-nums}
+.dsd-course-table-panel td:nth-child(4),.dsd-course-table-panel td:nth-child(5){text-align:center}
+.dsd-course-table-panel .status{font-size:12px}.dsd-course-table-panel .status.good{background:#e6f4eb;color:#08783d}.dsd-course-table-panel .status.pending{background:#fff3d6;color:#9a6700}.dsd-course-table-panel .status.failed{background:#fce8e6;color:#b42318}
+@media(max-width:850px){.dsd-top-grid{grid-template-columns:1fr}.dsd-target-panel{min-height:0}}
+
+</style><style>
+.page-filterbar{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr auto;gap:10px;align-items:end;background:#fff;border:1px solid #dfe9e2;border-radius:13px;padding:14px;margin:0 0 14px;box-shadow:0 3px 12px #153d2008}
+.page-filterbar label{font-size:11px;margin-bottom:4px}.page-filterbar button{padding:10px 13px;border:0;border-radius:8px;background:#eaf3ed;color:#17613a;font-weight:700;cursor:pointer}
+.page-filterbar input,.page-filterbar select{padding:9px;border:1px solid #dbe5dd;border-radius:8px;min-width:0}
+.interactive-chart{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin:0 0 14px}.interactive-chart h3{margin:0 0 10px;font-size:14px}.interactive-bars{display:grid;gap:9px}.interactive-bar{display:grid;grid-template-columns:minmax(130px,1fr) 2fr 55px;gap:9px;align-items:center;border:0;background:transparent;padding:3px 0;text-align:left;cursor:pointer;color:var(--ink);font:inherit}.interactive-bar .track{height:13px}.interactive-bar[aria-pressed=true] .fill{outline:2px solid #064d2a;outline-offset:2px}.filter-note{font-size:11px;color:#687b73;margin-top:8px}.page-filterbar .filter-count{font-size:11px;color:#687b73;align-self:center;white-space:nowrap}
+@media(max-width:850px){.page-filterbar{grid-template-columns:repeat(2,minmax(0,1fr))}.page-filterbar .filter-count{grid-column:1/-1}}
+.format-legend small,.training-type-legend small{color:var(--muted);font-size:12px;white-space:nowrap}
+.data-check-wrap{max-height:420px}
+.quarter-pending{height:100%;background:#cbd5d0}
+.cat-pie-wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px 36px;padding:6px 0}
+.cat-pie-box{flex:none;width:260px;text-align:center}
+.cat-pie{width:260px;height:260px;display:block}
+.cat-pie [data-key]{cursor:pointer;transition:opacity .15s;outline:none}
+.cat-pie [data-key]:hover,.cat-pie [data-key]:focus-visible{opacity:.82}
+.cat-pie .is-dim{opacity:.28}
+.cat-pie text{font-size:15px;font-weight:800;text-anchor:middle;dominant-baseline:middle;pointer-events:none}
+.cat-readout{font-size:13px;color:var(--ink);margin-top:8px;min-height:40px;line-height:1.5}
+.cat-legend{flex:1 1 320px;min-width:0;max-width:560px;display:grid;gap:2px}
+.cat-legend-row{display:grid;grid-template-columns:12px minmax(0,1fr) 28px 52px;gap:9px;align-items:center;width:100%;border:0;border-radius:7px;background:transparent;padding:6px 8px;text-align:left;cursor:pointer;color:var(--ink);font:inherit;font-size:13px}
+.cat-legend-row:hover,.cat-legend-row:focus-visible{background:#f1f5f2}
+.cat-legend-row[aria-pressed=true]{background:#e8f4ec;font-weight:700}
+.cat-legend-row.is-dim{opacity:.55}
+.cat-legend-row i{width:11px;height:11px;border-radius:3px}
+.cat-legend-row b{text-align:right}
+.cat-legend-row small{text-align:right;color:var(--muted);font-size:12px}
+.cat-tail{display:flex;flex-wrap:wrap;gap:5px;padding:2px 8px 4px 29px}
+.cat-tail button{border:1px solid var(--line);border-radius:20px;background:#fff;padding:3px 9px;font:inherit;font-size:12px;color:var(--ink);cursor:pointer}
+.cat-tail button:hover,.cat-tail button:focus-visible{background:#f1f5f2}
+.cat-tail button[aria-pressed=true]{background:#e8f4ec;border-color:#14823b;font-weight:700}
+@media(max-width:600px){.cat-pie-box,.cat-pie{width:230px}.cat-pie{height:230px}.cat-legend{flex-basis:100%}}
+.page-filterbar[data-filters="overview"]{grid-template-columns:1.4fr 1fr 1fr 1fr 1fr auto}
+.training-type-chart{flex-wrap:wrap}
+.mini-pie{width:148px;height:148px;flex:none}
+.mini-pie text{font-size:14px}
+.mini-legend{flex:1 1 170px;min-width:170px;display:grid;gap:3px}
+.mini-legend-row{display:grid;grid-template-columns:10px minmax(0,1fr);gap:8px;align-items:center;width:100%;border:0;border-radius:7px;background:transparent;padding:4px 6px;text-align:left;cursor:pointer;color:var(--ink);font:inherit;font-size:13px;line-height:1.4}
+.mini-legend-row:hover,.mini-legend-row:focus-visible{background:#f1f5f2}
+.mini-legend-row[aria-pressed=true]{background:#e8f4ec;font-weight:700}
+.mini-legend-row.is-dim{opacity:.55}
+.mini-legend-row i{width:10px;height:10px;border-radius:3px}
+.mini-legend-row small{color:var(--muted);font-size:12px;font-weight:400;white-space:nowrap}
+.mini-legend .cat-readout{font-size:12px;color:var(--muted);margin:4px 6px 0;min-height:36px}
+@media(max-width:850px){.page-filterbar[data-filters="overview"]{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.is-pending time,.is-pending .agenda-status{background:#edf1ee;color:#52645a}
+.sat-group-title{display:flex;align-items:center;gap:11px;margin:24px 0 12px}
+.sat-group-title>span{width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px;flex:none}
+.sat-group-title b{display:block;font-size:19px;color:#123b2a;line-height:1.3}
+.sat-group-title small{display:block;font-size:13px;color:var(--muted)}
+.sat-overview-grid{display:grid;grid-template-columns:minmax(200px,250px) minmax(0,1fr);gap:14px;align-items:start}
+.sat-overview-grid .interactive-chart{margin:0}
+@media(max-width:1000px){.sat-overview-grid{grid-template-columns:1fr}}
+.sat-participation{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sat-overview-grid .k-value,.sat-participation .k-value{font-size:34px;color:#00864b}
+.sat-rate-note{margin:10px 2px 0;font-size:13px;color:var(--muted)}
+@media(max-width:850px){.sat-overview-grid{grid-template-columns:1fr}.sat-participation{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:520px){.sat-participation{grid-template-columns:1fr}}
+.sat-kpis{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:14px}
+.sat-kpis .k-value{font-size:34px;color:#00864b}
+.sat-kpis .k-value small{font-size:15px;color:var(--muted);font-weight:600;margin-left:6px}
+.sat-score-panel{display:grid;grid-template-columns:minmax(240px,.8fr) minmax(0,1.2fr);gap:14px 32px;align-items:center;margin-bottom:14px}
+.sat-score-panel>h3{grid-column:1/-1;margin:0}
+.sat-score-panel .satisfaction-overall{flex-direction:column;align-items:flex-start;gap:10px}
+.sat-two{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px;margin-bottom:14px;align-items:start}
+.sat-two>.panel,.sat-two .interactive-chart{margin:0}
+.sat-cat-row{display:grid;grid-template-columns:11px minmax(0,1.2fr) minmax(70px,1fr) 40px;gap:10px;align-items:center;width:100%;border:0;border-radius:8px;background:transparent;padding:9px 6px;text-align:left;cursor:pointer;font:inherit;font-size:13px;color:var(--ink)}
+.sat-cat-row:hover,.sat-cat-row:focus-visible{background:#f1f5f2}
+.sat-cat-row[aria-pressed=true]{background:#e8f4ec;font-weight:700}
+.sat-cat-row.is-dim{opacity:.5}
+.sat-cat-row i{width:11px;height:11px;border-radius:3px}
+.sat-cat-row small{display:block;color:var(--muted);font-size:11px;font-weight:400}
+.sat-cat-row b{text-align:right}
+.sat-cat-row .dimension-track{display:block}
+.sat-top-list{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:11px}
+.sat-top-list li{display:grid;grid-template-columns:26px minmax(0,1.6fr) minmax(60px,1fr) 40px;gap:10px;align-items:center;font-size:13px}
+.sat-rank{width:26px;height:26px;border-radius:50%;background:#e8f4ec;color:#08783e;display:grid;place-items:center;font-weight:800;font-size:13px}
+.sat-top-name small{display:block;color:var(--muted);font-size:11px}
+.sat-top-list b{text-align:right;color:#08783e}
+.sat-low{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.sat-low>div{background:#fff5f5;border:1px solid #f4dede;border-radius:10px;padding:10px 12px}
+.sat-low small{display:block;color:var(--muted);font-size:11px}
+.sat-low b{display:block;font-size:13px;margin:2px 0;line-height:1.4}
+.sat-low strong{font-size:22px;color:#b42318}
+.sat-improve .next-action{margin-top:12px}
+.sat-detail{margin-top:14px}
+.sat-detail>summary{cursor:pointer;font-weight:700;padding:13px 16px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.sat-detail[open]>summary{margin-bottom:10px}
+@media(max-width:1000px){.sat-two{grid-template-columns:1fr}}
+@media(max-width:850px){.sat-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.sat-score-panel{grid-template-columns:1fr}.sat-low{grid-template-columns:1fr}}
+.cons-progress-panel h3{margin-bottom:8px}
+.cons-progress-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:0 0 6px}
+.cons-progress-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.cons-row{display:grid;grid-template-columns:minmax(170px,260px) minmax(120px,1fr) 56px;gap:14px;align-items:center;width:100%;border:0;border-radius:9px;background:transparent;padding:10px 8px;text-align:left;font:inherit;color:var(--ink);cursor:pointer}
+button.cons-row:hover,button.cons-row:focus-visible{background:#f1f5f2}
+.cons-row[aria-pressed=true]{background:#e8f4ec}
+.cons-row.is-dim{opacity:.5}
+.cons-row.is-total{cursor:default;border-top:1px solid var(--line);border-radius:0;margin-top:4px;padding-top:13px}
+.cons-row b{display:block;font-size:14px}
+.cons-row small{display:block;font-size:11px;color:var(--muted)}
+.cons-row strong{text-align:right;font-size:17px;color:#08652d}
+.cons-bar{height:14px;border-radius:20px;background:#edf2ee;overflow:hidden;display:flex}
+.cons-bar span{height:100%}
+.cons-key{border-left:4px solid #14823b;background:#f1f7f3;border-radius:10px;padding:14px 18px;margin:14px 0}
+.cons-key:empty{display:none}
+.cons-key b{display:block;font-size:13px;color:#08783e;margin-bottom:4px}
+.cons-key p{margin:0;font-size:16px;line-height:1.6;color:#173f2d;font-weight:650}
+@media(max-width:600px){.cons-row{grid-template-columns:1fr 50px}.cons-row .cons-bar{grid-column:1/-1;grid-row:2}}
+.dsd-exec-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin:4px 0 14px}
+.dsd-exec-head h2{font-size:22px;margin:0 0 4px;color:#123b2a}
+.dsd-exec-head .exam-date{margin:0}
+.dsd-goal-badge{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:30px;font-weight:800;font-size:14px}
+.dsd-goal-badge.ok{background:#e4f3e8;color:#08732f}.dsd-goal-badge.watch{background:#fff1e3;color:#a4510b}
+.dsd-kpis{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:14px}
+.dsd-kpis .card{border-top:4px solid var(--kc)}
+.dsd-kpis .k-value{font-size:34px;color:var(--kc);line-height:1.15}
+.dsd-kpis .k-value small{font-size:15px;color:var(--muted);font-weight:600;margin-left:6px}
+.dsd-kpis .k-value.is-date{font-size:28px}
+.dsd-main-progress{margin-bottom:14px;padding:18px 22px}
+.dsd-main-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.dsd-main-head h3{margin:0}
+.dsd-main-head .exam-date{margin:0}
+.dsd-track-wrap{position:relative;padding:30px 0 6px;margin-top:4px}
+.dsd-bigbar{height:26px;border-radius:8px;background:#edf2ee;overflow:hidden;display:flex}
+.dsd-bigbar span{height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden}
+.dsd-target-mark{position:absolute;top:8px;bottom:0;width:0;border-left:2px dashed #123b2a}
+.dsd-target-mark span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap;font-size:12px;font-weight:800;color:#123b2a;background:#fff;padding:0 4px}
+.dsd-legend-row{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0 4px;font-size:13px;color:#33493d}
+.dsd-legend-row span{display:inline-flex;align-items:center;gap:7px}
+.dsd-legend-row i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.dsd-legend-row i.line{width:14px;height:0;border-top:2px dashed #123b2a;border-radius:0}
+.dsd-legend-row b{color:#123b2a}
+.dsd-summary{margin:12px 0 0;padding:12px 16px;border-left:4px solid #14823b;background:#f1f7f3;border-radius:9px;font-size:15px;line-height:1.65;color:#173f2d;font-weight:600}
+.dsd-summary.watch{border-left-color:#e8890c;background:#fff6ec}
+.dsd-two{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px;align-items:start;margin-bottom:14px}
+.dsd-two .interactive-chart{margin:0}
+.dsd-milestones h3{margin-bottom:10px}
+.dsd-ms{list-style:none;margin:0;padding:0;position:relative}
+.dsd-ms:before{content:"";position:absolute;left:19px;top:22px;bottom:22px;border-left:2px solid #e3ebe5}
+.dsd-ms li{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:center;padding:9px 0}
+.dsd-ms li>i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:18px;font-weight:800;background:#fff;border:2px solid var(--mc);color:var(--mc);z-index:1}
+.dsd-ms b{display:block;font-size:14px;color:#123b2a}
+.dsd-ms span{display:block;font-size:13px;color:#52645a}
+.dsd-ms li.ms-status{margin-top:6px;padding:12px;border-radius:10px;background:var(--mbg)}
+.dsd-ms-note{margin:10px 0 0;font-size:12px;color:var(--muted)}
+.dsd-detail{margin-top:0}
+.dsd-detail .page-filterbar{margin-top:4px}
+.dsd-course-table-panel .status.pending{background:#e3efff;color:#1d4f91}
+@media(max-width:1000px){.dsd-two{grid-template-columns:1fr}}
+@media(max-width:850px){.dsd-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.dsd-kpis{grid-template-columns:1fr}}
+.overview-bottom-grid{grid-template-columns:1fr}
+.overview-dsd-stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:0}
+.overview-dsd-stats>div{border-left:4px solid var(--kc);padding-left:12px}
+.dsd-main-head .dsd-main-pct{font-size:15px;color:#52645a}
+.dsd-main-head .dsd-main-pct b{font-size:22px;color:#14823b;margin-right:4px}
+@media(max-width:850px){.overview-dsd-stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px}}
+.ov-mini-gauge{position:relative;width:min(100%,190px);aspect-ratio:2/1;border-radius:190px 190px 0 0;overflow:hidden;margin:6px 0 4px;background:conic-gradient(from 270deg at 50% 100%,#14823b 0deg calc(var(--p)*1.8deg),#e5ece8 calc(var(--p)*1.8deg) 180deg,transparent 180deg)}
+.ov-mini-gauge>div{position:absolute;left:17%;right:17%;bottom:0;height:66%;background:#fff;border-radius:999px 999px 0 0;display:flex;align-items:flex-end;justify-content:center}
+.ov-mini-gauge b{font-size:27px;line-height:1.05;color:#08652d}
+.ov-dsd-hero{display:flex;flex-direction:column;align-items:center;gap:10px;padding:6px 0 2px}
+.ov-gauge{position:relative;width:min(100%,280px);aspect-ratio:2/1;border-radius:280px 280px 0 0;overflow:hidden;background:conic-gradient(from 270deg at 50% 100%,#14823b 0deg calc(var(--p)*1.8deg),#2a78d6 calc(var(--p)*1.8deg) calc(var(--q)*1.8deg),#e5ece8 calc(var(--q)*1.8deg) 180deg,transparent 180deg)}
+.ov-gauge>div{position:absolute;left:18%;right:18%;bottom:0;height:64%;background:#fff;border-radius:999px 999px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:2px}
+.ov-gauge b{font-size:36px;line-height:1.05;color:#08652d}
+.ov-gauge small{font-size:12px;color:var(--muted)}
+.ov-dsd-caption{font-size:16px;font-weight:700;padding:8px 16px;border-radius:30px;text-align:center}
+.ov-dsd-caption.ok{background:#e4f3e8;color:#08732f}.ov-dsd-caption.watch{background:#fff1e3;color:#a4510b}
+.ov-dsd-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;font-size:12px;color:#52645a}
+.ov-dsd-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.cons-exec{margin-bottom:14px}
+.cons-exec h3{margin:0 0 10px}
+.cons-exec-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.cons-exec-list li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:8px;align-items:center;font-size:15px;padding:10px 12px;background:#f7faf8;border-radius:10px;color:#173f2d}
+.cons-status-filter{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.cons-status-filter button{border:1px solid var(--line);background:#fff;border-radius:20px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer;color:var(--ink)}
+.cons-status-filter button span{color:var(--muted);margin-left:4px}
+.cons-status-filter button:hover{background:#f1f5f2}
+.cons-status-filter button[aria-pressed=true]{background:#14823b;border-color:#14823b;color:#fff}
+.cons-status-filter button[aria-pressed=true] span{color:#d9efe0}
+.exec-alert-title{margin:16px 0 8px;font-size:14px;color:#123b2a}
+.exec-alert{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.exec-alert li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;align-items:center;padding:9px 12px;border-radius:9px;font-size:14px;color:#173f2d}
+.exec-alert li.bad{background:#fdeeee}.exec-alert li.good{background:#eaf6ee}
+.status-note{font-size:12px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5}
+.format-summary{flex-wrap:wrap}.format-legend{flex:1 1 170px;min-width:170px}
+.data-check-wrap td:nth-child(2){white-space:nowrap}
 </style></head>
 <body>
 <header><div><div class="brand">VISSAVAPAT • PEOPLE DEVELOPMENT</div><div class="headtitle">HRD Executive Dashboard 2026</div><div class="sub">Training & Development Performance</div></div><div class="header-right">ข้อมูลปี 2569<br><span id="updated">Interactive dashboard • Editable data</span></div></header>
@@ -198,70 +520,33 @@ footer{text-align:center;color:#829087;font-size:11px;padding:24px}
 <button class="active" data-page="overview">01 ภาพรวม</button><button data-page="satisfaction">02 ความพึงพอใจ</button><button data-page="construction">03 มาตรฐานก่อสร้าง</button><button data-page="dsd">04 DSD</button><button data-page="data">05 จัดการข้อมูล</button>
 </nav>
 <main>
-<div class="filters">
-<div><label>เดือนที่จัดอบรม</label><select id="month"><option value="">ทุกเดือน</option><option>ม.ค.</option><option>ก.พ.</option><option>มี.ค.</option><option>เม.ย.</option><option>พ.ค.</option><option>มิ.ย.</option><option>ก.ค.</option><option>ส.ค.</option><option>ก.ย.</option><option>ต.ค.</option><option>พ.ย.</option><option>ธ.ค.</option></select></div>
-<div><label>สถานะการดำเนินงาน</label><select id="statusFilter"><option value="">ทุกสถานะ</option><option>Completed</option><option>On-process</option><option>ยกเลิก</option></select></div>
-<div><label>หมวดเนื้อหา</label><select id="category"><option value="">ทุกหมวด</option><option>Construction Management</option><option>งานโครงสร้าง</option><option>งานระบบ</option><option>Safety</option><option>Leadership</option><option>Digital & AI</option><option>Personal Effectiveness</option></select></div>
-<div><label>รูปแบบการอบรม</label><select id="format"><option value="">ทุกรูปแบบ</option><option>Public – Onsite</option><option>Sharing – Internal Trainer</option><option>In-house</option><option>Online</option></select></div>
-</div>
-
 <section class="page active" id="overview">
 <div class="cards">
-<div class="card"><div class="k-label">หลักสูตรทั้งหมด</div><div class="k-value">46</div><div class="k-note">หลักสูตร/รุ่นตามแผนปี 2569</div></div>
-<div class="card"><div class="k-label">ดำเนินการเสร็จสิ้น</div><div class="k-value" id="completed">34</div><div class="k-note">สถานะ Completed</div></div>
-<div class="card"><div class="k-label">อยู่ระหว่างดำเนินการ</div><div class="k-value" id="inprogress">12</div><div class="k-note">สถานะ On-process</div></div>
-<div class="card"><div class="k-label">งบประมาณแผน (Budget Plan)</div><div class="k-value" id="budgetPlan">฿1,229,890</div><div class="k-note">วงเงินตามแผนปี 2569</div></div>
-<div class="card"><div class="k-label">ค่าใช้จ่ายจริงที่มีข้อมูล</div><div class="k-value" id="actualBudget">฿451,015</div><div class="k-note">อ้างอิงยอดรวมจากฐานข้อมูลที่ให้มา</div></div>
+<div class="card"><div class="k-label">หลักสูตรทั้งหมด</div><div class="k-value" id="totalCourses">–</div><div class="k-note" id="totalNote">หลักสูตร/รุ่นตามแผนปี 2569</div></div>
+<div class="card"><div class="k-label">ดำเนินการเสร็จสิ้น</div><div class="k-value" id="completed">–</div><div class="k-note">สถานะ Completed</div></div>
+<div class="card"><div class="k-label">อยู่ระหว่างดำเนินการ</div><div class="k-value" id="inprogress">–</div><div class="k-note">สถานะ On-process</div></div>
+<div class="card"><div class="k-label">งบประมาณแผน (Budget Plan)</div><div class="k-value" id="budgetPlan">–</div><div class="k-note">วงเงินตามแผนปี 2569</div></div>
+<div class="card"><div class="k-label">ค่าใช้จ่ายจริงที่มีข้อมูล</div><div class="k-value" id="actualBudget">–</div><div class="k-note" id="actualNote"></div></div>
 
 </div>
-<div class="grid2">
-<div class="panel"><h3>สถานะการดำเนินงาน (Gauge)</h3><div class="gauge" style="--pct:73.9"><div class="gauge-label"><b>73.9%</b><div class="small">34 จาก 46 รุ่น</div></div></div><div class="gauge-split"><span style="--c:#14823b">Completed <b>34 รุ่น</b></span><span style="--c:#facc15">On-process <b>12 รุ่น</b></span></div></div>
-<div class="panel"><h3>Budget Plan เทียบค่าใช้จ่ายจริง</h3><div class="chart"><div class="donut" style="background:conic-gradient(#d96b91 0 36.67%,#08652d 36.67% 100%)"><div class="donut-center"><b>36.7%</b><span class="small">ใช้ไป</span></div></div><div class="legend"><div><i class="dot" style="background:#d96b91"></i>ใช้จริง ฿451,015.05</div><div><i class="dot" style="background:#08652d"></i>คงเหลือ ฿778,874.95</div><b>แผนรวม ฿1,229,890</b></div></div></div>
+<div class="grid3 overview-top-charts">
+<div class="panel"><h3>สถานะการดำเนินงาน</h3><div class="gauge" style="--pct:0;--pct2:0"><div class="gauge-label"><b>–</b><div class="small"></div></div></div><div class="gauge-split"></div><div class="status-note" id="statusNote"></div></div>
+<div class="panel"><h3>รูปแบบการอบรม</h3><div class="format-summary" id="formatSummary"></div></div>
+<div class="panel"><h3>ประเภททักษะ</h3><div class="chart training-type-chart" id="skillChart"></div></div>
 </div>
-<div class="grid2">
-<div class="panel"><h3>จำนวนรุ่นตาม Training Type</h3><div class="chart training-type-chart">
-<div class="training-pie" role="img" aria-label="Functional Skill 13 รุ่น, General Skill 12 รุ่น, Technical Skill 3 รุ่น, Mandatory Skill 18 รุ่น"><div class="training-pie-center"><b>46</b><span>รุ่นทั้งหมด</span></div></div>
-<div class="legend training-type-legend">
-<div><i class="dot" style="background:#14823b"></i><span>Functional Skill</span><b>13</b></div>
-<div><i class="dot" style="background:#75b889"></i><span>General Skill</span><b>12</b></div>
-<div><i class="dot" style="background:#f4b544"></i><span>Technical Skill</span><b>3</b></div>
-<div><i class="dot" style="background:#8ca5a0"></i><span>Mandatory Skill</span><b>18</b></div>
-</div></div></div>
-<div class="panel overview-dsd-panel"><h3>DSD Progress</h3>
-<div class="overview-dsd-stats">
-<div><span>ส่งเข้าระบบแล้ว</span><strong style="color:#14823b">371</strong><small>เพิ่มจากเดิม 126 (+245)</small></div>
-<div><span>รอเข้าระบบ</span><strong style="color:#75b889">200</strong><small>คาดว่าจะเพิ่ม</small></div>
-<div><span>สำรอง/รอแก้ไข</span><strong style="color:#f59e0b">167</strong><small>ไม่นับใน Progress</small></div>
-</div>
-<div class="overview-dsd-progress"><span>เป้าหมาย 50%</span><div class="dsd-track"><div class="dsd-fill" style="width:61.6%"></div></div><b>61.6%</b></div>
-<div class="small" style="margin-top:7px">371 / 602 คน · หาก 200 คนเข้าระบบครบ คาดการณ์ 94.9% (571 / 602)</div>
+<div class="panel overview-dsd-panel"><h3>DSD Progress</h3><div id="ovDsdBody"></div></div>
+<div class="overview-bottom-grid">
+
+
+<div class="panel quarterly-report-panel">
+<h3>ผลการดำเนินงานการจัดหลักสูตรอบรมรายไตรมาส</h3>
+<div class="quarterly-legend"><span><i style="background:#14823b"></i>ดำเนินการเสร็จสิ้น</span><span><i style="background:#f4bd38"></i>อยู่ระหว่างดำเนินการ</span><span><i style="background:#cbd5d0"></i>รอดำเนินการ</span></div>
+<div class="quarterly-bars" id="quarterBars"></div>
+<div class="quarterly-footnote" id="quarterNote"></div>
 </div>
 </div>
-<div class="grid2 overview-dsd-chart-row">
-<div class="panel"><h3>สัดส่วนสถานะ DSD</h3><div class="chart">
-<div class="donut" style="background:conic-gradient(#14823b 0 50.27%,#75b889 50.27% 77.37%,#f59e0b 77.37% 100%)"><div class="donut-center"><b>738</b><span class="small">รวมทั้งหมด</span></div></div>
-<div class="legend">
-<div><i class="dot" style="background:#14823b"></i>ส่งเข้าระบบแล้ว <b>371</b> (50.3%)</div>
-<div><i class="dot" style="background:#75b889"></i>รอเข้าระบบ <b>200</b> (27.1%)</div>
-<div><i class="dot" style="background:#f59e0b"></i>สำรอง/รอแก้ไข <b>167</b> (22.6%)</div>
-<span class="small">สำรอง/รอแก้ไขไม่นับใน Progress</span>
-</div></div></div>
-</div>
-<div class="section-title">ค่าใช้จ่ายจริงแยกประเภท (Funnel)</div><div class="panel"><div class="budget-layout"><div class="funnel-visual"><div class="funnel-level" style="width:100%;background:#d96b91">ค่าหลักสูตร</div><div class="funnel-level" style="width:22%;background:#e9a3ba">ค่าอาหาร</div><div class="funnel-level" style="width:26%;background:#f2c7d5;color:#6f3c50">ค่าเบรก</div></div><div class="legend" style="align-content:center"><div><i class="dot" style="background:#d96b91"></i>ค่าหลักสูตร <b>฿412,976.96</b></div><div><i class="dot" style="background:#e9a3ba"></i>ค่าอาหาร <b>฿21,274.52</b></div><div><i class="dot" style="background:#f2c7d5"></i>ค่าเบรก <b>฿16,763.57</b></div><b>รวมค่าใช้จ่ายจริง ฿451,015.05</b><span class="small">แสดงยอดจริงรายประเภท</span></div></div></div>
-<div class="section-title">แผนอบรมรายเดือน · Timeline</div>
-<div class="timeline-month-grid" id="monthBars">
-  <section class="timeline-month-card"><header><div><b>ต.ค. 2569</b><small>4 หลักสูตร/รุ่น</small></div><span class="month-progress">4 เสร็จสิ้น · 0 กำลังดำเนินการ</span></header><div class="timeline-agenda">
-    <article class="timeline-agenda-item is-completed"><time>09 ต.ค.</time><div class="agenda-course">ผู้บังคับปั้นจั่น ผู้ให้สัญญาณแก่ผู้บังคับปั้นจั่น ผู้ยึดเกาะวัสดุ และทบทวน รุ่น 2<small>Completed</small></div><span class="agenda-status">เสร็จสิ้น</span></article>
-    <article class="timeline-agenda-item is-completed"><time>16 ต.ค.</time><div class="agenda-course">ข้อกำหนดและกฎหมายอาคารสูง<small>Completed</small></div><span class="agenda-status">เสร็จสิ้น</span></article>
-    <article class="timeline-agenda-item is-completed"><time>21 ต.ค.</time><div class="agenda-course">AI for Construction &amp; BOQ<small>Completed</small></div><span class="agenda-status">เสร็จสิ้น</span></article>
-    <article class="timeline-agenda-item is-completed"><time>29 ต.ค.</time><div class="agenda-course">ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น รุ่น 1<small>Completed</small></div><span class="agenda-status">เสร็จสิ้น</span></article>
-  </div></section>
-  <section class="timeline-month-card"><header><div><b>พ.ย. 2569</b><small>3 หลักสูตร/รุ่น</small></div><span class="month-progress">0 เสร็จสิ้น · 3 กำลังดำเนินการ</span></header><div class="timeline-agenda">
-    <article class="timeline-agenda-item is-progress"><time>10 พ.ย.</time><div class="agenda-course">ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น รุ่น 2<small>On-process</small></div><span class="agenda-status">กำลังดำเนินการ</span></article>
-    <article class="timeline-agenda-item is-progress"><time>15 พ.ย.</time><div class="agenda-course">การออกแบบโครงสร้างเหล็กด้วยวิธี Unified Method (ASD/LRFD)<small>On-process</small></div><span class="agenda-status">กำลังดำเนินการ</span></article>
-    <article class="timeline-agenda-item is-progress"><time>20 พ.ย.</time><div class="agenda-course">Presentation Skill + Business Communication (Story telling)<small>On-process</small></div><span class="agenda-status">กำลังดำเนินการ</span></article>
-  </div></section>
-</div><div class="section-title">แผนอบรมตามช่วงเวลา</div><div class="panel"><div class="period-bars"><div class="period-row"><b>ม.ค.–มี.ค.</b><div class="period-track"><div class="period-fill" style="width:66.67%"></div></div><b>12</b></div><div class="period-row"><b>เม.ย.–มิ.ย.</b><div class="period-track"><div class="period-fill" style="width:44.44%"></div></div><b>8</b></div><div class="period-row"><b>ก.ค.–ก.ย.</b><div class="period-track"><div class="period-fill" style="width:44.44%"></div></div><b>8</b></div><div class="period-row"><b>ต.ค.–ธ.ค.</b><div class="period-track"><div class="period-fill" style="width:100%"></div></div><b>18</b></div></div><div class="small" style="margin-top:10px">รวม 46 หลักสูตร/รุ่น ตามแผนอบรมทั้งปี</div></div>
+<div class="section-title">แผนอบรมตามช่วงเวลา</div>
+<div class="timeline-month-grid" id="timelineGrid"></div>
 </section>
 
 <section class="page" id="satisfaction">
@@ -270,29 +555,67 @@ footer{text-align:center;color:#829087;font-size:11px;padding:24px}
   <p>หลักสูตรที่จัดภายในโดย HR ร่วมกับวิทยากรทั้งภายในและภายนอก</p>
 </div>
 
-<div class="cards satisfaction-kpis">
-  <div class="card"><div class="k-label">จำนวนหลักสูตร/รุ่นที่ประเมิน</div><div class="k-value">11</div></div>
-  <div class="card"><div class="k-label">ผู้เข้าอบรมรวม</div><div class="k-value">288</div></div>
-  <div class="card"><div class="k-label">ผู้ตอบแบบประเมิน</div><div class="k-value">215</div></div>
-  <div class="card"><div class="k-label">อัตราตอบแบบประเมิน</div><div class="k-value">74.7%</div></div>
+<div class="cards sat-kpis">
+  <div class="card"><div class="k-label">หลักสูตรที่ประเมิน</div><div class="k-value"><span id="satCourses">11</span><small>หลักสูตร</small></div><div class="k-note">จัดภายในและมีผลประเมิน</div></div>
+  <div class="card"><div class="k-label">ผู้เข้าอบรมรวม</div><div class="k-value"><span id="satLearners">288</span><small>คน</small></div><div class="k-note">ทุกหลักสูตรที่ประเมิน</div></div>
+  <div class="card"><div class="k-label">ผู้ตอบแบบประเมิน</div><div class="k-value"><span id="satResponders">215</span><small>คนตอบ</small></div><div class="k-note">ตอบแบบประเมินหลังอบรม</div></div>
+  <div class="card"><div class="k-label">อัตราตอบแบบประเมิน</div><div class="k-value"><span id="satRate">74.7%</span></div><div class="k-note" id="satRateNote">ผู้ตอบ ÷ ผู้เข้าอบรม</div></div>
 </div>
 
-<div class="section-title">คะแนนเฉลี่ยภาพรวม</div>
-<div class="panel satisfaction-overall">
-  <div><span>คะแนนความพึงพอใจเฉลี่ยถ่วงน้ำหนัก</span><strong>4.44 <small>/ 5.00</small></strong><em>ระดับมาก</em></div>
-  <p>คำนวณจากผลประเมิน 11 หลักสูตร/รุ่น โดยถ่วงน้ำหนักตามจำนวนผู้ตอบแบบประเมิน</p>
+<div class="panel sat-score-panel">
+  <h3>คะแนนภาพรวม</h3>
+  <div class="satisfaction-overall">
+    <div><span>คะแนนความพึงพอใจเฉลี่ยถ่วงน้ำหนัก</span><strong>4.44 <small>/ 5.00</small></strong><em>ระดับมาก</em></div>
+    <p>คำนวณจากผลประเมิน 11 หลักสูตร/รุ่น โดยถ่วงน้ำหนักตามจำนวนผู้ตอบแบบประเมิน</p>
+  </div>
+  <div class="satisfaction-dimensions">
+    <div class="dimension-row"><span>ด้านวิทยากร</span><div class="dimension-track"><div class="dimension-fill" style="width:91.2%;--score-color:#16834a"></div></div><b>4.56</b><small>91.2%</small></div>
+    <div class="dimension-row"><span>ด้านเนื้อหา</span><div class="dimension-track"><div class="dimension-fill" style="width:90.4%;--score-color:#55a95f"></div></div><b>4.52</b><small>90.4%</small></div>
+    <div class="dimension-row"><span>ด้านสถานที่และสิ่งอำนวยความสะดวก</span><div class="dimension-track"><div class="dimension-fill" style="width:85.6%;--score-color:#e6a23c"></div></div><b>4.28</b><small>85.6%</small></div>
+    <div class="dimension-scale"><span>ระดับคะแนน: </span><i class="scale-high"></i> มากที่สุด (4.50–5.00) <i class="scale-good"></i> มาก (3.50–4.49) <i class="scale-mid"></i> ปานกลาง (2.50–3.49)</div>
+  </div>
 </div>
 
-<div class="section-title">คะแนนเฉลี่ยรายด้าน</div>
-<div class="panel satisfaction-dimensions">
-  <div class="dimension-row"><span>ด้านวิทยากร</span><div class="dimension-track"><div class="dimension-fill" style="width:91.2%;--score-color:#16834a"></div></div><b>4.56</b><small>91.2%</small></div>
-  <div class="dimension-row"><span>ด้านเนื้อหา</span><div class="dimension-track"><div class="dimension-fill" style="width:90.4%;--score-color:#55a95f"></div></div><b>4.52</b><small>90.4%</small></div>
-  <div class="dimension-row"><span>ด้านสถานที่และสิ่งอำนวยความสะดวก</span><div class="dimension-track"><div class="dimension-fill" style="width:85.6%;--score-color:#e6a23c"></div></div><b>4.28</b><small>85.6%</small></div>
-  <div class="dimension-scale"><span>ระดับคะแนน: </span><i class="scale-high"></i> มากที่สุด (4.50–5.00) <i class="scale-good"></i> มาก (3.50–4.49) <i class="scale-mid"></i> ปานกลาง (2.50–3.49)</div>
-  <p class="small">ด้านวิทยากรได้คะแนนเฉลี่ยสูงสุด ส่วนด้านสถานที่และสิ่งอำนวยความสะดวกมีคะแนนเฉลี่ยต่ำสุด</p>
+<div class="sat-two">
+  <div data-chart-slot></div>
+  <div class="panel sat-cat-score"><h3>คะแนนเฉลี่ยแต่ละหมวด</h3><div id="satCatScores"></div><p class="small" style="margin:8px 0 0">คะแนนภาพรวมเฉลี่ยถ่วงน้ำหนักตามจำนวนผู้ตอบ · คลิกชื่อหมวดเพื่อกรองข้อมูล</p></div>
 </div>
 
-<div class="section-title">ผลประเมินความพึงพอใจรายหลักสูตร</div>
+<div class="sat-two">
+  <div class="panel sat-top">
+    <h3>Top 5 หลักสูตรคะแนนสูงสุด</h3>
+    <ol class="sat-top-list" id="satTop"></ol>
+    <div class="feedback-highlight feedback-strength">
+      <h3>จุดเด่น · วิทยากรและการนำไปใช้จริง</h3>
+      <p>ผู้เข้าอบรมชื่นชมการถ่ายทอดที่เข้าใจง่ายและเนื้อหาที่นำไปใช้กับงานได้</p>
+      <ul>
+        <li>“อาจารย์สอนเข้าใจดีครับ”</li>
+        <li>“ดีมากๆเลยครับ”</li>
+        <li>สรุป: นำความรู้ MS Project ไปใช้ทำงานได้จริง</li>
+      </ul>
+    </div>
+  </div>
+  <div class="panel sat-improve">
+    <h3>โอกาสพัฒนา / ข้อเสนอแนะสำคัญ</h3>
+    <div class="sat-low" id="satLow"></div>
+    <div class="feedback-highlight feedback-improve">
+      <h3>ประเด็นที่ควรปรับปรุง · ด้านสถานที่และสิ่งอำนวยความสะดวก</h3>
+      <p>ควรเตรียมความพร้อมของสถานที่และสิ่งอำนวยความสะดวกให้เหมาะกับผู้เข้าอบรม</p>
+      <ul>
+        <li>“สถานที่จัดอบรมไกลจากไซต์งาน”</li>
+        <li>“แอร์ไม่เย็น”</li>
+        <li>“ควรมีอาหารเที่ยงรองรับด้วยครับ”</li>
+      </ul>
+      <p class="small feedback-note">หมายเหตุ: สรุปจากประเด็นที่พนักงานส่วนใหญ่สะท้อน ซึ่งพบว่ามีค่าคะแนนต่ำเกี่ยวกับสถานที่ โดยสถานที่จัดที่ได้คะแนนนั้น คือ ศูนย์การเรียนรู้ฯ (คอกม้า) และห้องฟิตเนส</p>
+    </div>
+    <div class="next-action">
+      <h3>Next: แนวทางดำเนินการ</h3>
+      <p>ทบทวนเวลาและปริมาณเนื้อหาให้เหมาะสม ตรวจสอบสถานที่ ห้องอบรม อุปกรณ์เสียง/ภาพ ระบบออนไลน์ อาหาร และเอกสารประกอบก่อนวันอบรม พร้อมติดตามผลการปรับปรุงในหลักสูตรรุ่นถัดไป</p>
+    </div>
+  </div>
+</div>
+
+<details class="sat-detail"><summary>ดูตารางผลประเมินรายหลักสูตรทั้งหมด</summary>
 <div class="panel satisfaction-table-panel">
   <div class="heatmap-guide">
   <span><i class="heat-swatch heat-high"></i>คะแนนสูง 4.50–5.00</span>
@@ -327,35 +650,7 @@ footer{text-align:center;color:#829087;font-size:11px;padding:24px}
   </div>
 </div>
 
-<div class="section-title">สรุปสิ่งที่ได้รับคำชมและประเด็นที่ควรปรับปรุง</div>
-<div class="panel feedback-panel">
-  <div class="feedback-summary-grid">
-    <div class="feedback-highlight feedback-improve">
-      <h3>ประเด็นที่ควรปรับปรุง · ด้านสถานที่และสิ่งอำนวยความสะดวก</h3>
-      <p>ควรเตรียมความพร้อมของสถานที่และสิ่งอำนวยความสะดวกให้เหมาะกับผู้เข้าอบรม</p>
-      <ul>
-        <li>“สถานที่จัดอบรมไกลจากไซต์งาน”</li>
-        <li>“แอร์ไม่เย็น”</li>
-        <li>“ควรมีอาหารเที่ยงรองรับด้วยครับ”</li>
-      </ul>
-    </div>
-    <div class="feedback-highlight feedback-strength">
-      <h3>จุดเด่น · วิทยากรและการนำไปใช้จริง</h3>
-      <p>ผู้เข้าอบรมชื่นชมการถ่ายทอดที่เข้าใจง่ายและเนื้อหาที่นำไปใช้กับงานได้</p>
-      <ul>
-        <li>“อาจารย์สอนเข้าใจดีครับ”</li>
-        <li>“ดีมากๆเลยครับ”</li>
-        <li>สรุป: นำความรู้ MS Project ไปใช้ทำงานได้จริง</li>
-      </ul>
-    </div>
-  </div>
-  <p class="small feedback-note">หมายเหตุ: คัดเลือกตัวอย่างความคิดเห็น 2–3 ประเด็นที่มีทิศทางเดียวกัน เพื่อสรุปภาพรวม ไม่ใช่การจัดอันดับความถี่</p>
-</div>
-
-<div class="next-action">
-  <h3>Next: แนวทางดำเนินการ</h3>
-  <p>ทบทวนเวลาและปริมาณเนื้อหาให้เหมาะสม ตรวจสอบสถานที่ ห้องอบรม อุปกรณ์เสียง/ภาพ ระบบออนไลน์ อาหาร และเอกสารประกอบก่อนวันอบรม พร้อมติดตามผลการปรับปรุงในหลักสูตรรุ่นถัดไป</p>
-</div>
+</details>
 </section>
 
 <section class="page" id="construction">
@@ -366,16 +661,13 @@ footer{text-align:center;color:#829087;font-size:11px;padding:24px}
   <div class="card"><div class="k-label">กำลังเตรียม</div><div class="k-value" style="color:#c58a00">5</div><div class="k-note">อยู่ระหว่างเตรียมการ</div></div>
   <div class="card"><div class="k-label">ยังไม่จัด</div><div class="k-value">4</div><div class="k-note">รอกำหนดแผน/วันอบรม</div></div>
 </div>
-<div class="panel"><h3>แยกตามประเภทงาน</h3>
-  <div class="construction-groups">
-    <div class="construction-group"><h3>งานโครงสร้าง</h3><p>จัดแล้ว 6 รุ่น · กำลังเตรียม 2 รุ่น</p><div class="construction-track"><div class="construction-fill" style="width:75%;background:#14823b"></div></div></div>
-    <div class="construction-group"><h3>งานระบบ</h3><p>จัดแล้ว 1 รุ่น · กำลังเตรียม 4 รุ่น</p><div class="construction-track"><div class="construction-fill" style="width:20%;background:#f4bf37"></div></div></div>
-    <div class="construction-group"><h3>งานสถาปัตย์</h3><p>ยังไม่จัด 4 รุ่น</p><div class="construction-track"><div class="construction-fill" style="width:0%;background:#9aa9a0"></div></div></div>
-  </div>
-</div>
+<div class="panel cons-progress-panel"><h3>ความคืบหน้าแยกตามประเภทงาน</h3><div id="consProgress"></div></div>
+<div class="cons-key" id="consKey"></div>
+<div class="panel cons-exec" id="consExec"></div>
 <div class="section-title">แผนอบรมรายรุ่น (เรียงตามวันจัดอบรม)</div>
 <div class="panel">
   <div class="toolbar"><span class="small">สีแยกตามหมวดหมู่เนื้อหา · งานตรวจสอบการติดตั้งและ Combine แบบ รวมอยู่ในงานระบบ</span><div class="small"><span class="category-pill cat-structure">งานโครงสร้าง</span> <span class="category-pill cat-system">งานระบบ</span> <span class="category-pill cat-architecture">งานสถาปัตย์</span></div></div>
+  <div class="cons-status-filter" id="consStatusFilter" role="group" aria-label="กรองตามสถานะ"></div>
   <div class="table-wrap"><table class="construction-table"><thead><tr><th>หมวดหมู่เนื้อหา</th><th>หลักสูตร</th><th>รุ่น</th><th>วันจัดอบรม</th><th>วิทยากร</th><th>สถานะ</th></tr></thead><tbody>
   <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>การทำงานของเสาเข็ม (Piling)</td><td>1</td><td>10 มี.ค. 2569</td><td>คุณอดิเทพและทีม</td><td><span class="status done">จัดแล้ว</span></td></tr>
   <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>การทำงานของเสาเข็ม (Piling)</td><td>2</td><td>24 มี.ค. 2569</td><td>คุณอดิเทพและทีม</td><td><span class="status done">จัดแล้ว</span></td></tr>
@@ -387,47 +679,77 @@ footer{text-align:center;color:#829087;font-size:11px;padding:24px}
   <tr><td><span class="category-pill cat-system">งานระบบ</span></td><td>ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น</td><td>2</td><td>10 พ.ย. 2569</td><td>คุณจรัญและทีม</td><td><span class="status pending">กำลังเตรียม</span></td></tr>
   <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>RC Structure</td><td>1</td><td>20 พ.ย. 2569</td><td>คุณนครินทร์และทีม</td><td><span class="status pending">กำลังเตรียม</span></td></tr>
   <tr><td><span class="category-pill cat-structure">งานโครงสร้าง</span></td><td>RC Structure</td><td>2</td><td>30 พ.ย. 2569</td><td>คุณนครินทร์และทีม</td><td><span class="status pending">กำลังเตรียม</span></td></tr>
-  <tr><td><span class="category-pill cat-system">งานระบบ</span></td><td>งานตรวจสอบการติดตั้งและ Combine แบบ</td><td>1</td><td>18 ธ.ค. 2569</td><td>คุณจรัญและคุณไฟท์</td><td><span class="status pending">กำลังเตรียม</span></td></tr>
+  <tr><td><span class="category-pill cat-system">งานระบบ</span></td><td>งานตรวจสอบการติดตั้งและ Combine แบบ</td><td>1</td><td>17 ธ.ค. 2569</td><td>คุณจรัญและคุณไฟท์</td><td><span class="status pending">กำลังเตรียม</span></td></tr>
   <tr><td><span class="category-pill cat-system">งานระบบ</span></td><td>งานตรวจสอบการติดตั้งและ Combine แบบ</td><td>2</td><td>24 ธ.ค. 2569</td><td>คุณหนุ่ย / คุณไนน์ / คุณกอล์ฟ</td><td><span class="status pending">กำลังเตรียม</span></td></tr>
-  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Wet Work 1</td><td>1</td><td>ปี 2570</td><td>คุณสมชัย</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
-  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Wet Work 2</td><td>1</td><td>รอระบุวัน</td><td>คุณกฤษณะ</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
-  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Dry Work</td><td>1</td><td>รอระบุวัน</td><td>คุณนัทธี</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
-  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Room Handover</td><td>1</td><td>รอระบุวัน</td><td>คุณสุริยา</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
+  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Wet Work 1</td><td>1</td><td>Q1/2570</td><td>คุณสมชัย</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
+  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Wet Work 2</td><td>1</td><td>รอระบุกำหนดการ</td><td>คุณกฤษณะ</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
+  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Dry Work</td><td>1</td><td>รอระบุกำหนดการ</td><td>คุณนัทธี</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
+  <tr><td><span class="category-pill cat-architecture">งานสถาปัตย์</span></td><td>Room Handover</td><td>1</td><td>รอระบุกำหนดการ</td><td>คุณสุริยา</td><td><span class="status neutral">ยังไม่จัด</span></td></tr>
   </tbody></table></div>
 </div>
-<div class="section-title">ผลสอบภาพรวม (First Attempt)</div>
+<div class="section-title">ผลสอบภาพรวม</div>
 <div class="exam-grid">
- <div class="panel"><h3>ภาพรวมผลสอบจากฐานข้อมูลล่าสุด</h3>
+ <div class="panel"><h3>ภาพรวมผลสอบจากฐานข้อมูลล่าสุด</h3><div class="exam-date">ณ วันที่ 5 พฤศจิกายน 2569</div>
   <div class="exam-stat-grid">
    <div class="exam-stat"><small>รายการผลสอบ</small><strong>212</strong><small>5 หลักสูตร</small></div>
    <div class="exam-stat"><small>PASS</small><strong>127</strong><small>59.9%</small></div>
    <div class="exam-stat"><small>FAIL</small><strong style="color:#d97706">85</strong><small>40.1%</small></div>
   </div>
-  <div class="exam-bar"><div class="exam-pass" style="width:59.9%"></div><div class="exam-fail" style="width:40.1%"></div></div>
-  <p class="exam-note" style="margin-top:12px">ใช้สถานะผลสอบและเกณฑ์ PASS/FAIL ตามที่บันทึกในไฟล์ผลทดสอบ ไม่คำนวณเกณฑ์ผ่านใหม่ และนับ 1 แถวเป็น 1 รายการเข้าสอบ</p>
+  <div class="exam-bar" aria-label="ผ่าน 59.9 เปอร์เซ็นต์ ไม่ผ่าน 40.1 เปอร์เซ็นต์"><div class="exam-pass" style="width:59.9%"><span class="exam-bar-label">59.9%</span></div><div class="exam-fail" style="width:40.1%"><span class="exam-bar-label">40.1%</span></div></div>
+  <h4 class="exec-alert-title">Executive Alert</h4>
+  <ul class="exec-alert">
+   <li class="bad"><span aria-hidden="true">🔴</span><span><b>Microsoft Project</b> มีอัตราผ่านต่ำสุดเพียง <b>24.5%</b></span></li>
+   <li class="bad"><span aria-hidden="true">🔴</span><span><b>วิศวกรสำนักงาน</b>สอบไม่ผ่าน Microsoft Project จำนวน <b>14 คน</b></span></li>
+   <li class="good"><span aria-hidden="true">🟢</span><span><b>Temporary Structure</b> มีอัตราผ่าน <b>96.9%</b></span></li>
+   <li class="good"><span aria-hidden="true">🟢</span><span><b>Soil Protection</b> มีอัตราผ่าน <b>93.5%</b></span></li>
+  </ul>
+  
  </div>
  <div class="panel"><h3>ผลสอบแยกตามหมวดหมู่เนื้อหา</h3>
   <div class="exam-bars">
-   <div><b>งานโครงสร้าง</b><div class="exam-bar-row"><span>PASS 105 / FAIL 38 · 143 รายการ</span><div class="exam-bar"><div class="exam-pass" style="width:73.4%"></div><div class="exam-fail" style="width:26.6%"></div></div><b>73.4%</b></div></div>
-   <div><b>งานระบบ (MEP)</b><div class="exam-bar-row"><span>PASS 9 / FAIL 7 · 16 รายการ</span><div class="exam-bar"><div class="exam-pass" style="width:56.3%"></div><div class="exam-fail" style="width:43.7%"></div></div><b>56.3%</b></div></div>
    <div><b>หลักสูตรอื่นในฐานข้อมูล (Microsoft Project)</b><div class="exam-bar-row"><span>PASS 13 / FAIL 40 · 53 รายการ</span><div class="exam-bar"><div class="exam-pass" style="width:24.5%"></div><div class="exam-fail" style="width:75.5%"></div></div><b>24.5%</b></div></div>
+   <div><b>งานระบบ (MEP)</b><div class="exam-bar-row"><span>PASS 9 / FAIL 7 · 16 รายการ</span><div class="exam-bar"><div class="exam-pass" style="width:56.3%"></div><div class="exam-fail" style="width:43.7%"></div></div><b>56.3%</b></div></div>
+   <div><b>งานโครงสร้าง</b><div class="exam-bar-row"><span>PASS 105 / FAIL 38 · 143 รายการ</span><div class="exam-bar"><div class="exam-pass" style="width:73.4%"></div><div class="exam-fail" style="width:26.6%"></div></div><b>73.4%</b></div></div>
   </div>
-  <p class="exam-note">Microsoft Project แสดงแยกต่างหากเพื่อให้ยอดรวม 212 รายการตรงกับฐานข้อมูล ไม่จัดเข้าหมวดงานโครงสร้างหรืองานระบบ</p>
+  
  </div>
 </div>
-<div class="panel" style="margin-top:14px"><h3>กราฟผสมผลสอบรายหลักสูตร · จำนวน PASS/FAIL และอัตราผ่าน</h3>
- <div class="table-wrap"><table><thead><tr><th>หมวดหมู่เนื้อหา</th><th>หลักสูตร</th><th>PASS</th><th>FAIL</th><th>จำนวนสอบ</th><th>อัตราผ่าน</th><th>ภาพเปรียบเทียบ</th></tr></thead><tbody>
- <tr><td>งานโครงสร้าง</td><td>Piling Work</td><td>31</td><td>34</td><td>65</td><td>47.7%</td><td><div class="exam-bar"><div class="exam-pass" style="width:47.7%"></div><div class="exam-fail" style="width:52.3%"></div></div></td></tr>
- <tr><td>งานโครงสร้าง</td><td>Temporary</td><td>31</td><td>1</td><td>32</td><td>96.9%</td><td><div class="exam-bar"><div class="exam-pass" style="width:96.9%"></div><div class="exam-fail" style="width:3.1%"></div></div></td></tr>
- <tr><td>งานโครงสร้าง</td><td>Soil</td><td>43</td><td>3</td><td>46</td><td>93.5%</td><td><div class="exam-bar"><div class="exam-pass" style="width:93.5%"></div><div class="exam-fail" style="width:6.5%"></div></div></td></tr>
- <tr><td>งานระบบ</td><td>MEP</td><td>9</td><td>7</td><td>16</td><td>56.3%</td><td><div class="exam-bar"><div class="exam-pass" style="width:56.3%"></div><div class="exam-fail" style="width:43.7%"></div></div></td></tr>
- <tr><td>หลักสูตรอื่น</td><td>Microsoft Project</td><td>13</td><td>40</td><td>53</td><td>24.5%</td><td><div class="exam-bar"><div class="exam-pass" style="width:24.5%"></div><div class="exam-fail" style="width:75.5%"></div></div></td></tr>
+<div class="panel" style="margin-top:14px"><h3>ผลสอบรายหลักสูตร · จำนวนผู้ผ่านและไม่ผ่าน พร้อมอัตราผ่าน</h3>
+ <div class="exam-chart-legend"><span><i style="background:#128447"></i>ผ่าน</span><span><i style="background:#f59e0b"></i>ไม่ผ่าน</span><span><i style="background:#174a78"></i>อัตราผ่าน</span></div>
+ <div class="table-wrap"><svg class="exam-combo-chart" viewBox="0 0 960 340" role="img" aria-label="กราฟแท่งคู่แสดงจำนวนผู้ผ่านและไม่ผ่าน และเส้นแสดงอัตราผ่าน">
+ <g stroke="#e5ece7" stroke-width="1">
+  <line x1="72" y1="45" x2="865" y2="45"/><line x1="72" y1="105" x2="865" y2="105"/><line x1="72" y1="165" x2="865" y2="165"/><line x1="72" y1="225" x2="865" y2="225"/><line x1="72" y1="285" x2="865" y2="285"/>
+ </g>
+ <g fill="#63756b" font-size="12" text-anchor="end"><text x="62" y="49">60</text><text x="62" y="109">45</text><text x="62" y="169">30</text><text x="62" y="229">15</text><text x="62" y="289">0</text></g>
+ <g fill="#63756b" font-size="12" text-anchor="middle">
+  <text x="145" y="315">Piling Work</text><text x="300" y="315">Temporary</text><text x="455" y="315">Soil Protection</text><text x="610" y="315">MEP</text><text x="765" y="315">Microsoft Project</text>
+ </g>
+ <!-- PASS/FAIL paired columns; vertical scale 0-60 records -->
+ <g fill="#128447"><rect x="112" y="161.6" width="28" height="123.4" rx="3"/><rect x="267" y="161.6" width="28" height="123.4" rx="3"/><rect x="422" y="113" width="28" height="172" rx="3"/><rect x="577" y="249.6" width="28" height="35.4" rx="3"/><rect x="732" y="233" width="28" height="52" rx="3"/></g>
+ <g fill="#f59e0b"><rect x="144" y="149.4" width="28" height="135.6" rx="3"/><rect x="299" y="281" width="28" height="4" rx="2"/><rect x="454" y="273" width="28" height="12" rx="2"/><rect x="609" y="257" width="28" height="28" rx="2"/><rect x="764" y="125" width="28" height="160" rx="3"/></g>
+ <!-- จำนวนผู้ผ่าน/ไม่ผ่านบนแท่งกราฟ -->
+ <g font-size="13" font-weight="700" text-anchor="middle">
+  <g fill="#ffffff"><text x="126" y="181">31</text><text x="281" y="181">31</text><text x="436" y="133">43</text><text x="591" y="270">9</text><text x="746" y="257">13</text></g>
+  <g fill="#ffffff"><text x="158" y="170">34</text><text x="778" y="147">40</text></g>
+  <g fill="#d97706"><text x="313" y="274">1</text><text x="468" y="266">3</text></g>
+  <g fill="#ffffff"><text x="623" y="276">7</text></g>
+ </g>
+ <!-- rate line, right axis 0-100% -->
+ <polyline points="142,142 297,93.6 452,107.4 607,150.6 762,186.6" fill="none" stroke="#174a78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+ <g fill="#174a78" stroke="#fff" stroke-width="2"><circle cx="142" cy="142" r="5"/><circle cx="297" cy="93.6" r="5"/><circle cx="452" cy="107.4" r="5"/><circle cx="607" cy="150.6" r="5"/><circle cx="762" cy="186.6" r="5"/></g>
+ <g fill="#174a78" font-size="12" font-weight="700" text-anchor="middle"><text x="142" y="130">47.7%</text><text x="297" y="81">96.9%</text><text x="452" y="95">93.5%</text><text x="607" y="138">56.3%</text><text x="762" y="174">24.5%</text></g>
+ </svg></div>
+ <div class="table-wrap"><table><thead><tr><th>หลักสูตร</th><th>ผ่าน</th><th>ไม่ผ่าน</th><th>จำนวนสอบ</th><th>อัตราผ่าน</th></tr></thead><tbody>
+ <tr><td>Piling Work</td><td>31</td><td>34</td><td>65</td><td>47.7%</td></tr>
+ <tr><td>Temporary Structure</td><td>31</td><td>1</td><td>32</td><td>96.9%</td></tr>
+ <tr><td>Soil Protection</td><td>43</td><td>3</td><td>46</td><td>93.5%</td></tr>
+ <tr><td>MEP</td><td>9</td><td>7</td><td>16</td><td>56.3%</td></tr>
+ <tr><td>Microsoft Project</td><td>13</td><td>40</td><td>53</td><td>24.5%</td></tr>
  </tbody></table></div>
- <p class="exam-note" style="margin-top:10px">ตัวเลขรายหลักสูตรรวม 212 รายการ: งานโครงสร้าง 143 รายการ · งานระบบ 16 รายการ · Microsoft Project 53 รายการ</p>
 </div>
-<div class="panel" style="margin-top:14px"><h3>ผลสอบตามตำแหน่งงาน · จุดที่ควรติดตามและกลุ่มคะแนนเฉลี่ยสูง</h3>
- <div class="grid2" style="margin-top:0">
-  <div><h4 style="margin:0 0 8px;color:#b45309">ตำแหน่งที่พบจำนวนไม่ผ่านสูง</h4>
+<div class="panel" style="margin-top:14px"><h3>วิเคราะห์ผลสอบตามตำแหน่งงาน</h3>
+ <div class="exam-position-grid">
+  <div><h4 style="margin:0 0 8px;color:#b45309">ตำแหน่งที่อัตราผ่านต่ำ</h4>
    <div class="table-wrap"><table><thead><tr><th>หลักสูตร</th><th>ตำแหน่ง</th><th>ไม่ผ่าน</th><th>ผู้สอบ</th><th>อัตราไม่ผ่าน</th></tr></thead><tbody>
     <tr><td>Microsoft Project</td><td>วิศวกรสำนักงาน</td><td>14</td><td>20</td><td>70.0%</td></tr>
     <tr><td>Piling Work</td><td>วิศวกรสนาม</td><td>11</td><td>25</td><td>44.0%</td></tr>
@@ -435,7 +757,7 @@ footer{text-align:center;color:#829087;font-size:11px;padding:24px}
     <tr><td>Microsoft Project</td><td>ผู้จัดการโครงการ</td><td>9</td><td>11</td><td>81.8%</td></tr>
    </tbody></table></div>
   </div>
-  <div><h4 style="margin:0 0 8px;color:#087443">ตำแหน่งที่มีคะแนนเฉลี่ยหลังเรียนสูง</h4>
+  <div><h4 style="margin:0 0 8px;color:#087443">ตำแหน่งที่อัตราผ่านสูง</h4>
    <div class="table-wrap"><table><thead><tr><th>หลักสูตร</th><th>ตำแหน่ง</th><th>คะแนนเฉลี่ย</th><th>ผู้สอบ</th></tr></thead><tbody>
     <tr><td>Soil</td><td>วิศวกรโครงการอาวุโส</td><td>100.0%</td><td>2</td></tr>
     <tr><td>Soil</td><td>วิศวกรสนาม</td><td>94.4%</td><td>24</td></tr>
@@ -444,82 +766,766 @@ footer{text-align:center;color:#829087;font-size:11px;padding:24px}
    </tbody></table></div>
   </div>
  </div>
- <p class="exam-note" style="margin-top:10px">เปรียบเทียบภายในหลักสูตร เนื่องจากแต่ละหลักสูตรใช้ข้อสอบและเกณฑ์ผ่านต่างกัน กลุ่มที่มีผู้สอบน้อยควรอ่านผลอย่างระมัดระวัง</p>
+ <div class="exam-note exam-note-combined" style="margin-top:10px;font-size:16px;line-height:1.65;padding:14px 18px">
+  <strong style="color:#087443">หมายเหตุ :</strong>
+  <ol style="margin:0 0 0 22px;padding-left:12px">
+   <li>ผู้ได้คะแนนเต็ม 100% ในหลักสูตร Soil Protection: นายศักดิ์ชาย วิวัฒน์รัตนะ (รุ่น 1) และนายภูมิญช์ คุ้มด้วง (รุ่น 2)</li>
+   <li>จากกราฟเปรียบเทียบเพียงแค่ภายในหลักสูตร เนื่องจากแต่ละหลักสูตรใช้ข้อสอบและเกณฑ์ผ่านต่างกัน กลุ่มที่มีผู้สอบน้อยควรอ่านผลอย่างระมัดระวัง</li>
+  </ol>
+ </div>
 </div>
 <div class="section-title">ความคิดเห็นจากการประเมินหลักสูตรมาตรฐานงานก่อสร้างแบ่งตามหมวดเนื้อหา</div>
 <div class="feedback-category-grid">
- <div class="feedback-category"><h3><span class="category-pill cat-structure">งานโครงสร้าง</span></h3><p>สรุปความคิดเห็นเฉพาะจากแบบประเมินที่มีข้อมูลในไฟล์ชุดนี้ยังไม่เพียงพอสำหรับยกตัวอย่างคำพูดรายหลักสูตร จึงไม่สร้างข้อความตัวอย่างขึ้นเอง</p></div>
- <div class="feedback-category"><h3><span class="category-pill cat-system">งานระบบ</span></h3><p>ในไฟล์ผลทดสอบมีข้อมูลคะแนน MEP แต่ไม่พบชุดความคิดเห็นประเมินที่เชื่อมโยงกับงานระบบและงานตรวจสอบการติดตั้งอย่างครบถ้วน จึงเว้นข้อความไว้เพื่อรอข้อมูลต้นทาง</p></div>
+ <div class="feedback-category">
+  <h3><span class="category-pill cat-structure">งานโครงสร้าง</span></h3>
+  <div class="feedback-summary-grid">
+   <div class="feedback-highlight feedback-strength"><h3>จุดเด่นที่ผู้เข้าอบรมกล่าวถึง</h3>
+    <ul><li>เนื้อหา<b>เชื่อมโยงกับการทำงานจริง</b>และ<b>นำไปประยุกต์ใช้ได้</b></li><li>ได้รับความรู้จาก<b>ประสบการณ์</b>และ<b>กรณีศึกษาหน้างาน</b></li><li><b>การถ่ายทอดความรู้</b>และ<b>ตัวอย่าง</b>ช่วยให้เข้าใจเนื้อหา</li></ul>
+   </div>
+   <div class="feedback-highlight feedback-improve"><h3>ประเด็นที่ควรปรับปรุง</h3>
+    <ul><li>เพิ่ม<b>เวลาอบรม</b>และ<b>กรณีศึกษา</b>ตามหัวข้อ</li><li>เพิ่มรายละเอียด<b>เอกสาร</b>และจัดทำ<b>ไฟล์ PDF</b> สำหรับทบทวน</li><li>พิจารณารูปแบบ <b>Onsite</b> เพื่อช่วยให้ผู้เข้าอบรม<b>มีสมาธิ</b>และ<b>มีส่วนร่วม</b></li><li>ทบทวน<b>สถานที่</b>และ<b>การจัดโต๊ะ</b>ให้เหมาะสมกับผู้เข้าอบรม</li></ul>
+   </div>
+  </div>
+  <p class="exam-note">อ้างอิงความคิดเห็นจาก Piling Work รุ่น 1–2, Temporary รุ่น 1–2 และ Soil Protection รุ่น 1–2</p>
+ </div>
+ <div class="feedback-category">
+  <h3><span class="category-pill cat-system">งานระบบ</span></h3>
+  <div class="feedback-summary-grid">
+   <div class="feedback-highlight feedback-strength"><h3>จุดเด่นที่ผู้เข้าอบรมกล่าวถึง</h3>
+    <ul><li>เนื้อหา<b>ตรงกับการทำงาน</b>และสามารถ<b>นำไปใช้หน้างาน</b>ได้</li><li>ช่วยเพิ่มความรู้และความเข้าใจเกี่ยวกับ<b>ระบบงาน MEP</b> และ<b>การออกแบบ</b></li><li><b>วิทยากรถ่ายทอดดี</b>และ<b>เปิดโอกาสให้สอบถาม</b></li></ul>
+   </div>
+   <div class="feedback-highlight feedback-improve"><h3>ประเด็นที่ควรปรับปรุง</h3>
+    <ul><li>ทบทวน<b>ระยะเวลา</b>ให้เหมาะสมกับ<b>ปริมาณเนื้อหา</b></li><li>พิจารณา<b>เพิ่มเนื้อหา</b>และปรับ<b>สื่อการสอน</b>ให้น่าสนใจยิ่งขึ้น</li><li>ปรับ<b>การแจ้งข้อมูลก่อนอบรม</b>ให้<b>ชัดเจนและทันเวลา</b></li></ul>
+   </div>
+  </div>
+  <p class="exam-note">อ้างอิงแบบประเมินหลักสูตร MEP เบื้องต้น รุ่น 1</p>
+ </div>
+</div>
+<div class="panel" style="margin-top:14px"><h3>แนวทางดำเนินการต่อ</h3>
+ <ul class="feedback-next-list"><li>ปรับเวลาและปริมาณเนื้อหาให้สอดคล้องกับหัวข้อและกิจกรรมฝึกปฏิบัติ</li><li>เพิ่มกรณีศึกษาจากหน้างาน พร้อมเอกสารประกอบที่สามารถดาวน์โหลดและทบทวนได้</li><li>ทบทวนรูปแบบการอบรม สถานที่ และการจัดเตรียมอุปกรณ์ก่อนวันอบรม</li><li>ติดตามผลการปรับปรุงในหลักสูตรรุ่นถัดไป</li></ul>
+</div>
 </div>
 </section>
 
 <section class="page" id="dsd">
-<div class="panel dsd-progress-panel">
-<h3>DSD Progress</h3>
-<div class="dsd-progress-cards">
-<div><div class="k-label">ส่งเข้าระบบแล้ว</div><div class="k-value" style="color:#14823b">371</div><div class="k-note">เพิ่มจากเดิม 126 (+245)</div></div>
-<div><div class="k-label">รอเข้าระบบ</div><div class="k-value" style="color:#75b889">200</div><div class="k-note">คาดว่าจะเพิ่ม</div></div>
-<div><div class="k-label">สำรอง/รอแก้ไข</div><div class="k-value" style="color:#f59e0b">167</div><div class="k-note">ไม่นับใน Progress</div></div>
+<div class="dsd-exec-head"><div><h2>DSD Progress</h2><div class="exam-date" id="dsdAsOf"></div></div><span class="dsd-goal-badge" id="dsdGoalBadge"></span></div>
+<div class="cards dsd-kpis" id="dsdKpis"></div>
+<div class="panel dsd-main-progress" id="dsdMain"></div>
+<div class="dsd-two">
+ <div data-chart-slot></div>
+ <div class="panel dsd-milestones" id="dsdMilestones"></div>
 </div>
-<div class="dsd-progress-line"><span>เป้าหมาย 50%</span><div class="dsd-track"><div class="dsd-fill" style="width:61.6%"></div></div><b>61.6%</b></div>
-<div class="small dsd-progress-note">371 / 602 คน · หาก 200 คนเข้าระบบครบ คาดการณ์ 94.9% (571 / 602)</div>
+<details class="sat-detail dsd-detail"><summary>ดูรายละเอียดรายหลักสูตร</summary>
+<div data-filter-slot></div>
+<div class="panel dsd-course-table-panel">
+ <h3>รายการหลักสูตรที่ส่งกรมพัฒน์ (ส่งแล้ว / รอส่งตามกำหนด DSD / ไม่สามารถส่งได้)</h3>
+ <div class="table-wrap">
+  <table>
+   <thead><tr><th>ชื่อหลักสูตร</th><th>วันนัดส่ง</th><th>สถานะ</th><th>ยอดคนหญิง</th><th>ยอดคนชาย</th></tr></thead>
+   <tbody id="dsdTable">
+</tbody>
+  </table>
+ </div>
 </div>
-
-<div class="panel dsd-breakdown-panel">
-<h3>ภาพรวมสถานะ DSD</h3>
-<div class="dsd-breakdown">
-<div class="dsd-donut" role="img" aria-label="กราฟวงกลมสถานะ DSD: ส่งเข้าระบบแล้ว 371 คน รอเข้าระบบ 200 คน สำรองหรือรอแก้ไข 167 คน">
-<div class="dsd-donut-center"><strong>738</strong><span>รวมทั้งหมด</span></div>
-</div>
-<div class="dsd-legend">
-<div><i style="background:#14823b"></i><span>ส่งเข้าระบบแล้ว</span><strong>371</strong><small>50.3%</small></div>
-<div><i style="background:#75b889"></i><span>รอเข้าระบบ</span><strong>200</strong><small>27.1%</small></div>
-<div><i style="background:#f59e0b"></i><span>สำรอง/รอแก้ไข</span><strong>167</strong><small>22.6%</small></div>
-<p class="small">กราฟแสดงสัดส่วนทั้ง 3 กลุ่ม โดยกลุ่มสำรอง/รอแก้ไขไม่นับใน Progress</p>
-</div>
-</div>
-</div>
+</details>
 </section>
 
 <section class="page" id="data">
-<div class="panel"><h3>แก้ไขข้อมูล Dashboard</h3><p class="small">แก้ไขข้อมูลตัวอย่างในช่องด้านล่างแล้วกด “นำเข้าข้อมูลใหม่” เพื่อปรับตารางและกราฟที่รองรับ หรือดาวน์โหลดไฟล์นี้เก็บเป็นสำเนาได้ ข้อมูลที่แก้ไขในหน้าเว็บจะอยู่ในไฟล์/แท็บปัจจุบันเท่านั้น</p>
+
+<div class="panel" id="importCenter" style="margin-bottom:16px">
+  <div class="toolbar"><div><h3 style="margin:0">ศูนย์นำเข้าข้อมูล HRD</h3><div class="small">นำเข้า Excel แยกตามประเภทข้อมูล • ตรวจสอบก่อนบันทึก • เก็บประวัติและไม่เขียนทับข้อมูลเดิมอัตโนมัติ</div></div><span class="status good" id="importDbStatus">พร้อมตรวจสอบ</span></div>
+  <div class="grid2" style="margin-top:12px">
+    <div>
+      <label for="sourceFiles">เลือกไฟล์ Excel (เลือกได้หลายไฟล์)</label>
+      <input id="sourceFiles" type="file" accept=".xlsx,.xls,.csv" multiple>
+      <div class="small" style="margin-top:8px">ไฟล์ Data Base.xlsx จะอัปเดตหน้า 01 ภาพรวม, 02 ความพึงพอใจ และ 04 DSD ทันทีหลังยืนยัน (จากชีตแผน, Master และ Statusกรมพัฒน์) ส่วนชีตบันทึกประวัติอบรมใช้แค่ยอดรวมรายหลักสูตรเพื่อตรวจสอบ ไม่เก็บข้อมูลรายบุคคล ผลสอบหน้า 03 ยังไม่อัปเดตจากการนำเข้า</div>
+      <div class="toolbar" style="margin-top:12px"><button class="btn primary" id="scanFilesBtn" type="button">ตรวจสอบไฟล์และดูตัวอย่าง</button><button class="btn" id="cancelImportBtn" type="button">ล้างรายการ</button></div>
+    </div>
+    <div class="panel" style="background:#f8fbf9;box-shadow:none">
+      <b>หลักการนำเข้าข้อมูล</b>
+      <ol class="small" style="padding-left:18px;margin-bottom:0">
+        <li>ตรวจประเภทไฟล์และชีตต้นทาง</li>
+        <li>ตรวจหัวคอลัมน์และคีย์อ้างอิง</li>
+        <li>แยกรายการใหม่ / ซ้ำ / ข้อมูลไม่ครบ</li>
+        <li>กดยืนยันก่อนบันทึกทุกครั้ง</li>
+      </ol>
+    </div>
+  </div>
+  <div id="importPreview" style="margin-top:14px"></div>
+  <div class="toolbar" style="margin-top:12px"><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" id="confirmImportBtn" type="button" disabled>ยืนยันนำเข้ารายการที่ผ่านตรวจสอบ</button><button class="btn" id="resetImportBtn" type="button">กลับไปใช้ข้อมูลตั้งต้น</button></div><span class="small" id="importFeedback" aria-live="polite">ยังไม่มีไฟล์รอตรวจสอบ</span></div>
+</div>
+<div class="panel" id="dataCheckPanel" style="margin-bottom:16px">
+  <div class="toolbar"><div><h3 style="margin:0">ผลตรวจข้อมูลจาก Excel</h3><div class="small" id="dataCheckSummary"></div></div><div id="dataCheckCounts"></div></div>
+  <div class="table-wrap data-check-wrap"><table><thead><tr><th>ระดับ</th><th>รายการ</th><th>ประเด็น</th><th>รายละเอียด</th></tr></thead><tbody id="dataCheckBody"></tbody></table></div>
+</div>
+<div class="panel" style="margin-bottom:16px">
+  <div class="toolbar"><h3 style="margin:0">Mapping ข้อมูลต้นทาง</h3><span class="small">อ้างอิงจากไฟล์ฐานข้อมูล 4 ชุดที่ให้มา</span></div>
+  <div style="overflow:auto"><table><thead><tr><th>ประเภทข้อมูล</th><th>ชีตต้นทางที่ใช้</th><th>คีย์หลักสำหรับตรวจซ้ำ</th><th>ข้อมูลที่นำไปใช้</th></tr></thead><tbody>
+  <tr><td>แผน / งบประมาณรายหลักสูตร (Data Base.xlsx)</td><td>Actual VS Budget Plan 2569 (ตรวจจากหัวคอลัมน์ Training ID)</td><td>Training ID</td><td>จำนวนหลักสูตร, สถานะ, รูปแบบ, ประเภททักษะ, วันอบรม, ค่าใช้จ่ายจริง, งบประมาณ ในหน้า 01</td></tr>
+  <tr><td>DSD (Data Base.xlsx)</td><td>Statusกรมพัฒน์</td><td>ชื่อหลักสูตร</td><td>ยอดส่งเข้าระบบ, ยอดรอส่งตามรอบรับเอกสาร DSD, หลักสูตรที่ไม่สามารถส่งได้ ในหน้า 01 และ 04</td></tr>
+  <tr><td>ผลประเมินรายหลักสูตร (Data Base.xlsx)</td><td>Master</td><td>หลักสูตร</td><td>ผู้เรียน, ผู้ตอบ, คะแนนรายด้าน, ภาพรวม ในหน้า 02</td></tr>
+  <tr><td>ประวัติอบรม / แผน / งบประมาณ</td><td>บันทึกประวัติอบรม; Actual VS Budget Plan 2569; Master Plan; (NING) รายชื่อ 10% Course; กรมพัฒน์ Database / Statusกรมพัฒน์</td><td>รหัสพนักงาน + หลักสูตร + รุ่น + วันเริ่มอบรม</td><td>ผู้เข้าอบรม, หลักสูตร, ประเภท/รูปแบบ, วันอบรม, ค่าใช้จ่าย, สถานะ DSD</td></tr>
+  <tr><td>ฐานพนักงาน</td><td>Employee Data</td><td>รหัสพนักงาน</td><td>ฝ่าย, หน่วยงาน, ตำแหน่ง, ระดับงาน, สถานะพนักงาน (ใช้เชื่อมข้อมูลภายใน)</td></tr>
+  <tr><td>ประเมินหลังอบรม</td><td>ชีตคำตอบแบบฟอร์มรายหลักสูตร เช่น การตอบแบบฟอร์ม Ai / MEP และชีตสรุปผลรายหลักสูตร</td><td>เวลาส่งแบบประเมิน + รหัสพนักงาน + หลักสูตร</td><td>คะแนนรายข้อ, ค่าเฉลี่ย, อัตราตอบกลับ, ความคิดเห็น</td></tr>
+  <tr><td>ผลสอบมาตรฐานก่อสร้าง</td><td>ฐานวิเคราะห์ และชีตผลคะแนน/ Post-test แยกหลักสูตร</td><td>รหัสพนักงาน + หลักสูตร + รุ่น + รอบสอบ</td><td>คะแนนก่อน/หลัง, ผลผ่าน, ตำแหน่ง, รอบสอบ</td></tr>
+  </tbody></table></div>
+  <p class="small">หมายเหตุ: ชื่อชีตและหัวคอลัมน์บางส่วนต่างกันตามรุ่นไฟล์ ระบบจะตรวจชื่อชีต/หัวคอลัมน์ก่อนรับข้อมูล ไม่ใช้ชื่อหลักสูตรเพียงอย่างเดียวเป็นคีย์เชื่อม และไม่แสดงเลขบัตรประชาชน เบอร์โทร หรืออีเมลในมุมมองผู้บริหาร</p>
+</div>
+<div class="panel" style="margin-bottom:16px">
+  <div class="toolbar"><h3 style="margin:0">ประวัติการนำเข้า</h3><button class="btn" id="refreshImportHistory" type="button">รีเฟรช</button></div>
+  <div id="importHistory" class="small">กำลังโหลดประวัติ...</div>
+</div>
+<div class="panel"><h3>แก้ไขข้อมูล Dashboard</h3><p class="small">แก้ไขข้อมูลตัวอย่างในช่องด้านล่างแล้วกด “นำเข้าข้อมูลใหม่” เพื่อปรับตารางและกราฟที่รองรับ หรือกดดาวน์โหลดเพื่อเก็บสำเนาที่รวมข้อมูลล่าสุดไว้ในไฟล์ ข้อมูล Excel ที่นำเข้าจะถูกจำไว้ในเบราว์เซอร์นี้ หากต้องการส่งให้ผู้อื่นให้ส่งไฟล์ที่ดาวน์โหลด</p>
 <div class="toolbar"><b>ข้อมูลความพึงพอใจ (CSV: หลักสูตร,ผู้เรียน,ผู้ตอบ,วิทยากร,เนื้อหา,สถานที่,ภาพรวม)</b><button class="btn primary" onclick="applyData()">นำเข้าข้อมูลใหม่</button></div>
 <textarea id="editSat"></textarea><div class="toolbar" style="margin-top:12px"><button class="btn" onclick="downloadPage()">ดาวน์โหลดเว็บไซต์ HTML</button><button class="btn" onclick="window.print()">พิมพ์ / บันทึก PDF</button></div>
-<p class="small">เพื่อแก้ไขฐานข้อมูล DSD และแผนอบรมทั้งหมด สามารถแก้ไขตารางในโค้ด HTML ได้ด้วยโปรแกรมแก้ไขข้อความ เช่น VS Code หรือ Notepad++</p></div>
+<p class="small">แผนอบรมและงบประมาณให้แก้ใน Excel แล้วนำเข้าที่ศูนย์นำเข้าด้านบน ส่วนผลสอบหน้า 03 ยังต้องแก้ในโค้ด HTML ด้วยโปรแกรมแก้ไขข้อความ เช่น VS Code หรือ Notepad++</p></div>
 </section>
 </main><footer>VISSAVAPAT • HRD Executive Dashboard 2026 • Internal Management View</footer>
+<script id="hrdData" type="application/json">{"meta":{"source":"Data Base.xlsx","sheet":"Actual VS Budget Plan 2569","importedAt":"2026-11-06T14:10:05+07:00","budget":1229890,"facts":{"dateBE":71,"date1969":13,"dateCE":6,"attendedFormula":"SUM(M3:M33)","attendedCached":572,"lastDataRow":56,"mangoNote":true,"categoryShift":3},"history":{"TR-2569-002":2,"TR-2569-003":30,"TR-2569-004":5,"TR-2569-006":5,"TR-2569-007":25,"TR-2569-008":4,"TR-2569-009":3,"TR-2569-010":2,"TR-2569-011":40,"TR-2569-012":14,"TR-2569-013":2,"TR-2569-014":60,"TR-2569-015":23,"TR-2569-016":26,"TR-2569-023":1,"TR-2569-024":23,"TR-2569-025":3,"TR-2569-026":2,"TR-2569-027":31,"TR-2569-028":30,"TR-2569-029":23,"TR-2569-030":25,"TR-2569-031":51,"TR-2569-032":1,"TR-2569-033":30,"TR-2569-036":28}},"training":[{"id":"TR-2569-001","row":2,"name":"หลักสูตร งานระบบ VRV (อบรมจริง Make คนเข้า)","source":"","category":"","type":"","format":"","date":null,"end":null,"dateNote":"","month":"","duration":"","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"","cancelNote":false},{"id":"TR-2569-002","row":3,"name":"ปัญหาข้อพิพาทในสัญญาก่อสร้าง","source":"Business Plan","category":"Construction Management","type":"Functional Skill","format":"Public – Onsite","date":"2026-01-30","end":"2026-01-31","dateNote":"","month":"01","duration":"เต็มวัน","requested":2,"monthly":2,"attended":2,"sent":1,"fee":31800,"breakCost":0,"food":0,"actual":31800,"status":"Completed","cancelNote":false},{"id":"TR-2569-003","row":4,"name":"The Importance of Succession Planning for Sustainable Leadership","source":"Business Plan","category":"Leadership","type":"Functional Skill","format":"In-house","date":"2026-01-29","end":"2026-01-29","dateNote":"","month":"01","duration":"เต็มวัน","requested":25,"monthly":25,"attended":25,"sent":1,"fee":69550,"breakCost":0,"food":0,"actual":69550,"status":"Completed","cancelNote":false},{"id":"TR-2569-004","row":5,"name":"ผู้คุมทดสอบฝีมือแรงงาน - ซ่อม","source":"Competency Development","category":"Construction Management","type":"Mandatory Skill","format":"In-house","date":"2026-01-23","end":"2026-01-27","dateNote":"","month":"01","duration":"เต็มวัน","requested":5,"monthly":5,"attended":5,"sent":null,"fee":0,"breakCost":0,"food":1161.95,"actual":1161.95,"status":"Completed","cancelNote":false},{"id":"TR-2569-005","row":6,"name":"ประชุมใหญ่สามัญวิศวกร","source":"Competency Development","category":"Professional License","type":"Mandatory Skill","format":"Public – Onsite","date":"2026-02-25","end":"2026-02-25","dateNote":"","month":"02","duration":"เต็มวัน","requested":5,"monthly":5,"attended":1,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Completed","cancelNote":false},{"id":"TR-2569-006","row":7,"name":"ผู้คุมทดสอบฝีมือแรงงาน - ซ่อม","source":"Competency Development","category":"Construction Management","type":"Mandatory Skill","format":"In-house","date":"2026-02-27","end":"2026-02-27","dateNote":"","month":"02","duration":"เต็มวัน","requested":5,"monthly":5,"attended":5,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Completed","cancelNote":false},{"id":"TR-2569-007","row":8,"name":"การทำงานของเสาเข็ม (Piling) รุ่น 1","source":"Competency Development","category":"ST- Structure (หมวดงานโครงสร้าง)","type":"Mandatory Skill","format":"Sharing – Internal Trainer","date":"2026-03-10","end":"2026-03-10","dateNote":"","month":"03","duration":"ครึ่งวัน","requested":26,"monthly":25,"attended":25,"sent":1,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Completed","cancelNote":false},{"id":"TR-2569-008","row":9,"name":"หลักสูตร HR Payroll","source":"Business Plan","category":"HR / Finance / Administration","type":"Functional Skill","format":"Online","date":"2026-03-12","end":"2026-03-12","dateNote":"","month":"03","duration":"ครึ่งวัน","requested":4,"monthly":4,"attended":4,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Completed","cancelNote":false},{"id":"TR-2569-009","row":10,"name":"ผู้คุมทดสอบฝีมือแรงงาน - เข้าใหม่","source":"Competency Development","category":"Construction Management","type":"Mandatory Skill","format":"In-house","date":"2026-03-20","end":"2026-03-20","dateNote":"","month":"03","duration":"เต็มวัน","requested":3,"monthly":3,"attended":3,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Completed","cancelNote":false},{"id":"TR-2569-010","row":11,"name":"Mar Tech Expo","source":"Business Plan","category":"Digital \u0026 AI","type":"General Skill","format":"Public – Onsite","date":"2026-03-23","end":"2026-03-23","dateNote":"","month":"03","duration":"เต็มวัน","requested":3,"monthly":null,"attended":3,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Completed","cancelNote":false},{"id":"TR-2569-011","row":12,"name":"การทำงานของเสาเข็ม (Piling) รุ่น 2","source":"Competency Development","category":"ST- Structure (หมวดงานโครงสร้าง)","type":"Mandatory Skill","format":"Sharing – Internal Trainer","date":"2026-03-24","end":"2026-03-24","dateNote":"","month":"03","duration":"ครึ่งวัน","requested":78,"monthly":40,"attended":1,"sent":1,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Completed","cancelNote":false},{"id":"TR-2569-012","row":13,"name":"หลักสูตร Tower Crane - Construction Lift - Gondola","source":"Legal \u0026 Compliance","category":"Safety","type":"Technical Skill","format":"In-house","date":"2026-03-24","end":"2026-03-24","dateNote":"","month":"03","duration":"เต็มวัน","requested":13,"monthly":null,"attended":14,"sent":null,"fee":32100,"breakCost":377.57,"food":377.57,"actual":32855.14,"status":"Completed","cancelNote":false},{"id":"TR-2569-013","row":14,"name":"การวางแผนทรัพยากรและการควบคุมต้นทุนในงานก่อสร้าง โดยประยุกต์ใช้คอมพิวเตอร์ Ms.Project","source":"Business Plan","category":"Construction Management","type":"Functional Skill","format":"Online","date":"2026-03-27","end":"2026-03-28","dateNote":"","month":"03","duration":"เต็มวัน","requested":2,"monthly":2,"attended":2,"sent":1,"fee":6000,"breakCost":0,"food":0,"actual":6000,"status":"Completed","cancelNote":false},{"id":"TR-2569-014","row":15,"name":"หลักสูตร ดับเพลิงขั้นต้นและซ้อมอพยพหนีไฟ (D Condo Kiri)","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":"2026-03-28","end":"2026-03-28","dateNote":"","month":"03","duration":"เต็มวัน","requested":60,"monthly":null,"attended":60,"sent":null,"fee":11000,"breakCost":0,"food":0,"actual":11000,"status":"Completed","cancelNote":false},{"id":"TR-2569-015","row":16,"name":"หลักสูตร Temporary Structure Design รุ่น 1","source":"Competency Development","category":"ST- Structure (หมวดงานโครงสร้าง)","type":"Mandatory Skill","format":"Sharing – Internal Trainer","date":"2026-05-12","end":"2026-05-12","dateNote":"","month":"05","duration":"เต็มวัน","requested":23,"monthly":null,"attended":23,"sent":null,"fee":0,"breakCost":1127.5,"food":1127.5,"actual":2255,"status":"Completed","cancelNote":false},{"id":"TR-2569-016","row":17,"name":"หลักสูตร Temporary Structure Design รุ่น 2","source":"Competency Development","category":"ST- Structure (หมวดงานโครงสร้าง)","type":"Mandatory Skill","format":"Sharing – Internal Trainer","date":"2026-05-19","end":"2026-05-19","dateNote":"","month":"05","duration":"เต็มวัน","requested":26,"monthly":null,"attended":26,"sent":null,"fee":0,"breakCost":0,"food":1086,"actual":1086,"status":"Completed","cancelNote":true},{"id":"TR-2569-017","row":18,"name":"หลักสูตร ดับเพลิงขั้นต้นและซ้อมอพยพหนีไฟ (อควารัส พัทยา)","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":"2026-05-23","end":"2026-05-23","dateNote":"","month":"05","duration":"เต็มวัน","requested":60,"monthly":null,"attended":60,"sent":null,"fee":12500,"breakCost":0,"food":0,"actual":12500,"status":"Completed","cancelNote":false},{"id":"TR-2569-018","row":19,"name":"หลักสูตร ดับเพลิงขั้นต้นและซ้อมอพยพหนีไฟ (เควาลอน)","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":"2026-05-29","end":"2026-05-29","dateNote":"","month":"05","duration":"เต็มวัน","requested":60,"monthly":null,"attended":60,"sent":null,"fee":11000,"breakCost":0,"food":0,"actual":11000,"status":"Completed","cancelNote":false},{"id":"TR-2569-019","row":20,"name":"หลักสูตร Maximizing Business Productivity with Claude","source":"Business Plan","category":"Digital \u0026 AI","type":"General Skill","format":"Public – Onsite","date":"2026-06-10","end":"2026-06-10","dateNote":"","month":"06","duration":"เต็มวัน","requested":2,"monthly":null,"attended":2,"sent":null,"fee":8650.47,"breakCost":0,"food":0,"actual":8650.47,"status":"Completed","cancelNote":false},{"id":"TR-2569-020","row":21,"name":"หลักสูตร Generative AI for Executives","source":"Business Plan","category":"Digital \u0026 AI","type":"General Skill","format":"Public – Onsite","date":"2026-06-09","end":"2026-06-09","dateNote":"","month":"06","duration":"เต็มวัน","requested":1,"monthly":null,"attended":1,"sent":null,"fee":28964.49,"breakCost":0,"food":0,"actual":28964.49,"status":"Completed","cancelNote":false},{"id":"TR-2569-021","row":22,"name":"หลักสูตร คณะกรรมการความปลอดภัยอาชีวอนามัยและสภาพแวดล้อมในการทำงานของสถานประกอบกิจการ","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":"2026-06-19","end":"2026-06-20","dateNote":"","month":"06","duration":"เต็มวัน","requested":30,"monthly":null,"attended":30,"sent":null,"fee":20330,"breakCost":2869.5,"food":2869.5,"actual":26069,"status":"Completed","cancelNote":false},{"id":"TR-2569-022","row":23,"name":"หลักสูตร ฝึกซ้อมอพยพหนีไฟประจำปี 2569 (หน่วยงาน Life Chareonnakhon-Sathorn)","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":"2026-06-20","end":"2026-06-20","dateNote":"","month":"06","duration":"เต็มวัน","requested":30,"monthly":null,"attended":30,"sent":null,"fee":10000,"breakCost":0,"food":0,"actual":10000,"status":"Completed","cancelNote":false},{"id":"TR-2569-023","row":24,"name":"แนวปฏิบัติใบกำกับภาษีอิเล็กทรอนิกส์","source":"Business Plan","category":"HR / Finance / Administration","type":"Functional Skill","format":"Online","date":"2026-08-21","end":"2026-08-21","dateNote":"","month":"08","duration":"เต็มวัน","requested":1,"monthly":null,"attended":1,"sent":null,"fee":2808,"breakCost":0,"food":0,"actual":2808,"status":"Completed","cancelNote":false},{"id":"TR-2569-024","row":25,"name":"The Art of the Deat Mastering Negotiation","source":"IDP / Talent Development","category":"Leadership","type":"General Skill","format":"In-house","date":"2026-08-26","end":"2026-08-26","dateNote":"","month":"08","duration":"เต็มวัน","requested":11,"monthly":null,"attended":23,"sent":null,"fee":69850,"breakCost":1830,"food":1600,"actual":73280,"status":"Completed","cancelNote":false},{"id":"TR-2569-025","row":26,"name":"การบริหารเวลาและจัดลำดับความสำคัญ","source":"IDP / Talent Development","category":"Personal Effectiveness","type":"General Skill","format":"Online","date":"2026-08-27","end":"2026-09-04","dateNote":"","month":"08","duration":"เต็มวัน","requested":3,"monthly":null,"attended":3,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Completed","cancelNote":false},{"id":"TR-2569-026","row":27,"name":"การแก้ไขปัญหาและการตัดสินใจอย่างเป็นระบ","source":"IDP / Talent Development","category":"Personal Effectiveness","type":"General Skill","format":"Public – Onsite","date":"2026-09-04","end":"2026-09-04","dateNote":"","month":"09","duration":"เต็มวัน","requested":2,"monthly":null,"attended":2,"sent":null,"fee":9984,"breakCost":0,"food":0,"actual":9984,"status":"Completed","cancelNote":false},{"id":"TR-2569-027","row":28,"name":"งานระบบป้องกันดินพัง (Soil protection) รุ่น 1","source":"Competency Development","category":"ST- Structure (หมวดงานโครงสร้าง)","type":"Functional Skill","format":"Sharing – Internal Trainer","date":"2026-09-04","end":"2026-09-04","dateNote":"","month":"09","duration":"เต็มวัน","requested":32,"monthly":null,"attended":31,"sent":null,"fee":0,"breakCost":1854,"food":1500,"actual":3354,"status":"Completed","cancelNote":false},{"id":"TR-2569-028","row":29,"name":"อบรมการใช้งานโปรแกรม Microsoft Project สำหรับการรายงานความก้าวหน้าโครงการ รุ่น 1","source":"Business Plan","category":"Construction Management","type":"Functional Skill","format":"Sharing – Internal Trainer","date":"2026-09-07","end":"2026-09-07","dateNote":"","month":"09","duration":"เต็มวัน","requested":30,"monthly":null,"attended":30,"sent":null,"fee":0,"breakCost":1295,"food":2500,"actual":3795,"status":"Completed","cancelNote":false},{"id":"TR-2569-029","row":30,"name":"อบรมการใช้งานโปรแกรม Microsoft Project สำหรับการรายงานความก้าวหน้าโครงการ รุ่น 2","source":"Business Plan","category":"Construction Management","type":"Functional Skill","format":"Sharing – Internal Trainer","date":"2026-09-08","end":"2026-09-08","dateNote":"","month":"09","duration":"เต็มวัน","requested":28,"monthly":null,"attended":23,"sent":null,"fee":0,"breakCost":2109,"food":2270,"actual":4379,"status":"Completed","cancelNote":false},{"id":"TR-2569-030","row":31,"name":"งานระบบป้องกันดินพัง (Soil protection) รุ่น 2","source":"Competency Development","category":"ST- Structure (หมวดงานโครงสร้าง)","type":"Functional Skill","format":"Sharing – Internal Trainer","date":"2026-09-18","end":"2026-09-18","dateNote":"","month":"09","duration":"เต็มวัน","requested":26,"monthly":null,"attended":23,"sent":null,"fee":0,"breakCost":1504,"food":1600,"actual":3104,"status":"Completed","cancelNote":false},{"id":"TR-2569-031","row":32,"name":"ผู้บังคับปั้นจั่น ผู้ให้สัญญาณแก่ผู้บังคับปั้นจั่น ผู้ยึดเกาะวัสดุ และทบทวน รุ่น2","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":"2026-10-09","end":"2026-10-10","dateNote":"","month":"10","duration":"เต็มวัน","requested":53,"monthly":null,"attended":53,"sent":null,"fee":29960,"breakCost":512,"food":942,"actual":31414,"status":"Completed","cancelNote":false},{"id":"TR-2569-032","row":33,"name":"ข้อกำหนดและกฎหมายอาคารสูง","source":"Competency Development","category":"Construction Management","type":"Functional Skill","format":"Online","date":"2026-10-16","end":"2026-10-16","dateNote":"","month":"10","duration":"","requested":1,"monthly":null,"attended":1,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Completed","cancelNote":false},{"id":"TR-2569-033","row":34,"name":"AI for Construction \u0026 BOQ","source":"Business Plan","category":"Digital \u0026 AI","type":"General Skill","format":"Online","date":"2026-10-21","end":"2026-10-21","dateNote":"","month":"10","duration":"เต็มวัน","requested":30,"monthly":null,"attended":30,"sent":null,"fee":39000,"breakCost":1925,"food":2550,"actual":43475,"status":"Completed","cancelNote":false},{"id":"TR-2569-034","row":35,"name":"ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น รุ่น 1","source":"Competency Development","category":"MEP - Mechanical, Electrical and Plumbing Engineering (หมวดงานวิศวกรรมระบบประกอบอาคาร)","type":"Mandatory Skill","format":"Sharing – Internal Trainer","date":"2026-10-29","end":"2026-10-29","dateNote":"","month":"10","duration":"เต็มวัน","requested":30,"monthly":null,"attended":28,"sent":null,"fee":0,"breakCost":1360,"food":1690,"actual":3050,"status":"Completed","cancelNote":false},{"id":"TR-2569-035","row":36,"name":"Digital Construction DAY 1","source":"Business Plan","category":"Digital Construction","type":"Functional Skill","format":"Public – Onsite","date":"2026-10-31","end":"2026-10-31","dateNote":"","month":"10","duration":"เต็มวัน","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Completed","cancelNote":false},{"id":"TR-2569-036","row":37,"name":"ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น รุ่น 2","source":"Competency Development","category":"MEP - Mechanical, Electrical and Plumbing Engineering (หมวดงานวิศวกรรมระบบประกอบอาคาร)","type":"Mandatory Skill","format":"Sharing – Internal Trainer","date":"2026-11-10","end":"2026-11-10","dateNote":"","month":"11","duration":"เต็มวัน","requested":18,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"On-process","cancelNote":false},{"id":"TR-2569-037","row":38,"name":"Digital Construction DAY 2","source":"Business Plan","category":"Digital Construction","type":"Functional Skill","format":"Public – Onsite","date":"2026-11-01","end":"2026-11-01","dateNote":"","month":"11","duration":"เต็มวัน","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"On-process","cancelNote":false},{"id":"TR-2569-038","row":39,"name":"Digital Construction DAY 3-4","source":"Business Plan","category":"Digital Construction","type":"Functional Skill","format":"Public – Onsite","date":"2026-11-07","end":"2026-11-08","dateNote":"","month":"11","duration":"เต็มวัน","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"On-process","cancelNote":false},{"id":"TR-2569-039","row":40,"name":"หัวหน้างานยุคใหม่ครบเครื่องทักษะการนำทีมอย่างมีประสิทธิผล","source":"IDP / Talent Development","category":"Leadership","type":"General Skill","format":"Public – Onsite","date":"2026-11-10","end":"2026-11-10","dateNote":"","month":"11","duration":"เต็มวัน","requested":3,"monthly":null,"attended":3,"sent":null,"fee":11235,"breakCost":0,"food":0,"actual":11235,"status":"On-process","cancelNote":false},{"id":"TR-2569-040","row":41,"name":"การบริหารงานเชิงกลยุทธ์และพัฒนาภาวะผู้นำ","source":"IDP / Talent Development","category":"Leadership","type":"General Skill","format":"Public – Onsite","date":"2026-11-11","end":"2026-11-11","dateNote":"","month":"11","duration":"เต็มวัน","requested":null,"monthly":null,"attended":null,"sent":null,"fee":3745,"breakCost":0,"food":0,"actual":3745,"status":"On-process","cancelNote":false},{"id":"TR-2569-041","row":42,"name":"เปลี่ยนผู้จัดการ เป็น “นักปั้นคน” ที่ขับเคลื่อนองค์กรฝ่าความเปลี่ยนแปลง","source":"IDP / Talent Development","category":"Leadership","type":"General Skill","format":"Public – Onsite","date":"2026-11-12","end":"2026-11-12","dateNote":"","month":"11","duration":"เต็มวัน","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"On-process","cancelNote":false},{"id":"TR-2569-042","row":43,"name":"Presentation Skill + Business Communication (Story telling)","source":"IDP / Talent Development","category":"Personal Effectiveness","type":"General Skill","format":"Public – Onsite","date":"2026-11-20","end":"2026-11-20","dateNote":"","month":"11","duration":"เต็มวัน","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"On-process","cancelNote":false},{"id":"TR-2569-043","row":44,"name":"การออกแบบโครงสร้างเหล็กด้วยวิธี Unified Method (ASD/LRFD)","source":"Competency Development","category":"compentency","type":"Technical Skill","format":"Online","date":"2026-11-15","end":"2026-12-15","dateNote":"","month":"11","duration":"","requested":1,"monthly":null,"attended":1,"sent":null,"fee":4500,"breakCost":0,"food":0,"actual":4500,"status":"On-process","cancelNote":false},{"id":"TR-2569-044","row":45,"name":"RC Structure","source":"Competency Development","category":"ST- Structure (หมวดงานโครงสร้าง)","type":"Mandatory Skill","format":"Sharing – Internal Trainer","date":null,"end":null,"dateNote":"รอคิว","month":"","duration":"เต็มวัน","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"On-process","cancelNote":false},{"id":"TR-2569-045","row":46,"name":"มหัศจรรย์-เทคนิคการสอนแนะและการเป็นพี่เลี้ยง","source":"IDP / Talent Development","category":"Leadership","type":"General Skill","format":"Public – Onsite","date":"2026-12-02","end":"2026-12-02","dateNote":"","month":"12","duration":"เต็มวัน","requested":1,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"On-process","cancelNote":false},{"id":"TR-2569-046","row":47,"name":"งานตรวจสอบการติดตั้งการตรวจสอบและ Combine แบบ - การตรวจสอบและ Combine แบบ ร่น 1","source":"Competency Development","category":"MEP - Mechanical, Electrical and Plumbing Engineering (หมวดงานวิศวกรรมระบบประกอบอาคาร)","type":"Mandatory Skill","format":"Sharing – Internal Trainer","date":"2026-12-17","end":"2026-12-17","dateNote":"","month":"12","duration":"เต็มวัน","requested":17,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"On-process","cancelNote":false},{"id":"TR-2569-047","row":48,"name":"งานตรวจสอบการติดตั้งการตรวจสอบและ Combine แบบ - การตรวจสอบและ Combine แบบ รุ่่น 2","source":"Competency Development","category":"MEP - Mechanical, Electrical and Plumbing Engineering (หมวดงานวิศวกรรมระบบประกอบอาคาร)","type":"Mandatory Skill","format":"Sharing – Internal Trainer","date":"2026-12-24","end":"2026-12-24","dateNote":"","month":"12","duration":"เต็มวัน","requested":29,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"On-process","cancelNote":false},{"id":"TR-2569-049","row":49,"name":"หลักสูตร เจ้าหน้าที่ความปลอดภัยในการทำงาน ระดับหัวหน้างาน (จป.หัวหน้างาน)","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":null,"end":null,"dateNote":"Q4","month":"","duration":"","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Pending","cancelNote":false},{"id":"TR-2569-050","row":50,"name":"หลักสูตร การฝึกอบรมดับเพลิงขั้นต้น","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":null,"end":null,"dateNote":"Q4","month":"","duration":"","requested":30,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Pending","cancelNote":false},{"id":"TR-2569-051","row":51,"name":"หลักสูตร ผู้บังคับและการใช้งานลิฟต์ขนส่งวัสดุและโดยสารชั่วคราวในงานก่อสร้าง","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":null,"end":null,"dateNote":"Q4","month":"","duration":"","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Pending","cancelNote":false},{"id":"TR-2569-052","row":52,"name":"หลักสูตร ผู้บังคับรถยก (Forklift)","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":null,"end":null,"dateNote":"Q4","month":"","duration":"","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Pending","cancelNote":false},{"id":"TR-2569-053","row":53,"name":"อบรมนั่งร้าน การติดตั้งนั่งร้าน การตรวจสอบนั่งร้าน (NEW)","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":null,"end":null,"dateNote":"Q4","month":"","duration":"","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Pending","cancelNote":false},{"id":"TR-2569-054","row":54,"name":"หลักสูตรฝึกซ้อมอพยพหนีไฟ หน่วยงาน The Base 19","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":null,"end":null,"dateNote":"Q4","month":"","duration":"","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Pending","cancelNote":false},{"id":"TR-2569-055","row":55,"name":"หลักสูตรฝึกซ้อมอพยพหนีไฟ หน่วยงาน สำนักงานใหญ่","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":null,"end":null,"dateNote":"Q4","month":"","duration":"","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Pending","cancelNote":false},{"id":"TR-2569-056","row":56,"name":"หลักสูตรความปลอดภัยในการทำงานบนที่สูง (NEW) ทบทวนทุก 3 ปี","source":"Legal \u0026 Compliance","category":"Safety","type":"Mandatory Skill","format":"In-house","date":null,"end":null,"dateNote":"Q4","month":"","duration":"","requested":null,"monthly":null,"attended":null,"sent":null,"fee":0,"breakCost":0,"food":0,"actual":0,"status":"Pending","cancelNote":false}],"dsd":{"target":602,"baseline":126,"sent":421,"gross":300,"asOf":"2026-11-06","dueDate":"2026-11-30","courses":[["การบริหารงานเชิงกลยุทธ์และพัฒนาภาวะผู้นำ","ส่งรายงาน 28-09-69","ส่งแล้ว",0,2,false],["The Art of the Deat Mastering Negotiation","ส่งของจริง 11-10-69","ส่งแล้ว",5,18,false],["อบรมการใช้งานโปรแกรม Microsoft Project สำหรับการรายงานความก้าวหน้าโครงการ รุ่น 1","ส่งของจริง 14-10-69 (ระบบแก้เป็น 16)","ส่งแล้ว",15,7,false],["อบรมการใช้งานโปรแกรม Microsoft Project สำหรับการรายงานความก้าวหน้าโครงการ รุ่น 2","ส่งของจริง 15-10-69","ส่งแล้ว",0,8,false],["การยกและเคลื่อนย้ายวัสดุอย่างปลอดภัย (แบก-หาม) รุ่น 1","ส่งของจริง 16-10-69","ส่งไม่ได้",null,null,false],["การยกและเคลื่อนย้ายวัสดุอย่างปลอดภัย (แบก-หาม) รุ่น 2","ส่งของจริง 17-10-69","ส่งไม่ได้",null,null,false],["งานระบบป้องกันดินพัง (Soil protection) รุ่น 1","ส่งของจริง 22-10-69","ส่งแล้ว",3,20,false],["งานระบบป้องกันดินพัง (Soil protection) รุ่น 2","ส่งของจริง 23-10-69","ส่งแล้ว",4,18,false],["การยกและเคลื่อนย้ายวัสดุอย่างปลอดภัย (แบก-หาม) รุ่น 3","ส่งของจริง 24-10-69","ส่งไม่ได้",null,null,false],["การยกและเคลื่อนย้ายวัสดุอย่างปลอดภัย (แบก-หาม) รุ่น 4","ส่งของจริง 31-10-69","ส่งแล้ว",null,null,false],["ความปลอดภัยเกี่ยวกับเครื่องจักรกลและอุปกรณ์ในไซต์งาน รุ่น 1","ส่งรายงาน 21-10-69","ส่งแล้ว",12,38,false],["ความปลอดภัยเกี่ยวกับเครื่องจักรกลและอุปกรณ์ในไซต์งาน รุ่น 2","ส่งรายงาน 22-10-69","ส่งแล้ว",19,31,false],["ความปลอดภัยเกี่ยวกับเครื่องจักรกลและอุปกรณ์ในไซต์งาน รุ่น 3","ส่งรายงาน 23-10-69","ส่งแล้ว",16,34,false],["ความปลอดภัยเกี่ยวกับเครื่องจักรกลและอุปกรณ์ในไซต์งาน รุ่น 4","ส่งรายงาน 30-10-69","ส่งแล้ว",31,19,false],["AI for Construction \u0026 BOQ","ส่งรายงาน 26-11-69","รอส่งแก้ไข",17,24,false],["การแก้ไขปัญหาและการตัดสินใจอย่างเป็นระบบ","ส่งรายงาน 09-12-69","รอส่งแก้ไข",null,1,false],["การยกและเคลื่อนย้ายวัสดุอย่างปลอดภัย (แบก-หาม) รุ่น 5","ส่งของจริง 28-11-69","รอส่งแก้ไข",25,25,false],["การยกและเคลื่อนย้ายวัสดุอย่างปลอดภัย (แบก-หาม) รุ่น 6","ส่งของจริง 30-11-69","รอส่งแก้ไข",25,25,false],["การยกและเคลื่อนย้ายวัสดุอย่างปลอดภัย (แบก-หาม) รุ่น 7","ส่งของจริง 01-12-69","รอส่งแก้ไข",25,25,true],["MEP เบื้องต้น 1","ส่งของจริง 28-11-69","รอส่งแก้ไข",20,20,false],["MEP เบื้องต้น 2","ส่งของจริง 30-11-69","รอส่งแก้ไข",20,20,false]]},"satisfaction":[["MEP เบื้องต้น รุ่น 1",28,18,4.58,4.53,4.67,4.59,91.8],["Piling Work รุ่น 1",25,18,4.49,4.54,4.28,4.44,88.8],["Piling Work รุ่น 2",40,31,4.47,4.31,4.1,4.31,86.2],["Temporary รุ่น 1",23,11,4.75,4.73,4.48,4.64,92.9],["Temporary รุ่น 2",26,12,4.6,4.64,4.35,4.52,90.5],["Art of the Deal",22,21,4.88,4.86,4.37,4.69,93.8],["Soil Protection รุ่น 1",26,25,4.75,4.71,4.5,4.65,93],["Soil Protection รุ่น 2",23,19,4.67,4.68,4.54,4.63,92.6],["MS Project รุ่น 1",22,14,4.51,4.44,4.5,4.57,91.4],["MS Project รุ่น 2",24,19,4.12,4.13,4.09,3.83,76.6],["AI for Construction",29,27,4.46,4.37,3.69,4.18,83.5]]}</script>
 <script>
-const satisfaction=[
-["MEP เบื้องต้น รุ่น 1",28,18,4.58,4.53,4.67,4.59],["Piling Work รุ่น 1",25,18,4.49,4.54,4.28,4.44],["Piling Work รุ่น 2",40,31,4.47,4.31,4.10,4.31],["Temporary รุ่น 1",23,11,4.75,4.73,4.48,4.64],["Temporary รุ่น 2",26,12,4.60,4.64,4.35,4.52],["Art of the Deal",22,21,4.88,4.86,4.37,4.69],["Soil Protection รุ่น 1",26,25,4.75,4.71,4.50,4.65],["Soil Protection รุ่น 2",23,19,4.67,4.68,4.54,4.63],["MS Project รุ่น 1",22,14,4.51,4.44,4.50,4.57],["MS Project รุ่น 2",24,19,4.12,4.13,4.09,3.83],["AI for Construction",29,27,4.46,4.37,3.69,4.18]];
-const dsd=[
-["AI for Construction & BOQ","26-11-69","รอส่งแก้ไข",7,9,""],["การแก้ไขปัญหาและการตัดสินใจอย่างเป็นระบบ","09-12-69","รอส่งแก้ไข",0,1,""],["Safe Lifting/Handling Materials รุ่น 5","28-11-69","รอส่งแก้ไข",25,25,"พัทยา แทนรุ่น 2"],["Safe Lifting/Handling Materials รุ่น 6","30-11-69","รอส่งแก้ไข",25,25,"อุดมสุข แทนรุ่น 1"],["Safe Lifting/Handling Materials รุ่น 7","01-12-69","รอส่งแก้ไข",25,25,"เจเจ แทนรุ่น 3"],["MEP เบื้องต้น รุ่น 1","28-11-69","รอส่งแก้ไข",25,25,""],["MEP เบื้องต้น รุ่น 2","30-11-69","รอส่งแก้ไข",25,25,""],["Safe Lifting/Handling Materials รุ่น 1","16-10-69","ส่งไม่ได้","","",""],["Safe Lifting/Handling Materials รุ่น 2","17-10-69","ส่งไม่ได้","","",""],["Safe Lifting/Handling Materials รุ่น 3","24-10-69","ส่งไม่ได้","","",""]];
+(function(){
+'use strict';
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const byId=id=>document.getElementById(id);
+const fmt=n=>Math.round(Number(n)||0).toLocaleString('en-US');
+const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const round2=n=>Math.round((Number(n)||0)*100)/100;
+const pad=n=>String(n).padStart(2,'0');
+
+// ---- Data: training/budget comes from Excel (embedded in #hrdData, or the latest confirmed import) ----
+const HRD=JSON.parse(byId('hrdData').textContent);
+const satisfaction=HRD.satisfaction;
+// Evaluation course -> Training ID, used only to cross-check headcount against Excel.
+const SAT_TR={"MEP เบื้องต้น รุ่น 1":"TR-2569-034","Piling Work รุ่น 1":"TR-2569-007","Piling Work รุ่น 2":"TR-2569-011","Temporary รุ่น 1":"TR-2569-015","Temporary รุ่น 2":"TR-2569-016","Art of the Deal":"TR-2569-024","Soil Protection รุ่น 1":"TR-2569-027","Soil Protection รุ่น 2":"TR-2569-030","MS Project รุ่น 1":"TR-2569-028","MS Project รุ่น 2":"TR-2569-029","AI for Construction":"TR-2569-033"};
+const MONTH_TH=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+const PLAN_STATUS=['Completed','On-process','Pending'];
+const inPlan=r=>PLAN_STATUS.includes(r.status);
+const FORMATS=[['Public – Onsite','อบรมภายนอก ณ สถานที่จัด (Public – Onsite)','#0b4778','#fff'],['Online','อบรมออนไลน์ (Online)','#2498df','#0b0b0b'],['In-house','อบรมภายในองค์กร (In-house)','#80c63b','#0b0b0b'],['Sharing – Internal Trainer','วิทยากรภายใน (Sharing – Internal Trainer)','#f4b544','#0b0b0b']];
+const SKILLS=[['Functional Skill','Functional Skill','#14823b','#fff'],['General Skill','General Skill','#75b889','#123d29'],['Technical Skill','Technical Skill','#f4b544','#5b4300'],['Mandatory Skill','Mandatory Skill','#8ca5a0','#fff']];
+const CATEGORY_RULES=[[/Piling|Temporary|Soil|RC Structure/i,/Structure|โครงสร้าง/i],[/\bMEP\b|Combine/i,/MEP|งานระบบ/i],[/ดับเพลิง|อพยพ|Crane|ปั้นจั่น|นั่งร้าน|Forklift|ความปลอดภัย/i,/Safety/i],[/Digital Construction/i,/Digital Construction/i]];
+const TYPOS=[[/\bDeat\b/,'Deat → Deal'],[/เป็นระบ$/,'เป็นระบ → เป็นระบบ'],[/ร่น\s*\d/,'ร่น → รุ่น'],[/รุ่่น/,'รุ่่น → รุ่น'],[/compentency/i,'compentency → competency']];
+function todayISO(){const d=new Date();return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`}
+function thaiDate(iso){const d=new Date(iso);return isNaN(d)?'':`${d.getDate()} ${MONTH_TH[d.getMonth()]} ${d.getFullYear()+543}`}
+const MONTH_FULL=['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+function thaiDateLong(iso){const d=new Date(iso);return isNaN(d)?'':`${d.getDate()} เดือน${MONTH_FULL[d.getMonth()]} ${d.getFullYear()+543}`}
 function rating(v){return v>=4.5?"มากที่สุด":v>=3.5?"มาก":v>=2.5?"ปานกลาง":v>=1.5?"น้อย":"น้อยที่สุด"}
-function ratingColor(v){return v>=4.5?"#14823b":v>=3.5?"#65a30d":v>=2.5?"#f59e0b":v>=1.5?"#ea580c":"#dc2626"}
-function renderSat(){document.querySelector("#satTable tbody").innerHTML=satisfaction.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${(r[2]/r[1]*100).toFixed(1)}%</td><td>${r[3].toFixed(2)}</td><td>${r[4].toFixed(2)}</td><td>${r[5].toFixed(2)}</td><td><b>${r[6].toFixed(2)}</b></td><td><span class="status" style="background:${ratingColor(r[6])}18;color:${ratingColor(r[6])}">${rating(r[6])}</span></td></tr>`).join("");
-document.getElementById("satisfactionBars").innerHTML=satisfaction.map(r=>`<div class="bar-row"><span>${r[0]}</span><div class="track"><div class="fill" style="width:${r[6]*20}%;background:${ratingColor(r[6])}"></div></div><b>${r[6].toFixed(2)}</b></div>`).join("")}
-function renderDsd(){if(!document.querySelector("#dsdTable")) return;document.querySelector("#dsdTable").innerHTML=dsd.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td><span class="status ${r[2]==="รอส่งแก้ไข"?"pending":"blocked"}">${r[2]}</span></td><td>${r[3]||"-"}</td><td>${r[4]||"-"}</td><td>${(Number(r[3])||0)+(Number(r[4])||0)||"-"}</td><td>${r[5]}</td></tr>`).join("")}
-function renderConstruction(){let a=[["Piling Work รุ่น 1",4.44],["Piling Work รุ่น 2",4.31],["Temporary รุ่น 1",4.64],["Temporary รุ่น 2",4.52],["Soil Protection รุ่น 1",4.65],["Soil Protection รุ่น 2",4.63]];document.getElementById("constructionBars").innerHTML=a.map(r=>`<div class="bar-row"><span>${r[0]}</span><div class="track"><div class="fill" style="width:${r[1]*20}%;background:${ratingColor(r[1])}"></div></div><b>${r[1].toFixed(2)}</b></div>`).join("")}
-function monthBars(){
-const items=[
-["ต.ค.","09 ต.ค.","ผู้บังคับปั้นจั่น ผู้ให้สัญญาณแก่ผู้บังคับปั้นจั่น ผู้ยึดเกาะวัสดุ และทบทวน รุ่น 2","Completed"],
-["ต.ค.","16 ต.ค.","ข้อกำหนดและกฎหมายอาคารสูง","Completed"],
-["ต.ค.","21 ต.ค.","AI for Construction & BOQ","Completed"],
-["ต.ค.","29 ต.ค.","ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น รุ่น 1","Completed"],
-["พ.ย.","10 พ.ย.","ความรู้งาน MEP เบื้องต้นและเทคนิคการออกแบบงาน MEP เบื้องต้น รุ่น 2","On-process"],
-["พ.ย.","15 พ.ย.","การออกแบบโครงสร้างเหล็กด้วยวิธี Unified Method (ASD/LRFD)","On-process"],
-["พ.ย.","20 พ.ย.","Presentation Skill + Business Communication (Story telling)","On-process"]
-];
-const months=["ต.ค.","พ.ย."];
-document.getElementById("monthBars").innerHTML=months.map(m=>{
-const rows=items.filter(x=>x[0]===m);
-const done=rows.filter(x=>x[3]==="Completed").length;
-return `<section class="timeline-month-card"><header><div><b>${m} 2569</b><small>${rows.length} หลักสูตร/รุ่น</small></div><span class="month-progress">${done} เสร็จสิ้น · ${rows.length-done} กำลังดำเนินการ</span></header><div class="timeline-agenda">${rows.map(x=>{const completed=x[3]==="Completed";return `<article class="timeline-agenda-item ${completed?"is-completed":"is-progress"}"><time>${x[1]}</time><div class="agenda-course">${x[2]}<small>${completed?"Completed":"On-process"}</small></div><span class="agenda-status">${completed?"เสร็จสิ้น":"กำลังดำเนินการ"}</span></article>`}).join("")}</div></section>`
-}).join("");
+
+// ---- Page 02 table ----
+const satBody=$('.satisfaction-table tbody');
+const satFull={};$$('tr',satBody).forEach((tr,i)=>{if(satisfaction[i])satFull[satisfaction[i][0]]=tr.cells[1].textContent.trim()});
+function renderSat(){
+ const heat=v=>`<td class="heat-cell heat-${v>=4.5?'high':v>=4?'mid':'low'}">${v.toFixed(2)}</td>`;
+ satBody.innerHTML=satisfaction.map((r,i)=>`<tr><td>${i+1}</td><td>${safe(satFull[r[0]]||r[0])}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[1]?(r[2]/r[1]*100).toFixed(1):'0.0'}%</td>${heat(r[3])}${heat(r[4])}${heat(r[5])}<td class="score-cell">${r[6].toFixed(2)}</td><td>${(r[7]??r[6]*20).toFixed(1)}%</td><td><span class="${r[6]>=4.5?'rating-high':'rating-good'}">${rating(r[6])}</span></td></tr>`).join('');
 }
-document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.getElementById(b.dataset.page).classList.add("active")}));
-["month","statusFilter","category","format"].forEach(id=>document.getElementById(id).addEventListener("change",()=>{document.getElementById("updated").textContent="ตัวกรองที่เลือก: "+[...document.querySelectorAll(".filters select")].map(x=>x.value||"ทั้งหมด").join(" • ")}));
-function applyData(){let lines=document.getElementById("editSat").value.trim().split(/\n/).filter(Boolean);let rows=lines.map(x=>x.split(",")).filter(x=>x.length>=7);if(rows.length){satisfaction.splice(0,satisfaction.length,...rows.map(r=>[r[0],+r[1],+r[2],+r[3],+r[4],+r[5],+r[6]]));renderSat();alert("อัปเดตข้อมูลความพึงพอใจแล้ว");}}
-function downloadPage(){let blob=new Blob(["<!DOCTYPE html>\n"+document.documentElement.outerHTML],{type:"text/html;charset=utf-8"});let a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="VISSAVAPAT_HRD_Dashboard_2026.html";a.click();URL.revokeObjectURL(a.href)}
-monthBars();renderSat();renderDsd();renderConstruction();
-document.getElementById("editSat").value=satisfaction.map(r=>r.join(",")).join("\n");
-</script></body></html>
+// A course still waiting whose appointment falls after the agreed completion date is taken out of the DSD plan.
+const dsdAfterDue=(r,due=HRD.dsd.dueDate)=>{if(!due||r[2]!=='รอส่งแก้ไข')return false;const x=dsdDueISO([r]);return !!x&&x>due};
+const dsdVisible=()=>HRD.dsd.courses.filter(r=>!r[5]&&!dsdAfterDue(r));
+// Display wording for the Excel status values: "รอส่งแก้ไข" is a scheduled DSD submission round, not a data problem.
+const DSD_LABEL={'รอส่งแก้ไข':'รอส่งตามกำหนด DSD','ส่งไม่ได้':'ไม่สามารถส่งได้'},dsdLabel=s=>DSD_LABEL[s]||s;
+const DSD_COLOR={sent:'#14823b',wait:'#2a78d6',watch:'#e8890c',fail:'#d03b3b'};
+const headcount=r=>(r[3]||0)+(r[4]||0);
+function renderDsdTable(){byId('dsdTable').innerHTML=dsdVisible().map(r=>{const cls=r[2]==="ส่งแล้ว"?"good":r[2]==="ส่งไม่ได้"?"failed":"pending";return `<tr><td>${safe(r[0])}</td><td>${safe(r[1])}</td><td><span class="status ${cls}">${safe(dsdLabel(r[2]))}</span></td><td>${r[3]===null?"":r[3]}</td><td>${r[4]===null?"":r[4]}</td></tr>`}).join("")}
+
+// Latest appointment date ("ส่งรายงาน 09-12-69") among the courses still waiting for their DSD round.
+function dsdDueISO(rows){
+ let best='';
+ rows.forEach(r=>{const m=/(\d{1,2})-(\d{1,2})-(\d{2,4})/.exec(r[1]||'');if(!m)return;let y=Number(m[3]);if(y<100)y+=2500;if(y>2400)y-=543;const iso=`${y}-${pad(m[2])}-${pad(m[1])}`;if(iso>best)best=iso});
+ return best;
+}
+function renderDsdSummary(){
+ const d=HRD.dsd,rows=dsdVisible(),waitRows=rows.filter(r=>r[2]==='รอส่งแก้ไข'),wait=waitRows.reduce((s,r)=>s+headcount(r),0),failed=rows.filter(r=>r[2]==='ส่งไม่ได้').length;
+ const pct=d.sent/d.target*100,proj=d.sent+wait,projPct=proj/d.target*100,gap=proj-d.target,reach=gap>=0,added=d.sent-d.baseline;
+ // dueDate is the agreed completion date; without one, fall back to the latest appointment in the sheet.
+ const latestISO=dsdDueISO(waitRows),dueISO=d.dueDate||latestISO,due=dueISO?thaiDate(dueISO):'รอระบุ',
+ late=d.dueDate?waitRows.filter(r=>{const x=dsdDueISO([r]);return x&&x>d.dueDate}):[],
+ dueNote=late.length?`มี ${late.length} หลักสูตร (${fmt(late.reduce((s,r)=>s+headcount(r),0))} คน) นัดส่ง ${thaiDate(latestISO)}`:d.dueDate?'กำหนดแล้วเสร็จตามแผน':'ตามวันนัดส่งล่าสุดของรายการที่รอส่ง',asOf=d.asOf?`ข้อมูล ณ วันที่ ${thaiDateLong(d.asOf)}`:'';
+ const vsTarget=gap>0?`สูงกว่าเป้าหมาย ${fmt(d.target)} คน จำนวน ${fmt(gap)} คน`:gap===0?`เท่ากับเป้าหมาย ${fmt(d.target)} คน`:`ต่ำกว่าเป้าหมาย ${fmt(d.target)} คน จำนวน ${fmt(-gap)} คน`;
+ const summary=`ปัจจุบันส่งเข้าระบบแล้ว ${fmt(d.sent)} คน และมีผู้เข้าร่วมที่รอส่งตามรอบการรับเอกสารของ DSD อีก ${fmt(wait)} คน ส่งผลให้คาดการณ์ยอดรวมอยู่ที่ ${fmt(proj)} คน ${vsTarget}`;
+ const goalText=reach?'คาดการณ์บรรลุเป้าหมาย':'ต้องติดตาม';
+ // ---- Page 01 DSD panels ----
+ // Page 01 shows DSD as one two-colour gauge (sent + waiting for the DSD round) and one line; details live on page 04.
+ const q=Math.min(100,projPct),caption=reach?`คาดการณ์ส่งยอดเกินเป้าหมายเท่ากับ ${projPct.toFixed(1)}%`:`คาดการณ์ส่งยอด ${projPct.toFixed(1)}% ของเป้าหมาย · ต้องติดตาม`;
+ byId('ovDsdBody').innerHTML=`${asOf?`<div class="exam-date">${asOf}</div>`:''}<div class="ov-dsd-hero"><div class="ov-gauge" style="--p:${Math.min(100,pct).toFixed(1)};--q:${q.toFixed(1)}" role="img" aria-label="ส่งเข้าระบบแล้ว ${pct.toFixed(1)}% ของเป้าหมาย ${fmt(d.target)} คน ${caption}"><div><b>${pct.toFixed(1)}%</b><small>ส่งเข้าระบบแล้ว</small></div></div><div class="ov-dsd-caption ${reach?'ok':'watch'}">${caption}</div><div class="ov-dsd-legend"><span><i style="background:${DSD_COLOR.sent}"></i>ส่งเข้าระบบแล้ว</span><span><i style="background:${DSD_COLOR.wait}"></i>รอส่งตามรอบรับเอกสาร DSD</span></div></div>`;
+ // ---- Page 04 executive view ----
+ byId('dsdAsOf').textContent=asOf;
+ const badge=byId('dsdGoalBadge');badge.className=`dsd-goal-badge ${reach?'ok':'watch'}`;badge.textContent=`${reach?'✓':'!'} ${goalText}`;
+ const kpi=(color,label,value,unit,note,cls='')=>`<div class="card" style="--kc:${color}"><div class="k-label">${label}</div><div class="k-value${cls}">${value}${unit?`<small>${unit}</small>`:''}</div><div class="k-note">${note}</div></div>`;
+ byId('dsdKpis').innerHTML=kpi(DSD_COLOR.sent,'ส่งเข้าระบบแล้ว',fmt(d.sent),'คน',`${pct.toFixed(1)}% ของเป้าหมาย`)+
+  kpi(DSD_COLOR.wait,'รอส่งตามรอบรับเอกสาร DSD',fmt(wait),'คน',`${waitRows.length} หลักสูตร อยู่ระหว่างดำเนินการส่ง`)+
+  kpi(reach?DSD_COLOR.sent:DSD_COLOR.watch,'คาดการณ์ยอดรวม',fmt(proj),'คน',`${projPct.toFixed(1)}% ของเป้าหมาย`)+
+  kpi('#123b2a','กำหนดแล้วเสร็จ',due,'',dueNote,' is-date');
+ const scale=Math.max(proj,d.target)||1,w=v=>(v/scale*100).toFixed(2);
+ byId('dsdMain').innerHTML=`<div class="dsd-main-head"><h3>ความคืบหน้าการดำเนินงาน DSD</h3><span class="dsd-main-pct"><b>${pct.toFixed(1)}%</b>ของเป้าหมาย ${fmt(d.target)} คน</span></div>
+  <div class="dsd-track-wrap"><div class="dsd-bigbar" role="img" aria-label="${safe(summary)}"><span style="width:${w(d.sent)}%;background:${DSD_COLOR.sent}">${fmt(d.sent)}</span><span style="width:${w(wait)}%;background:${DSD_COLOR.wait}">${fmt(wait)}</span></div><div class="dsd-target-mark" style="left:${w(d.target)}%"><span>เป้าหมาย ${fmt(d.target)}</span></div></div>
+  <div class="dsd-legend-row"><span><i class="line"></i>เป้าหมาย <b>${fmt(d.target)} คน</b></span><span><i style="background:${DSD_COLOR.sent}"></i>ส่งแล้ว <b>${fmt(d.sent)} คน</b></span><span><i style="background:${DSD_COLOR.wait}"></i>รอส่งตามรอบรับเอกสาร DSD <b>${fmt(wait)} คน</b></span><span><i style="background:linear-gradient(90deg,${DSD_COLOR.sent} 50%,${DSD_COLOR.wait} 50%)"></i>คาดการณ์รวม <b>${fmt(proj)} คน</b></span></div>
+  <p class="dsd-summary${reach?'':' watch'}">${safe(summary)}</p>`;
+ const ms=(icon,color,title,text,extra='')=>`<li${extra} style="--mc:${color}"><i aria-hidden="true">${icon}</i><div><b>${title}</b><span>${text}</span></div></li>`;
+ byId('dsdMilestones').innerHTML=`<h3>สถานะการดำเนินงาน</h3><ol class="dsd-ms">`+
+  ms('✓',DSD_COLOR.sent,'ส่งเข้าระบบแล้ว',`${fmt(d.sent)} คน · ${pct.toFixed(1)}% ของเป้าหมาย`+(d.gross+d.baseline>d.sent?` (ส่ง ${fmt(d.gross+d.baseline)} คน ตัดรายชื่อซ้ำ ${fmt(d.gross+d.baseline-d.sent)} คน)`:''))+
+  ms('◔',DSD_COLOR.wait,'รอส่งตามรอบรับเอกสาร DSD',`${fmt(wait)} คน · ${waitRows.length} หลักสูตร อยู่ระหว่างดำเนินการส่ง`)+
+  ms('🎯','#123b2a','เป้าหมาย',`${fmt(d.target)} คน`)+
+  ms('📅','#123b2a','กำหนดแล้วเสร็จ',due)+
+  ms(reach?'✅':'⚠',reach?DSD_COLOR.sent:DSD_COLOR.watch,`สถานะปัจจุบัน : ${goalText}`,reach?`คาดการณ์ยอดรวม ${fmt(proj)} คน สูงกว่าเป้าหมาย ${fmt(gap)} คน`:`คาดการณ์ยอดรวม ${fmt(proj)} คน ยังขาด ${fmt(-gap)} คน`,` class="ms-status" style="--mbg:${reach?'#eef7f1':'#fff6ec'}"`)+
+  `</ol>${failed?`<p class="dsd-ms-note"><span style="color:${DSD_COLOR.fail};font-weight:700">●</span> ไม่สามารถส่งได้ ${failed} หลักสูตร · ไม่นับในยอดคาดการณ์</p>`:''}`;
+}
+
+// ---- Navigation ----
+$$("nav button").forEach(b=>b.addEventListener("click",()=>{$$("nav button").forEach(x=>x.classList.remove("active"));$$(".page").forEach(x=>x.classList.remove("active"));b.classList.add("active");byId(b.dataset.page).classList.add("active")}));
+
+// ---- Filters ----
+const pageDefs=[
+ {id:'overview',title:'ตัวกรองภาพรวม'},
+ {id:'satisfaction',title:'ตัวกรองผลประเมิน'},
+ {id:'construction',title:'ตัวกรองมาตรฐานงานก่อสร้าง'},
+ {id:'dsd',title:'ตัวกรอง DSD'}
+];
+const state={};
+function uniq(a){return [...new Set(a.filter(Boolean))].sort((x,y)=>String(x).localeCompare(String(y),'th'))}
+function satCategory(n){return /MEP/i.test(n)?'งานระบบ':/Piling|Temporary|Soil/i.test(n)?'งานโครงสร้าง':/AI/i.test(n)?'Digital & AI':/Art of/i.test(n)?'Leadership':/MS Project/i.test(n)?'Construction Management':'ทักษะทั่วไป'}
+function sourceFor(id){
+ if(id==='overview')return HRD.training.filter(inPlan);
+ if(id==='satisfaction')return satisfaction.map((r,idx)=>({idx,name:r[0],search:r[0]+' '+(satFull[r[0]]||''),category:satCategory(r[0]),format:'',status:''}));
+ if(id==='construction')return $$('#construction .construction-table tbody tr').map(tr=>({tr,name:tr.cells[1].textContent.trim()+' รุ่น '+tr.cells[2].textContent.trim(),category:tr.cells[0].textContent.trim(),status:tr.cells[5].textContent.trim(),format:''}));
+ return dsdVisible().map(r=>({name:r[0],category:'DSD',format:'',status:dsdLabel(r[2])}));
+}
+function setSource(id){
+ const s=state[id];s.source=sourceFor(id);s.group=null;
+ for(const key of ['category','status','format','type']){
+  const el=$(`[data-key="${key}"]`,s.wrap),vals=uniq(s.source.map(x=>x[key]));
+  el.innerHTML='<option value="">ทั้งหมด</option>'+vals.map(v=>`<option>${safe(v)}</option>`).join('');
+  if(vals.includes(s.filters[key]))el.value=s.filters[key];else s.filters[key]='';
+ }
+}
+function createFilters(page){
+ const wrap=document.createElement('div');wrap.className='page-filterbar';wrap.dataset.filters=page.id;
+ const fields=[['q','ค้นหาหลักสูตร','text'],['category','หมวดเนื้อหา','select'],['status','สถานะ','select'],['format','รูปแบบการอบรม','select'],['type','ประเภททักษะ','select']];
+ wrap.innerHTML=fields.map(([key,label,type])=>`<div><label>${label}</label>${type==='text'?`<input data-key="${key}" placeholder="พิมพ์ชื่อหลักสูตร...">`:`<select data-key="${key}"><option value="">ทั้งหมด</option></select>`}</div>`).join('')+`<button type="button" data-reset>ล้างตัวกรอง</button><span class="filter-count">กำลังแสดงข้อมูล</span>`;
+ const pageEl=byId(page.id),filterSlot=$('[data-filter-slot]',pageEl);
+ if(filterSlot)filterSlot.parentNode.insertBefore(wrap,filterSlot);else pageEl.insertBefore(wrap,pageEl.children[1]||null);
+ const hide=k=>{$(`[data-key="${k}"]`,wrap).parentElement.hidden=true};
+ if(page.id!=='overview')hide('type');
+ if(page.id==='satisfaction'){hide('status');hide('format')}
+ if(page.id==='construction')hide('format');
+ if(page.id==='dsd'){hide('category');hide('format')}
+ const onChange=e=>{const k=e.target.dataset.key;if(k){const s=state[page.id];s.filters[k]=e.target.value;if(k==='category')s.group=null;render(page.id)}};
+ wrap.addEventListener('input',onChange);wrap.addEventListener('change',onChange);
+ $('[data-reset]',wrap).addEventListener('click',()=>{state[page.id].filters={q:'',category:'',status:'',format:'',type:''};state[page.id].group=null;$$('[data-key]',wrap).forEach(el=>el.value='');render(page.id)});
+ const chart=document.createElement('div');chart.className='interactive-chart';chart.innerHTML=`<h3>${PIE_CONFIG[page.id].noPrefix?'':page.title+' · '}${PIE_CONFIG[page.id].title}</h3><div class="interactive-bars"></div><div class="filter-note">คลิกส่วนของกราฟหรือชื่อรายการเพื่อกรองข้อมูล คลิกซ้ำหรือกดล้างตัวกรองเพื่อกลับสู่ภาพรวม</div>`;
+ const slot=$('[data-chart-slot]',pageEl);
+ if(PIE_CONFIG[page.id].none);else if(slot)slot.appendChild(chart);else(page.id==='overview'?$('.overview-top-charts',pageEl):wrap).insertAdjacentElement('afterend',chart);
+ state[page.id]={filters:{q:'',category:'',status:'',format:'',type:''},source:[],chart,wrap};
+ setSource(page.id);
+}
+function filtered(id,ignoreKey){const s=state[id],f=s.filters,q=f.q.toLowerCase();return s.source.filter(x=>(!q||(x.search||x.name).toLowerCase().includes(q))&&(ignoreKey==='category'||((!f.category||x.category===f.category)&&(!s.group||s.group.includes(x.category))))&&(ignoreKey==='status'||!f.status||x.status===f.status)&&(ignoreKey==='format'||!f.format||x.format===f.format)&&(ignoreKey==='type'||!f.type||x.type===f.type))}
+// Clickable pie used on pages 01-04. Colour and slice order follow the full dataset, so a filter never repaints an item.
+const CAT_COLORS=[['#2a78d6','#fff'],['#eb6834','#fff'],['#1baf7a','#0b0b0b'],['#eda100','#0b0b0b'],['#e87ba4','#0b0b0b'],['#008300','#fff'],['#6250d6','#fff'],['#e34948','#fff']];
+const CAT_OTHER=['#b9c4be','#0b0b0b'],OTHER_KEY='__other';
+const PIE_CONFIG={
+ overview:{key:'category',unit:'หลักสูตร/รุ่น',title:'สัดส่วนหลักสูตรฝึกอบรมแยกตามหมวดเนื้อหา',noPrefix:true},
+ satisfaction:{key:'category',unit:'หลักสูตร/รุ่น',title:'สัดส่วนหลักสูตรตามหมวดเนื้อหา',noPrefix:true,colors:{'Construction Management':['#eb6834','#fff'],'งานโครงสร้าง':['#1baf7a','#0b0b0b'],'Leadership':['#eda100','#0b0b0b'],'Digital & AI':['#e87ba4','#0b0b0b'],'งานระบบ':['#008300','#fff']}},
+ construction:{key:'category',unit:'หลักสูตร/รุ่น',title:'สัดส่วนหลักสูตรตามประเภทงาน',noPrefix:true,none:true,colors:{'งานโครงสร้าง':['#2a78d6','#fff'],'งานระบบ':['#1baf7a','#0b0b0b'],'งานสถาปัตย์':['#eda100','#0b0b0b']}},
+ dsd:{key:'status',unit:'หลักสูตร',title:'สถานะหลักสูตรที่ส่งกรมพัฒน์',noPrefix:true,colors:{'ส่งแล้ว':['#14823b','#fff'],'รอส่งตามกำหนด DSD':['#2a78d6','#fff'],'ไม่สามารถส่งได้':['#d03b3b','#fff']}}
+};
+function pieModel(id){
+ const cfg=PIE_CONFIG[id],counts={};
+ state[id].source.forEach(r=>{const k=r[cfg.key]||'ไม่ระบุ';counts[k]=(counts[k]||0)+1});
+ const names=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
+ if(cfg.colors){const fixed=Object.keys(cfg.colors);return {main:[...fixed.filter(k=>counts[k]),...names.filter(k=>!cfg.colors[k])],tail:[],color:k=>cfg.colors[k]||CAT_OTHER}}
+ const main=names.length<=CAT_COLORS.length?names:names.slice(0,7);
+ return {main,tail:names.slice(main.length),color:k=>CAT_COLORS[main.indexOf(k)]};
+}
+function pickSlice(id,key,tail){
+ const s=state[id],f=s.filters,k=PIE_CONFIG[id].key;
+ if(key===OTHER_KEY){s.group=s.group?null:tail;f[k]=''}
+ else{s.group=null;f[k]=f[k]===key?'':key}
+ $(`[data-key="${k}"]`,s.wrap).value=f[k];
+ render(id);
+}
+function pieSlices(parts,total,C,R,info,isOn,anyOn){
+ const full=Math.PI*2-.001;let a=0,marks='',labels='';
+ parts.filter(p=>p.n).forEach(p=>{
+  const sweep=p.n/total*Math.PI*2,mid=a+sweep/2,dim=anyOn&&!isOn(p)?' class="is-dim"':'',text=safe(info(p.label,p.n));
+  const pt=(t,r)=>[(C+r*Math.sin(t)).toFixed(2),(C-r*Math.cos(t)).toFixed(2)],[x0,y0]=pt(a,R),[x1,y1]=pt(a+sweep,R);
+  const pick=p.key==null?'':` data-key="${safe(p.key)}" role="button" tabindex="0" aria-pressed="${isOn(p)}"`;
+  const attrs=`${dim} fill="${p.color[0]}" stroke="#fff" stroke-width="2" data-info="${text}" aria-label="${text}"${pick}`;
+  marks+=sweep>=full?`<circle cx="${C}" cy="${C}" r="${R}"${attrs}/>`:`<path d="M${C} ${C}L${x0} ${y0}A${R} ${R} 0 ${sweep>Math.PI?1:0} 1 ${x1} ${y1}Z"${attrs}/>`;
+  if(p.n/total>=.06){const [lx,ly]=sweep>=full?[C,C]:pt(mid,R*.64);labels+=`<text x="${lx}" y="${ly}" fill="${p.color[1]}"${dim}>${(p.n/total*100).toFixed(1)}%</text>`}
+  a+=sweep;
+ });
+ return marks+labels;
+}
+function wirePie(el,idle,pick){
+ const readout=$('.cat-readout',el),show=e=>{const t=e.target.closest('[data-info]');readout.textContent=t?t.dataset.info:idle};
+ el.onmouseover=show;el.onfocusin=show;el.onmouseout=()=>{readout.textContent=idle};
+ el.onclick=e=>{const t=e.target.closest('[data-key]');if(t)pick(t.dataset.key)};
+ el.onkeydown=e=>{const t=e.target.closest('svg [data-key]');if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();const k=t.dataset.key;pick(k);const again=$(`svg [data-key="${CSS.escape(k)}"]`,el);if(again)again.focus()}};
+}
+function renderPie(id){
+ const cfg=PIE_CONFIG[id],s=state[id],sel=s.filters[cfg.key],rows=filtered(id,cfg.key),el=$('.interactive-bars',s.chart),{main,tail,color}=pieModel(id),total=rows.length,counts={};
+ if(!total){el.innerHTML='<div class="small">ไม่พบข้อมูลตามตัวกรอง</div>';return}
+ rows.forEach(r=>{const k=r[cfg.key]||'ไม่ระบุ';counts[k]=(counts[k]||0)+1});
+ const info=(label,n)=>`${label} · ${fmt(n)} ${cfg.unit} · ${(n/total*100).toFixed(1)}%`;
+ const parts=main.map(key=>({key,label:key,n:counts[key]||0,color:color(key)}));
+ if(tail.length)parts.push({key:OTHER_KEY,label:'อื่น ๆ',n:tail.reduce((t,k)=>t+(counts[k]||0),0),color:CAT_OTHER});
+ const anyOn=!!(s.group||sel),isOn=p=>p.key===OTHER_KEY?!!s.group||tail.includes(sel):sel===p.key;
+ const drawn=pieSlices(parts,total,130,126,info,isOn,anyOn);
+ const legend=parts.map(p=>`<button class="cat-legend-row${anyOn&&!isOn(p)?' is-dim':''}" type="button" data-key="${safe(p.key)}" data-info="${safe(info(p.label,p.n))}" aria-pressed="${isOn(p)}"><i style="background:${p.color[0]}"></i><span>${safe(p.label)}</span><b>${fmt(p.n)}</b><small>${(p.n/total*100).toFixed(1)}%</small></button>`).join('');
+ const chips=tail.length?`<div class="cat-tail">${tail.map(k=>`<button type="button" data-key="${safe(k)}" data-info="${safe(info(k,counts[k]||0))}" aria-pressed="${sel===k}">${safe(k)} ${fmt(counts[k]||0)}</button>`).join('')}</div>`:'';
+ const idle=`รวม ${fmt(total)} ${cfg.unit}`;
+ el.innerHTML=`<div class="cat-pie-wrap"><div class="cat-pie-box"><svg class="cat-pie" viewBox="0 0 260 260" role="group" aria-label="กราฟวงกลม${safe(cfg.title)}">${drawn}</svg><div class="cat-readout" aria-live="polite">${idle}</div></div><div class="cat-legend">${legend}${chips}</div></div>`;
+ wirePie(el,idle,k=>pickSlice(id,k,tail));
+}
+
+// ---- Page 01: everything below is computed from the Excel rows ----
+function pie(rows,field,defs){
+ const counts={};rows.forEach(r=>{const k=r[field]||'ไม่ระบุ';counts[k]=(counts[k]||0)+1});
+ const known=new Set(defs.map(d=>d[0]));
+ const other=Object.entries(counts).filter(([k])=>!known.has(k)).reduce((s,[,v])=>s+v,0);
+ const parts=defs.map(([key,label,color,ink])=>({key,label,n:counts[key]||0,color:[color,ink]}));
+ if(other)parts.push({key:null,label:'อื่น ๆ / ไม่ระบุ',n:other,color:['#cbd5d0','#193126']});
+ return parts;
+}
+function pickFilter(field,value){
+ const s=state.overview;s.filters[field]=s.filters[field]===value?'':value;
+ $(`[data-key="${field}"]`,s.wrap).value=s.filters[field];
+ render('overview');
+}
+// Each mini pie ignores its own filter so its slices stay available while one is selected.
+function miniPie(el,field,defs,title){
+ const sel=state.overview.filters[field],rows=filtered('overview',field),total=rows.length,parts=pie(rows,field,defs),unit='หลักสูตร/รุ่น';
+ if(!total){el.innerHTML='<div class="small">ไม่พบข้อมูลตามตัวกรอง</div>';return}
+ const info=(label,n)=>`${label} · ${fmt(n)} ${unit} · ${(n/total*100).toFixed(1)}%`,anyOn=!!sel,isOn=p=>sel===p.key,idle=`รวม ${fmt(total)} ${unit}`;
+ const legend=parts.map(p=>{const pct=(p.n/total*100).toFixed(1),attrs=p.key==null?'disabled':`data-key="${safe(p.key)}" aria-pressed="${isOn(p)}"`;return `<button class="mini-legend-row${anyOn&&!isOn(p)?' is-dim':''}" type="button" ${attrs} data-info="${safe(info(p.label,p.n))}"><i style="background:${p.color[0]}"></i><span>${safe(p.label)} <small>${fmt(p.n)} · ${pct}%</small></span></button>`}).join('');
+ el.innerHTML=`<svg class="cat-pie mini-pie" viewBox="0 0 148 148" role="group" aria-label="${safe(title)}">${pieSlices(parts,total,74,71,info,isOn,anyOn)}</svg><div class="mini-legend">${legend}<div class="cat-readout" aria-live="polite">${idle}</div></div>`;
+ wirePie(el,idle,k=>pickFilter(field,k));
+}
+function renderPies(){
+ miniPie(byId('formatSummary'),'format',FORMATS,'กราฟวงกลมรูปแบบการอบรม');
+ miniPie(byId('skillChart'),'type',SKILLS,'กราฟวงกลมประเภททักษะ');
+}
+function quarterOf(r){
+ if(r.date)return Math.floor((Number(r.date.slice(5,7))-1)/3);
+ const m=/^Q([1-4])$/i.exec(r.dateNote||'');return m?Number(m[1])-1:-1;
+}
+function renderQuarters(rows){
+ const q=[0,1,2,3].map(()=>({done:0,prog:0,pend:0,total:0}));let undated=0;
+ rows.forEach(r=>{
+  const i=quarterOf(r);if(i<0){undated++;return}
+  const x=q[i];x.total++;
+  if(r.status==='Completed')x.done++;else if(r.status==='Pending')x.pend++;else x.prog++;
+ });
+ const max=Math.max(1,...q.map(x=>x.total)),quarterOnly=rows.filter(r=>!r.date&&quarterOf(r)>=0).length;
+ byId('quarterBars').innerHTML=q.map((x,i)=>`<div class="quarter-row"><b>ไตรมาส ${i+1}</b><div class="quarter-track"><div class="quarter-done" style="width:${x.done/max*100}%"></div><div class="quarter-progress" style="width:${x.prog/max*100}%"></div><div class="quarter-pending" style="width:${x.pend/max*100}%"></div></div><strong>${x.total}</strong><small>เสร็จสิ้น ${x.done} · กำลังดำเนินการ ${x.prog}${x.pend?` · รอดำเนินการ ${x.pend}`:''}</small></div>`).join('');
+ byId('quarterNote').textContent=`รวมตามกำหนดการ ${fmt(rows.length-undated)} หลักสูตร/รุ่น`+(quarterOnly?` (${fmt(quarterOnly)} รายการระบุเฉพาะไตรมาส)`:'')+` · ยังไม่กำหนดวันอบรม ${fmt(undated)} รายการ · รวมทั้งสิ้น ${fmt(rows.length)} หลักสูตร/รุ่น`;
+}
+function timelineCard(title,list,when){
+ const n=s=>list.filter(x=>x.status===s).length,pend=n('Pending');
+ const items=list.map(x=>{const ok=x.status==='Completed',wait=x.status==='Pending';return `<article class="timeline-agenda-item ${ok?'is-completed':wait?'is-pending':'is-progress'}"><time>${safe(when(x))}</time><div class="agenda-course">${safe(x.name)}<small>${safe(x.status)}</small></div><span class="agenda-status">${ok?'เสร็จสิ้น':wait?'รอดำเนินการ':'กำลังดำเนินการ'}</span></article>`}).join('');
+ return `<section class="timeline-month-card"><header><div><b>${title}</b><small>${list.length} หลักสูตร/รุ่น</small></div><span class="month-progress">${n('Completed')} เสร็จสิ้น · ${n('On-process')} กำลังดำเนินการ${pend?` · ${pend} รอดำเนินการ`:''}</span></header><div class="timeline-agenda">${items}</div></section>`;
+}
+// Newest first, for months and for days inside a month. Rows without a date close the list.
+function renderTimeline(rows){
+ const byMonth={};
+ rows.filter(r=>r.date).forEach(r=>{const k=r.date.slice(0,7);(byMonth[k]=byMonth[k]||[]).push(r)});
+ const cards=Object.keys(byMonth).sort().reverse().map(key=>{
+  const m=Number(key.slice(5,7))-1,list=byMonth[key].sort((a,b)=>b.date.localeCompare(a.date));
+  return timelineCard(`${MONTH_TH[m]} ${Number(key.slice(0,4))+543}`,list,x=>`${x.date.slice(8,10)} ${MONTH_TH[m]}`);
+ });
+ const undated=rows.filter(r=>!r.date);
+ if(undated.length)cards.push(timelineCard('ยังไม่กำหนดวันอบรม',undated,x=>x.dateNote||'รอระบุ'));
+ byId('timelineGrid').innerHTML=cards.join('')||'<div class="small">ไม่พบรายการตามตัวกรอง</div>';
+}
+function renderOverview(rows){
+ const n=s=>rows.filter(x=>x.status===s).length,done=n('Completed'),prog=n('On-process'),pend=n('Pending'),total=rows.length;
+ byId('totalCourses').textContent=fmt(total);
+ byId('totalNote').textContent=`หลักสูตร/รุ่นตามแผนปี 2569 · รอดำเนินการ ${fmt(pend)}`;
+ byId('completed').textContent=fmt(done);byId('inprogress').textContent=fmt(prog);
+ const pct=total?done/total*100:0,pct2=total?(done+prog)/total*100:0,gauge=$('#overview .gauge');
+ gauge.style.setProperty('--pct',pct);gauge.style.setProperty('--pct2',pct2);
+ $('.gauge-label b',gauge).textContent=pct.toFixed(1)+'%';
+ $('.gauge-label .small',gauge).textContent=`${fmt(done)} จาก ${fmt(total)} รุ่น`;
+ $('#overview .gauge-split').innerHTML=`<span style="--c:#14823b">เสร็จสิ้น <b>${fmt(done)} รุ่น</b></span><span style="--c:#facc15">อยู่ระหว่างดำเนินการ <b>${fmt(prog)} รุ่น</b></span><span style="--c:#cbd5d0">รอดำเนินการ <b>${fmt(pend)} รุ่น</b></span>`;
+ const safetyPend=rows.filter(x=>x.status==='Pending'&&x.category==='Safety').length;
+ byId('statusNote').textContent=!pend?'':safetyPend===pend?`หมายเหตุ : สถานะรอดำเนินการทั้งหมด ${fmt(pend)} หลักสูตรจากทีม Safety`:`หมายเหตุ : สถานะรอดำเนินการทั้งหมด ${fmt(pend)} หลักสูตร (จากทีม Safety ${fmt(safetyPend)} หลักสูตร)`;
+ const budget=Number(HRD.meta.budget)||0,actual=rows.reduce((s,x)=>s+(Number(x.actual)||0),0);
+ byId('budgetPlan').textContent='฿'+fmt(budget);
+ byId('actualBudget').textContent='฿'+fmt(actual);
+ byId('actualNote').textContent=(total===state.overview.source.length&&budget)?`${(actual/budget*100).toFixed(1)}% ของงบ · คงเหลือ ฿${fmt(budget-actual)}`:'ตามตัวกรองที่เลือก';
+ renderPies();renderQuarters(rows);renderTimeline(rows);
+}
+
+// ---- Pages 02-04 ----
+function renderSatisfaction(rows){
+ const show=new Set(rows.map(x=>x.idx));
+ $$('tr',satBody).forEach((tr,i)=>{tr.style.display=show.has(i)?'':'none'});
+ const visible=satisfaction.filter((r,i)=>show.has(i)),learners=visible.reduce((s,r)=>s+r[1],0),responders=visible.reduce((s,r)=>s+r[2],0);
+ byId('satCourses').textContent=visible.length;byId('satLearners').textContent=fmt(learners);byId('satResponders').textContent=fmt(responders);byId('satRate').textContent=(learners?responders/learners*100:0).toFixed(1)+'%';
+ const rated=visible.filter(r=>r[1]>0).map(r=>({name:r[0],rate:r[2]/r[1]*100})).sort((a,b)=>a.rate-b.rate);
+ const lo=rated[0],hi=rated[rated.length-1],rateNote=byId('satRateNote');
+ rateNote.textContent=rated.length>1?`รายหลักสูตร ต่ำสุด ${lo.rate.toFixed(1)}% · สูงสุด ${hi.rate.toFixed(1)}%`:'ผู้ตอบ ÷ ผู้เข้าอบรม';
+ rateNote.title=rated.length>1?`ต่ำสุด ${lo.name} · สูงสุด ${hi.name}`:'';
+ const weighted=i=>responders?visible.reduce((s,r)=>s+r[i]*r[2],0)/responders:0,avg=weighted(6);
+ $('#satisfaction .satisfaction-overall strong').innerHTML=`${avg.toFixed(2)} <small>/ 5.00</small>`;
+ $('#satisfaction .satisfaction-overall em').textContent='ระดับ'+rating(avg);
+ $('#satisfaction .satisfaction-overall p').textContent=`คำนวณจากผลประเมิน ${visible.length} หลักสูตร/รุ่น โดยถ่วงน้ำหนักตามจำนวนผู้ตอบแบบประเมิน`;
+ $$('#satisfaction .dimension-row').forEach((row,k)=>{const v=weighted(3+k),p=(v*20).toFixed(1);$('.dimension-fill',row).style.width=p+'%';$('b',row).textContent=v.toFixed(2);$('small',row).textContent=p+'%'});
+ renderSatExtras(visible);
+}
+// Page 02 panels: category scores (ignores the category filter, like the pie), Top 5 and the lowest scores.
+function renderSatExtras(visible){
+ const name=r=>satFull[r[0]]||r[0],sel=state.satisfaction.filters.category,colors=PIE_CONFIG.satisfaction.colors;
+ const top=[...visible].sort((a,b)=>b[6]-a[6]||b[2]-a[2]).slice(0,5);
+ byId('satTop').innerHTML=top.length?top.map((r,i)=>`<li><span class="sat-rank">${i+1}</span><div class="sat-top-name">${safe(name(r))}<small>ผู้ตอบ ${r[2]} จาก ${r[1]} คน</small></div><div class="dimension-track"><div class="dimension-fill" style="width:${r[6]*20}%;--score-color:${r[6]>=4.5?'#16834a':'#55a95f'}"></div></div><b>${r[6].toFixed(2)}</b></li>`).join(''):'<li class="small">ไม่พบข้อมูลตามตัวกรอง</li>';
+ const groups={};filtered('satisfaction','category').forEach(x=>{const r=satisfaction[x.idx],k=satCategory(r[0]);(groups[k]=groups[k]||[]).push(r)});
+ const cats=Object.entries(groups).map(([k,list])=>{const resp=list.reduce((t,r)=>t+r[2],0);return {k,n:list.length,resp,score:resp?list.reduce((t,r)=>t+r[6]*r[2],0)/resp:0}}).sort((a,b)=>b.score-a.score);
+ const box=byId('satCatScores');
+ box.innerHTML=cats.map(c=>{const col=(colors[c.k]||CAT_OTHER)[0];return `<button type="button" class="sat-cat-row${sel&&sel!==c.k?' is-dim':''}" data-key="${safe(c.k)}" aria-pressed="${sel===c.k}"><i style="background:${col}"></i><span>${safe(c.k)}<small>${c.n} หลักสูตร · ผู้ตอบ ${fmt(c.resp)} คน</small></span><span class="dimension-track"><span class="dimension-fill" style="display:block;width:${c.score*20}%;--score-color:${col}"></span></span><b>${c.score.toFixed(2)}</b></button>`}).join('')||'<div class="small">ไม่พบข้อมูลตามตัวกรอง</div>';
+ box.onclick=e=>{const t=e.target.closest('[data-key]');if(t)pickSlice('satisfaction',t.dataset.key,[])};
+ const low=byId('satLow'),resp=visible.reduce((t,r)=>t+r[2],0);
+ if(!visible.length||!resp){low.innerHTML='';return}
+ const dim=[['ด้านวิทยากร',3],['ด้านเนื้อหา',4],['ด้านสถานที่และสิ่งอำนวยความสะดวก',5]].map(([l,i])=>[l,visible.reduce((t,r)=>t+r[i]*r[2],0)/resp]).sort((a,b)=>a[1]-b[1])[0];
+ const worst=[...visible].sort((a,b)=>a[6]-b[6])[0];
+ low.innerHTML=`<div><small>ด้านที่คะแนนเฉลี่ยต่ำสุด</small><b>${dim[0]}</b><strong>${dim[1].toFixed(2)}</strong></div><div><small>หลักสูตรคะแนนภาพรวมต่ำสุด</small><b>${safe(name(worst))}</b><strong>${worst[6].toFixed(2)}</strong></div>`;
+}
+function renderConstruction(rows){
+ const show=new Set(rows.map(x=>x.tr));
+ state.construction.source.forEach(x=>{x.tr.style.display=show.has(x.tr)?'':'none'});
+ const count=s=>rows.filter(x=>x.status===s).length,k=$$('#construction .construction-kpis .k-value');
+ k[0].textContent=rows.length;k[1].textContent=count('จัดแล้ว');k[2].textContent=count('กำลังเตรียม');k[3].textContent=count('ยังไม่จัด');
+ renderConsProgress();
+}
+// Page 03 progress bars and key message describe the whole plan: only the search box narrows them, so a status
+// filter can never turn them into "0% done". A selected work type is highlighted instead of hiding the others.
+function renderConsProgress(){
+ const s=state.construction,sel=s.filters.category,q=s.filters.q.toLowerCase(),rows=s.source.filter(x=>!q||x.name.toLowerCase().includes(q)),fixed=Object.keys(PIE_CONFIG.construction.colors);
+ const cats=[...fixed,...new Set(rows.map(r=>r.category).filter(c=>!fixed.includes(c)))];
+ const stat=list=>({n:list.length,done:list.filter(r=>r.status==='จัดแล้ว').length,prep:list.filter(r=>r.status==='กำลังเตรียม').length});
+ const pct=x=>x.n?Math.round(x.done/x.n*100):0;
+ const bar=x=>{const w=v=>x.n?v/x.n*100:0;return `<span class="cons-bar"><span style="width:${w(x.done)}%;background:#14823b"></span><span style="width:${w(x.prep)}%;background:#f4bd38"></span><span style="width:${w(x.n-x.done-x.prep)}%;background:#cbd5d0"></span></span>`};
+ const groups=cats.map(c=>({c,...stat(rows.filter(r=>r.category===c))})).filter(g=>g.n),total=stat(rows);
+ const box=byId('consProgress');
+ box.innerHTML=total.n?`<div class="cons-progress-legend"><span><i style="background:#14823b"></i>จัดแล้ว</span><span><i style="background:#f4bd38"></i>กำลังเตรียม</span><span><i style="background:#cbd5d0"></i>ยังไม่จัด</span></div>`+
+  groups.map(g=>`<button type="button" class="cons-row${sel&&sel!==g.c?' is-dim':''}" data-key="${safe(g.c)}" aria-pressed="${sel===g.c}"><span><b>${safe(g.c)}</b><small>จัดแล้ว ${g.done} · กำลังเตรียม ${g.prep} · ยังไม่จัด ${g.n-g.done-g.prep} จาก ${g.n} รุ่น</small></span>${bar(g)}<strong>${pct(g)}%</strong></button>`).join('')+
+  `<div class="cons-row is-total"><span><b>รวมทั้งแผน</b><small>จัดแล้ว ${total.done} จาก ${total.n} รุ่น</small></span>${bar(total)}<strong>${pct(total)}%</strong></div>`:'<div class="small">ไม่พบข้อมูลตามตัวกรอง</div>';
+ box.onclick=e=>{const t=e.target.closest('button[data-key]');if(t)pickSlice('construction',t.dataset.key,[])};
+ const top=groups.filter(g=>g.done>0).sort((a,b)=>pct(b)-pct(a))[0],idle=groups.filter(g=>g.done===0),nextYearBE=new Date().getFullYear()+544;
+ let msg=`ดำเนินการแล้ว ${total.done} จาก ${total.n} รุ่น (${pct(total)}%)`;
+ if(top)msg+=` โดย${top.c}มีความคืบหน้าสูงสุดที่ ${pct(top)}%`;
+ if(idle.length)msg+=` ขณะที่${idle.map(g=>`${g.c}จำนวน ${g.n} รุ่น`).join(' และ')}ยังไม่มีการดำเนินงานและควรติดตามแผนอบรมในปี ${nextYearBE}`;
+ byId('consKey').innerHTML=total.n?`<b>Key Message</b><p>${safe(msg)}</p>`:'';
+ // Executive Summary replaces the work-type pie: one status line per work type plus the courses being prepared.
+ const line=(icon,text)=>`<li><span aria-hidden="true">${icon}</span><span>${safe(text)}</span></li>`;
+ const items=groups.map(g=>g.done===g.n?line('🟢',`${g.c} ดำเนินการครบ ${g.n} รุ่น`):g.done===0?line('🔴',`${g.c} ${g.n} รุ่น ยังไม่เริ่มดำเนินการ`):g.done/g.n>=.5?line('🟢',`${g.c} ดำเนินการแล้ว ${g.done} จาก ${g.n} รุ่น`):line('🟡',`${g.c} เหลือดำเนินการอีก ${g.n-g.done} รุ่น`));
+ if(total.prep)items.push(line('📅',`มี ${total.prep} รุ่นอยู่ระหว่างเตรียมการอบรม`));
+ byId('consExec').innerHTML=total.n?`<h3>Executive Summary</h3><ul class="cons-exec-list">${items.join('')}</ul>`:'';
+ renderConsStatusFilter();
+}
+// Status chips above the plan table; they drive the same status filter as the dropdown.
+function renderConsStatusFilter(){
+ const s=state.construction,cur=s.filters.status,base=filtered('construction','status'),box=byId('consStatusFilter');
+ box.innerHTML=[['','ทั้งหมด'],['จัดแล้ว','จัดแล้ว'],['กำลังเตรียม','กำลังเตรียม'],['ยังไม่จัด','ยังไม่จัด']].map(([v,l])=>`<button type="button" data-status="${v}" aria-pressed="${cur===v}">${l}<span>${v?base.filter(r=>r.status===v).length:base.length}</span></button>`).join('');
+ box.onclick=e=>{const b=e.target.closest('[data-status]');if(!b)return;s.filters.status=b.dataset.status;$('[data-key="status"]',s.wrap).value=s.filters.status;render('construction')};
+}
+function renderDsd(rows){const names=new Set(rows.map(r=>r.name));$$('tr',byId('dsdTable')).forEach(tr=>{tr.style.display=names.has(tr.cells[0].textContent.trim())?'':'none'})}
+function render(id){
+ const rows=filtered(id);
+ $('.filter-count',state[id].wrap).textContent=`แสดง ${fmt(rows.length)} / ${fmt(state[id].source.length)} รายการ`;
+ renderPie(id);
+ if(id==='overview')renderOverview(rows);
+ if(id==='satisfaction')renderSatisfaction(rows);
+ if(id==='construction')renderConstruction(rows);
+ if(id==='dsd')renderDsd(rows);
+}
+
+// ---- Page 05: data check ----
+function buildIssues(d){
+ const out=[],add=(level,id,topic,detail)=>out.push({level,id,topic,detail}),today=todayISO();
+ d.training.forEach(r=>{
+  if(!r.status)add('ต้องแก้',r.id,'ข้อมูลไม่ครบ',`“${r.name}” ไม่มีสถานะ/หมวด/ประเภท จึงไม่ถูกนับในแผน`);
+  else if(!inPlan(r))add('ตรวจสอบ',r.id,'ไม่นับในแผน',`“${r.name}” สถานะ “${r.status}”`);
+  if(r.monthly!=null&&r.attended!=null&&r.attended<r.monthly)add('ต้องแก้',r.id,'จำนวนคนไม่สอดคล้อง',`เข้าอบรมจริง ${r.attended} คน แต่นับรายเดือน ${r.monthly} คน`);
+  if(r.requested!=null&&r.attended!=null&&r.attended>r.requested)add('ตรวจสอบ',r.id,'จำนวนคนไม่สอดคล้อง',`เข้าอบรมจริง ${r.attended} คน มากกว่าที่ขออนุมัติ ${r.requested} คน`);
+  if(r.status==='Completed'&&r.attended==null)add('ต้องแก้',r.id,'ไม่มีจำนวนผู้เข้าอบรม',`“${r.name}” สถานะ Completed แต่ไม่มีจำนวนคน`);
+  if(r.status==='On-process'&&(r.end||r.date)&&(r.end||r.date)<today)add('ตรวจสอบ',r.id,'สถานะอาจไม่เป็นปัจจุบัน',`“${r.name}” ผ่านวันอบรมแล้ว (${thaiDate(r.end||r.date)}) แต่ยังเป็น On-process`);
+  if(r.cancelNote)add('ต้องแก้',r.id,'สถานะขัดกับหมายเหตุ',`“${r.name}” สถานะ Completed แต่คอลัมน์ X ที่ซ่อนอยู่ระบุว่า “ยกเลิก”`);
+  if(r.date&&r.end&&r.end<r.date)add('ต้องแก้',r.id,'วันที่ไม่ถูกต้อง','วันสิ้นสุดอยู่ก่อนวันเริ่ม');
+  TYPOS.forEach(([re,fix])=>{if(re.test(r.name)||re.test(r.category))add('ตรวจสอบ',r.id,'คำสะกด',fix)});
+ });
+ const byTr=Object.fromEntries(d.training.map(r=>[r.id,r]));
+ satisfaction.forEach(s=>{const r=byTr[SAT_TR[s[0]]];if(r&&r.attended!=null&&r.attended!==s[1])add('ตรวจสอบ',r.id,'ไม่ตรงกับผลประเมิน',`${s[0]}: ผู้เรียนในหน้า 02 = ${s[1]} คน แต่ Excel เข้าอบรมจริง = ${r.attended} คน`)});
+ const hist=d.meta.history||{};
+ d.training.forEach(r=>{
+  const n=hist[r.id];if(n==null)return;
+  if(r.attended==null)add('ต้องแก้',r.id,'Training ID อาจผิด',`“${r.name}” มีบันทึกประวัติอบรม ${n} รายการ แต่แผนยังไม่มีผู้เข้าอบรม`);
+  else if(n!==r.attended)add('ตรวจสอบ',r.id,'ไม่ตรงกับบันทึกประวัติอบรม',`บันทึกประวัติอบรม ${n} รายการ แต่เข้าอบรมจริง ${r.attended} คน`);
+ });
+ const wrongCat=d.training.filter(r=>r.category&&CATEGORY_RULES.some(([name,cat])=>name.test(r.name)&&!cat.test(r.category)));
+ if(wrongCat.length)add('ต้องแก้','คอลัมน์ D','หมวดไม่เข้ากับชื่อหลักสูตร',`${wrongCat.length} แถว เช่น ${wrongCat[0].id} “${wrongCat[0].name}” อยู่หมวด ${wrongCat[0].category} ตรวจว่าคอลัมน์ D เลื่อนแถวหรือไม่`);
+ const ds=d.dsd||HRD.dsd;
+ ds.courses.forEach(r=>{
+  if(r[5])add('ตรวจสอบ','DSD','แถวถูกซ่อน',`“${r[0]}” (${headcount(r)} คน, ${dsdLabel(r[2])}) ถูกซ่อนในชีต จึงไม่นับในยอด Dashboard`);
+  else if(dsdAfterDue(r,ds.dueDate))add('ตรวจสอบ','DSD','ไม่นับในแผน',`“${r[0]}” (${headcount(r)} คน) นัดส่ง ${thaiDate(dsdDueISO([r]))} หลังกำหนดแล้วเสร็จ ${thaiDate(ds.dueDate)} จึงตัดออกจากแผน DSD`);
+  else if(r[2]==='ส่งแล้ว'&&r[3]==null&&r[4]==null)add('ต้องแก้','DSD','ไม่มีจำนวนคน',`“${r[0]}” สถานะส่งแล้ว แต่ไม่มียอดคนหญิง/ชาย`);
+ });
+ const f=d.meta.facts||{},m=/:[A-Z]+(\d+)\)/.exec(f.attendedFormula||'');
+ if(f.categoryShift)add('ต้องแก้','คอลัมน์ D','หมวดเนื้อหาเลื่อนแถวใน Excel',`คอลัมน์ D เลื่อนลง ${f.categoryShift} แถว และ TR-2569-035/036 สลับกัน Dashboard นี้จัดหมวดตาม Training ID ให้แล้ว แต่ต้องแก้ใน Excel ก่อนนำเข้าครั้งถัดไป`);
+ if(m&&Number(m[1])<f.lastDataRow)add('ต้องแก้','ผลรวม','สูตรผลรวมไม่ครบ',`ผลรวมเข้าอบรมจริงใช้ =${f.attendedFormula} ได้ ${fmt(f.attendedCached)} คน แต่รวมทุกแถวได้ ${fmt(d.training.reduce((s,r)=>s+(r.attended||0),0))} คน`);
+ if(f.mangoNote)add('ตรวจสอบ','ผลรวม','ยอดเทียบ Mango','ท้ายชีตมีข้อความ “ยอดผิดไปจาก Mango” แต่ไม่มีตัวเลขส่วนต่าง ค่าใช้จ่ายจริงจึงยังไม่ได้กระทบยอด');
+ if(f.dateBE||f.date1969)add('ปรับให้แล้ว','วันที่','ปีในช่องวันที่',`Excel เก็บปี ค.ศ. 2569 จำนวน ${f.dateBE} ช่อง และปี 1969 จำนวน ${f.date1969} ช่อง ระบบแปลงเป็นปี 2026 (พ.ศ. 2569) ให้แล้ว`);
+ const rank={'ต้องแก้':0,'ตรวจสอบ':1,'ปรับให้แล้ว':2};
+ return out.sort((a,b)=>rank[a.level]-rank[b.level]);
+}
+function renderDataCheck(){
+ const issues=buildIssues(HRD),cnt=l=>issues.filter(x=>x.level===l).length,plan=HRD.training.filter(inPlan).length;
+ byId('dataCheckSummary').textContent=`${HRD.meta.source} · ชีต ${HRD.meta.sheet} · ${HRD.training.length} รายการ · นับในแผน ${plan} · ไม่นับ ${HRD.training.length-plan}`;
+ byId('dataCheckCounts').innerHTML=`<span class="status blocked">ต้องแก้ ${cnt('ต้องแก้')}</span> <span class="status pending">ตรวจสอบ ${cnt('ตรวจสอบ')}</span> <span class="status neutral">ปรับให้แล้ว ${cnt('ปรับให้แล้ว')}</span>`;
+ const cls={'ต้องแก้':'blocked','ตรวจสอบ':'pending','ปรับให้แล้ว':'neutral'};
+ byId('dataCheckBody').innerHTML=issues.map(x=>`<tr><td><span class="status ${cls[x.level]}">${x.level}</span></td><td>${safe(x.id)}</td><td>${safe(x.topic)}</td><td>${safe(x.detail)}</td></tr>`).join('');
+}
+function renderHeader(){byId('updated').textContent=`ข้อมูลจาก ${HRD.meta.source} · ${thaiDate(HRD.meta.importedAt)}`}
+function refreshAll(){renderDsdTable();renderDsdSummary();pageDefs.forEach(p=>{setSource(p.id);render(p.id)});renderDataCheck();renderHeader()}
+
+// ---- Satisfaction CSV editor and page download ----
+window.applyData=function(){
+ const rows=byId('editSat').value.trim().split(/\n/).filter(Boolean).map(x=>x.split(',')).filter(x=>x.length>=7&&x.slice(1,7).every(v=>v.trim()!==''&&!isNaN(v)));
+ if(!rows.length){alert('ไม่พบแถวข้อมูลที่ถูกต้อง');return}
+ satisfaction.splice(0,satisfaction.length,...rows.map(r=>[r[0].trim(),+r[1],+r[2],+r[3],+r[4],+r[5],+r[6]]));
+ renderSat();setSource('satisfaction');render('satisfaction');renderDataCheck();
+ alert('อัปเดตข้อมูลความพึงพอใจแล้ว');
+};
+window.downloadPage=function(){
+ const clone=document.documentElement.cloneNode(true);
+ clone.querySelectorAll('[data-filters],.interactive-chart').forEach(e=>e.remove());
+ clone.querySelector('#hrdData').textContent=JSON.stringify(HRD).replace(/</g,'\\u003c');
+ const blob=new Blob(["<!DOCTYPE html>\n"+clone.outerHTML],{type:"text/html;charset=utf-8"}),a=document.createElement("a");
+ a.href=URL.createObjectURL(blob);a.download="VISSAVAPAT_HRD_Dashboard_2026.html";a.click();URL.revokeObjectURL(a.href);
+};
+
+// ---- Import Center: local-only browser processing. No employee data is transmitted. ----
+const DB_NAME='VISSAVAPAT_HRD_IMPORT_DB',DB_VERSION=1,SNAPSHOT_ID='snapshot|training';
+const COMPARE=['name','source','category','type','format','date','end','dateNote','duration','requested','monthly','attended','sent','fee','breakCost','food','status','cancelNote'];
+let db=null,pending=[],pendingFiles=[],pendingSnapshot=null;
+const rules=[
+ {type:'training',label:'ประวัติอบรม / แผน / งบประมาณ',
+  sheets:[/บันทึกประวัติอบรม/i,/Master Plan/i,/รายชื่อ 10% Course/i,/กรมพัฒน์ Database/i,/Statusกรมพัฒน์/i],
+  key:r=>[r['รหัสพนักงาน']||r['Employee ID']||r['B'],r['หลักสูตร']||r['หลักสูตรอบรม']||r['P'],r['รุ่น']||r['Q'],r['Start Date']||r['วันเริ่มอบรม']||r['S']].join('|')},
+ {type:'employee',label:'ฐานพนักงาน',sheets:[/^Employee Data$/i],
+  key:r=>String(r['รหัสพนักงาน']||r['Employee ID']||r['D']||'').trim()},
+ {type:'evaluation',label:'ประเมินหลังอบรม',sheets:[/การตอบแบบฟอร์ม/i],
+  key:r=>[r['ประทับเวลา']||r['Timestamp']||'',r['รหัสพนักงาน']||r['Employee ID']||'',r['หลักสูตร']||r['Course']||''].join('|')},
+ {type:'exam',label:'ผลสอบมาตรฐานก่อสร้าง',sheets:[/^ฐานวิเคราะห์$/i,/^ผลคะแนนหลังเรียน$/i,/^Post.?test/i],
+  key:r=>[r['รหัสพนักงาน']||r['Employee ID']||r['ชื่อ-นามสกุล']||r['ชื่อ-สกุล']||'',r['หลักสูตร']||r['Course']||'',r['รุ่น']||r['Batch']||'',r['รอบสอบ']||r['Attempt']||''].join('|')}
+];
+function openDB(){return new Promise((resolve,reject)=>{
+ const req=indexedDB.open(DB_NAME,DB_VERSION);
+ req.onupgradeneeded=()=>{const d=req.result;
+  if(!d.objectStoreNames.contains('records')){const s=d.createObjectStore('records',{keyPath:'id'});s.createIndex('dataset','dataset',{unique:false})}
+  if(!d.objectStoreNames.contains('imports'))d.createObjectStore('imports',{keyPath:'id'});
+ };
+ req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);
+})}
+function tx(store,mode='readonly'){return db.transaction(store,mode).objectStore(store)}
+function asPromise(q){return new Promise((resolve,reject)=>{q.onsuccess=()=>resolve(q.result);q.onerror=()=>reject(q.error)})}
+const all=async store=>(await asPromise(tx(store).getAll()))||[];
+function addMany(rows){return new Promise((resolve,reject)=>{const t=db.transaction('records','readwrite'),s=t.objectStore('records');rows.forEach(x=>s.put(x));t.oncomplete=resolve;t.onerror=()=>reject(t.error)})}
+function clean(v){if(v===null||v===undefined)return '';return String(v).replace(/[​-‍﻿]/g,'').replace(/[\s ]+/g,' ').trim()}
+const num=v=>typeof v==='number'?round2(v):null;
+function excelDate(v,facts){
+ if(typeof v!=='number')return null;
+ const d=new Date(Date.UTC(1899,11,30)+Math.round(v)*864e5);let y=d.getUTCFullYear();
+ if(y>=2400){facts.dateBE++;y-=543}            // Buddhist year stored as a Gregorian year
+ else if(y<2000){facts.date1969++;y=1957+y%100} // "69" typed as a 2-digit year -> 1969
+ else facts.dateCE++;
+ return `${y}-${pad(d.getUTCMonth()+1)}-${pad(d.getUTCDate())}`;
+}
+function trainingHeaderRow(ws){
+ const ref=XLSX.utils.decode_range(ws['!ref']||'A1');
+ for(let r=ref.s.r;r<=Math.min(ref.e.r,ref.s.r+4);r++)for(let c=ref.s.c;c<=ref.e.c;c++){
+  const cell=ws[XLSX.utils.encode_cell({r,c})];
+  if(cell&&/^Training ID$/i.test(clean(cell.v)))return r;
+ }
+ return -1;
+}
+function parseTraining(ws,fileName,sheet){
+ const grid=XLSX.utils.sheet_to_json(ws,{header:1,raw:true,defval:'',blankrows:true});
+ const base=XLSX.utils.decode_range(ws['!ref']).s.r,h=trainingHeaderRow(ws)-base;
+ const head=grid[h].map(clean),col=re=>head.findIndex(x=>re.test(x));
+ const C={id:col(/^Training ID/i),name:col(/^ชื่อหลักสูตร/),source:col(/^Training Source/i),category:col(/^Training Category/i),type:col(/^Training Type/i),format:col(/^รูปแบบการอบรม/),start:col(/^เริ่ม/),end:col(/^สิ้นสุด/),duration:col(/^ระยะเวลา/),requested:col(/^จำนวนคนขออนุมัติ/),monthly:col(/^นับเฉพาะรายเดือน/),attended:col(/^เข้าอบรมจริง/),sent:col(/^ส่ง$/),fee:col(/^ค่าหลักสูตร$/),breakCost:col(/^ค่าเบรค ตามจริง/),food:col(/^ค่าอาหาร ตามจริง/),status:col(/^สถานะ/)};
+ const missing=Object.entries(C).filter(([,i])=>i<0).map(([k])=>k);
+ if(missing.length)throw new Error('ไม่พบคอลัมน์ '+missing.join(', '));
+ const hidden=head[C.status+1]===''?C.status+1:-1;
+ const facts={dateBE:0,date1969:0,dateCE:0,attendedFormula:'',attendedCached:0,lastDataRow:0,mangoNote:false};
+ const rows=[],ids=new Set();let duplicates=0;
+ grid.forEach((g,i)=>{
+  if(g.some(v=>/ยอดผิดไปจาก\s*Mango/i.test(clean(v))))facts.mangoNote=true;
+  if(g.some(v=>/^จำนวนหลักสูตร/.test(clean(v)))){const cell=ws[XLSX.utils.encode_cell({r:base+i,c:C.attended})];if(cell){facts.attendedFormula=cell.f||'';facts.attendedCached=cell.v}}
+  const id=clean(g[C.id]);
+  if(i<=h||!/^TR-\d{4}-\d+$/.test(id))return;
+  if(ids.has(id)){duplicates++;return}
+  ids.add(id);
+  const date=excelDate(g[C.start],facts),end=excelDate(g[C.end],facts),fee=num(g[C.fee])||0,breakCost=num(g[C.breakCost])||0,food=num(g[C.food])||0;
+  facts.lastDataRow=base+i+1;
+  rows.push({id,row:base+i+1,name:clean(g[C.name]),source:clean(g[C.source]),category:clean(g[C.category]),type:clean(g[C.type]),format:clean(g[C.format]),date,end,dateNote:typeof g[C.start]==='string'?clean(g[C.start]):'',month:date?date.slice(5,7):'',duration:clean(g[C.duration]),requested:num(g[C.requested]),monthly:num(g[C.monthly]),attended:num(g[C.attended]),sent:num(g[C.sent]),fee,breakCost,food,actual:round2(fee+breakCost+food),status:clean(g[C.status]),cancelNote:hidden>=0&&clean(g[hidden])==='ยกเลิก'});
+ });
+ const total=rows.reduce((s,r)=>s+r.actual,0);
+ // Budget lives only inside the "ค่า Dif งบประมาณ" formula, e.g. =1229890-P59.
+ const difIdx=grid.findIndex(g=>g.some(v=>/^ค่า Dif งบประมาณ/.test(clean(v))));
+ const difCol=difIdx>=0?grid[difIdx].findIndex(v=>typeof v==='number'):-1;
+ const difCell=difCol>=0?ws[XLSX.utils.encode_cell({r:base+difIdx,c:difCol})]:null;
+ const literal=difCell&&/^\s*(\d+(?:\.\d+)?)\s*-/.exec(difCell.f||'');
+ const budget=literal?Number(literal[1]):difCell?round2(difCell.v+total):HRD.meta.budget;
+ return {snapshot:{meta:{source:fileName,sheet,importedAt:new Date().toISOString(),budget,facts},training:rows},duplicates};
+}
+function isPlanSheet(ws){
+ const r=trainingHeaderRow(ws);if(r<0)return false;
+ const ref=XLSX.utils.decode_range(ws['!ref']);
+ for(let c=ref.s.c;c<=ref.e.c;c++){const cell=ws[XLSX.utils.encode_cell({r,c})];if(cell&&/^ชื่อหลักสูตร/.test(clean(cell.v)))return true}
+ return false;
+}
+function parseDsd(ws){
+ const grid=XLSX.utils.sheet_to_json(ws,{header:1,raw:true,defval:'',blankrows:true}),base=XLSX.utils.decode_range(ws['!ref']).s.r;
+ const h=grid.findIndex(g=>g.some(v=>clean(v)==='วันนัดส่ง'));if(h<0)return null;
+ const head=grid[h].map(clean),col=re=>head.findIndex(x=>re.test(x)),n=col(/^ชื่อหลักสูตร/),due=col(/^วันนัดส่ง/),st=col(/^สถานะ/),fe=col(/^ยอดคนหญิง/),ma=col(/^ยอดคนชาย/),courses=[];
+ for(let i=h+1;i<grid.length;i++){
+  const name=clean(grid[i][n]);if(!name)break;
+  const info=(ws['!rows']||[])[base+i];
+  courses.push([name,clean(grid[i][due]),clean(grid[i][st]),num(grid[i][fe]),num(grid[i][ma]),!!(info&&info.hidden)]);
+ }
+ const note=grid.flat().map(clean).find(v=>/\d+\s*->\s*\d+/.test(v)),m=note?/(\d+)\s*->\s*(\d+)/.exec(note):null,old=HRD.dsd;
+ const sent=m?Number(m[2]):old.sent,gross=courses.filter(r=>!r[5]&&r[2]==='ส่งแล้ว').reduce((s,r)=>s+headcount(r),0);
+ return {target:old.target,baseline:m?Number(m[1]):old.baseline,sent,gross,asOf:todayISO(),dueDate:old.dueDate||'',courses};
+}
+function parseMaster(ws){
+ const grid=XLSX.utils.sheet_to_json(ws,{header:1,raw:true,defval:'',blankrows:true});
+ const h=grid.findIndex(g=>g.some(v=>/^ชื่อย่อ/.test(clean(v))));if(h<0)return null;
+ const head=grid[h].map(clean),col=name=>head.indexOf(name),short=head.findIndex(x=>/^ชื่อย่อ/.test(x));
+ const C=['หลักสูตร','ผู้เรียน','ผู้ตอบ','ด้านวิทยากร','ด้านเนื้อหา','ด้านสถานที่','ภาพรวม','ร้อยละภาพรวม'].map(col);
+ if(C.some(i=>i<0))return null;
+ const rows=[],names={},known=Object.fromEntries(Object.entries(satFull).map(([k,v])=>[v,k]));
+ for(let i=h+1;i<grid.length;i++){
+  const g=grid[i],full=clean(g[C[0]]);if(!full)break;
+  const key=known[full]||clean(g[short])||full;names[key]=full;
+  rows.push([key,g[C[1]],g[C[2]],round2(g[C[3]]),round2(g[C[4]]),round2(g[C[5]]),round2(g[C[6]]),Math.round(g[C[7]]*1000)/10]);
+ }
+ return rows.length?{rows,names}:null;
+}
+function addExtraSheets(wb,snapshot){
+ const find=re=>wb.Sheets[wb.SheetNames.find(n=>re.test(n))];
+ const dsdWs=find(/Statusกรมพัฒน์/),masterWs=find(/^Master$/i),histWs=find(/บันทึกประวัติอบรม/);
+ const parsedDsd=dsdWs&&parseDsd(dsdWs);if(parsedDsd)snapshot.dsd=parsedDsd;
+ const master=masterWs&&parseMaster(masterWs);if(master){snapshot.satisfaction=master.rows;snapshot.satNames=master.names}
+ if(histWs){ // counts only: personal columns of this sheet are never kept
+  const counts={};XLSX.utils.sheet_to_json(histWs,{defval:''}).forEach(r=>{const id=clean(r['Training ID']);if(/^TR-/.test(id))counts[id]=(counts[id]||0)+1});
+  snapshot.meta.history=counts;
+ }
+}
+function diffTraining(next){
+ const cur=Object.fromEntries(HRD.training.map(r=>[r.id,r]));let added=0,changed=0,same=0;
+ const norm=v=>v===null||v===undefined||v===false?'':typeof v==='number'?String(round2(v)):String(v);
+ next.forEach(r=>{const c=cur[r.id];if(!c)added++;else if(COMPARE.some(k=>norm(c[k])!==norm(r[k])))changed++;else same++});
+ return {added,changed,same};
+}
+function rowObjects(ws){return XLSX.utils.sheet_to_json(ws,{defval:'',raw:false}).filter(r=>Object.values(r).some(v=>clean(v)!==''))}
+async function scan(){
+ const files=[...(byId('sourceFiles').files||[])];
+ if(!files.length){byId('importFeedback').textContent='กรุณาเลือกไฟล์ก่อน';return}
+ if(typeof XLSX==='undefined'){byId('importFeedback').textContent='ยังโหลดตัวอ่าน Excel ไม่สำเร็จ กรุณาเชื่อมต่ออินเทอร์เน็ตแล้วเปิดไฟล์ใหม่';return}
+ pending=[];pendingFiles=[];pendingSnapshot=null;const summaries=[];
+ const seen=new Set((await all('records')).map(x=>x.dataset+'|'+x.businessKey));
+ for(const file of files){
+  try{
+   const wb=XLSX.read(await file.arrayBuffer(),{type:'array',cellStyles:true});
+   const tSheet=wb.SheetNames.find(n=>isPlanSheet(wb.Sheets[n]));
+   if(tSheet){
+    const {snapshot,duplicates}=parseTraining(wb.Sheets[tSheet],file.name,tSheet),d=diffTraining(snapshot.training);
+    addExtraSheets(wb,snapshot);
+    const incomplete=snapshot.training.filter(r=>!r.status).length,issues=buildIssues(snapshot).filter(x=>x.level==='ต้องแก้').length;
+    const extra=[snapshot.dsd&&'DSD',snapshot.satisfaction&&'ผลประเมิน',snapshot.meta.history&&'ยอดประวัติอบรม'].filter(Boolean).join(', ');
+    pendingSnapshot=snapshot;
+    pendingFiles.push({file:file.name,type:'trainingPlan',sheet:tSheet,rows:snapshot.training.length,valid:d.added+d.changed,dup:d.same,bad:incomplete});
+    summaries.push({file:file.name,status:`ตรวจพบ แผน/งบประมาณรายหลักสูตร • ${tSheet}${extra?' • พร้อม '+extra:''} • ต้องแก้ ${issues} ประเด็น`+(duplicates?` • Training ID ซ้ำ ${duplicates} แถว (ใช้แถวแรก)`:''),rows:snapshot.training.length,valid:d.added,changed:d.changed,dup:d.same,bad:incomplete});
+    continue;
+   }
+   const rule=rules.find(r=>wb.SheetNames.some(n=>r.sheets.some(p=>p.test(n))));
+   if(!rule){summaries.push({file:file.name,status:'ไม่พบประเภท/ชีตที่รองรับ',rows:0,valid:0,dup:0,bad:0});continue}
+   const sheet=wb.SheetNames.find(n=>rule.sheets.some(p=>p.test(n))),rows=rowObjects(wb.Sheets[sheet]),accepted=[];let dup=0,bad=0;
+   rows.forEach((row,i)=>{
+    const key=clean(rule.key(row));
+    if(!key.replace(/\|/g,'').trim()){bad++;return}
+    const full=rule.type+'|'+key;
+    if(seen.has(full)){dup++;return}
+    seen.add(full);
+    accepted.push({id:full,dataset:rule.type,businessKey:key,sourceFile:file.name,sourceSheet:sheet,sourceRow:i+2,importedAt:new Date().toISOString(),data:row});
+   });
+   pending.push(...accepted);
+   pendingFiles.push({file:file.name,type:rule.type,sheet,rows:rows.length,valid:accepted.length,dup,bad});
+   summaries.push({file:file.name,status:'ตรวจพบ '+rule.label+' • '+sheet,rows:rows.length,valid:accepted.length,dup,bad});
+  }catch(e){summaries.push({file:file.name,status:'อ่านไฟล์ไม่สำเร็จ: '+e.message,rows:0,valid:0,dup:0,bad:0})}
+ }
+ renderPreview(summaries);
+ byId('confirmImportBtn').disabled=!(pending.length||pendingSnapshot);
+ byId('importFeedback').textContent=pendingSnapshot?'ตรวจสอบเสร็จแล้ว กดยืนยันเพื่ออัปเดต Dashboard':'พบรายการใหม่ '+pending.length.toLocaleString()+' รายการ รอการยืนยัน';
+}
+function renderPreview(items){
+ byId('importPreview').innerHTML='<div style="overflow:auto"><table><thead><tr><th>ไฟล์</th><th>ผลตรวจสอบ</th><th>แถวข้อมูล</th><th>รายการใหม่</th><th>เปลี่ยนแปลง</th><th>เหมือนเดิม/ซ้ำ</th><th>ข้อมูลไม่ครบ</th></tr></thead><tbody>'+
+  items.map(x=>`<tr><td>${safe(x.file)}</td><td>${safe(x.status)}</td><td>${x.rows}</td><td><b>${x.valid}</b></td><td>${x.changed||0}</td><td>${x.dup}</td><td>${x.bad}</td></tr>`).join('')+
+  '</tbody></table></div><p class="small">ตัวอย่างข้อมูลจะแสดงเฉพาะจำนวนแถวและสถานะตรวจสอบ ไม่แสดงข้อมูลระบุตัวบุคคลบนหน้าผู้บริหาร</p>';
+}
+function applySnapshot(s){
+ HRD.meta=s.meta;HRD.training=s.training;
+ if(s.dsd)HRD.dsd=s.dsd;
+ if(s.satisfaction){Object.assign(satFull,s.satNames||{});satisfaction.splice(0,satisfaction.length,...s.satisfaction);renderSat();byId('editSat').value=satisfaction.map(r=>r.slice(0,7).join(",")).join("\n")}
+ refreshAll();
+}
+async function confirmImport(){
+ if(!pending.length&&!pendingSnapshot)return;
+ byId('confirmImportBtn').disabled=true;
+ try{
+  const snap=pendingSnapshot,rows=[...pending];
+  if(snap)rows.push({id:SNAPSHOT_ID,dataset:'snapshot',businessKey:'training',sourceFile:snap.meta.source,sourceSheet:snap.meta.sheet,importedAt:snap.meta.importedAt,data:snap});
+  await addMany(rows);
+  const countBy={};pending.forEach(x=>countBy[x.dataset]=(countBy[x.dataset]||0)+1);
+  if(snap)countBy.trainingPlan=snap.training.length;
+  const inserted=pending.length+(snap?snap.training.length:0);
+  await asPromise(tx('imports','readwrite').add({id:'IMP-'+Date.now(),at:new Date().toISOString(),files:pendingFiles,inserted,byType:countBy}));
+  if(snap)applySnapshot(snap);
+  byId('importFeedback').textContent='บันทึกข้อมูล '+inserted.toLocaleString()+' รายการแล้ว';
+  byId('importPreview').innerHTML=`<p class="status good">นำเข้าข้อมูลและบันทึกประวัติเรียบร้อย${snap?' • อัปเดต Dashboard แล้ว':''}</p>`;
+  pending=[];pendingFiles=[];pendingSnapshot=null;await refreshHistory();
+ }catch(e){byId('importFeedback').textContent='บันทึกไม่สำเร็จ: '+e.message;byId('confirmImportBtn').disabled=false}
+}
+async function resetImport(){
+ if(!window.confirm('ยกเลิกข้อมูลที่นำเข้าล่าสุด และกลับไปใช้ข้อมูลตั้งต้นในไฟล์นี้?'))return;
+ await asPromise(tx('records','readwrite').delete(SNAPSHOT_ID));
+ location.reload();
+}
+async function refreshHistory(){
+ const rows=(await all('imports')).sort((a,b)=>b.at.localeCompare(a.at));
+ byId('importHistory').innerHTML=rows.length?'<div style="overflow:auto"><table><thead><tr><th>วันเวลา</th><th>ไฟล์ต้นทาง</th><th>รายการ</th><th>รายละเอียด</th></tr></thead><tbody>'+
+  rows.map(x=>`<tr><td>${new Date(x.at).toLocaleString('th-TH')}</td><td>${safe(x.files.map(f=>f.file).join(', '))}</td><td>${x.inserted.toLocaleString()}</td><td>${safe(Object.entries(x.byType).map(([k,v])=>k+': '+v).join(' • '))}</td></tr>`).join('')+'</tbody></table></div>':'ยังไม่มีประวัติการนำเข้า';
+}
+async function initImport(){
+ byId('scanFilesBtn').addEventListener('click',scan);
+ byId('confirmImportBtn').addEventListener('click',confirmImport);
+ byId('resetImportBtn').addEventListener('click',resetImport);
+ byId('cancelImportBtn').addEventListener('click',()=>{byId('sourceFiles').value='';byId('importPreview').innerHTML='';byId('confirmImportBtn').disabled=true;byId('importFeedback').textContent='ล้างรายการแล้ว';pending=[];pendingFiles=[];pendingSnapshot=null});
+ byId('refreshImportHistory').addEventListener('click',refreshHistory);
+ try{
+  db=await openDB();
+  byId('importDbStatus').textContent='ฐานข้อมูลในเบราว์เซอร์พร้อมใช้งาน';byId('importDbStatus').className='status good';
+  await refreshHistory();
+  const saved=await asPromise(tx('records').get(SNAPSHOT_ID));
+  if(saved&&Date.parse(saved.data.meta.importedAt)>Date.parse(HRD.meta.importedAt))applySnapshot(saved.data);
+ }catch(e){byId('importDbStatus').textContent='ไม่สามารถเปิดฐานข้อมูลในเบราว์เซอร์ได้';byId('importDbStatus').className='status blocked'}
+}
+
+// ---- Start ----
+renderDsdTable();renderDsdSummary();
+byId('editSat').value=satisfaction.map(r=>r.slice(0,7).join(",")).join("\n");
+pageDefs.forEach(createFilters);
+pageDefs.forEach(p=>render(p.id));
+renderDataCheck();renderHeader();
+initImport();
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script></body></html>
